@@ -42,7 +42,7 @@
 
 		<ul id="grid_home" class="clearfix">
 			<li>
-				<a href="#0" class="img_container">
+				<a href="<?=base_url('journal')?>"  class="img_container">
 					<div class="short_info">
 						<h3><strong>Journal</strong></h3>
 						<div><span class="btn_1 rounded">Baca Selengkapnya</span></div>
@@ -68,7 +68,7 @@
 		</ul>
 		<!--/grid_home -->
 
-		<div class="container-fluid margin_120_0" id="first_section">
+		<!-- <div class="container-fluid margin_120_0" id="first_section">
 			<div class="main_title_2">
 				<span><em></em></span>
 				<h2>Udema Popular Courses</h2>
@@ -96,9 +96,9 @@
 							<li><a href="course-detail.html">Enroll now</a></li>
 						</ul>
 					</div>
-				</div>
+				</div> -->
 				<!-- /item -->
-				<div class="item">
+				<!-- <div class="item">
 					<div class="box_grid">
 						<figure>
 							<a href="#0" class="wish_bt"></a>
@@ -118,9 +118,9 @@
 							<li><a href="course-detail.html">Enroll now</a></li>
 						</ul>
 					</div>
-				</div>
+				</div> -->
 				<!-- /item -->
-				<div class="item">
+				<!-- <div class="item">
 					<div class="box_grid">
 						<figure>
 							<a href="#0" class="wish_bt"></a>
@@ -140,9 +140,9 @@
 							<li><a href="course-detail.html">Enroll now</a></li>
 						</ul>
 					</div>
-				</div>
+				</div> -->
 				<!-- /item -->
-				<div class="item">
+				<!-- <div class="item">
 					<div class="box_grid">
 						<figure>
 							<a href="#0" class="wish_bt"></a>
@@ -162,9 +162,9 @@
 							<li><a href="course-detail.html">Enroll now</a></li>
 						</ul>
 					</div>
-				</div>
+				</div> -->
 				<!-- /item -->
-				<div class="item">
+				<!-- <div class="item">
 					<div class="box_grid">
 						<figure>
 							<a href="#0" class="wish_bt"></a>
@@ -184,9 +184,9 @@
 							<li><a href="course-detail.html">Enroll now</a></li>
 						</ul>
 					</div>
-				</div>
+				</div> -->
 				<!-- /item -->
-				<div class="item">
+				<!-- <div class="item">
 					<div class="box_grid">
 						<figure>
 							<a href="#0" class="wish_bt"></a>
@@ -206,19 +206,19 @@
 							<li><a href="course-detail.html">Enroll now</a></li>
 						</ul>
 					</div>
-				</div>
+				</div> -->
 				<!-- /item -->
 			</div>
 			<!-- /carousel -->
-			<div class="container">
+			<!-- <div class="container">
 				<p class="btn_home_align"><a href="courses-grid.html" class="btn_1 rounded">View all courses</a></p>
-			</div>
+			</div> -->
 			<!-- /container -->
 			<hr>
 		</div>
 		<!-- /container -->
 
-		<div class="container margin_30_95">
+		<!-- <div class="container margin_30_95">
 			<div class="main_title_2">
 				<span><em></em></span>
 				<h2>Udema Categories Courses</h2>
@@ -236,9 +236,9 @@
 							</div>
 						</figure>
 					</a>
-				</div>
+				</div> -->
 				<!-- /grid_item -->
-				<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
+				<!-- <div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
 					<a href="#0" class="grid_item">
 						<figure class="block-reveal">
 							<div class="block-horizzontal"></div>
@@ -249,9 +249,9 @@
 							</div>
 						</figure>
 					</a>
-				</div>
+				</div> -->
 				<!-- /grid_item -->
-				<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
+				<!-- <div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
 					<a href="#0" class="grid_item">
 						<figure class="block-reveal">
 							<div class="block-horizzontal"></div>
@@ -262,9 +262,9 @@
 							</div>
 						</figure>
 					</a>
-				</div>
+				</div> -->
 				<!-- /grid_item -->
-				<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
+				<!-- <div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
 					<a href="#0" class="grid_item">
 						<figure class="block-reveal">
 							<div class="block-horizzontal"></div>
@@ -275,9 +275,9 @@
 							</div>
 						</figure>
 					</a>
-				</div>
+				</div> -->
 				<!-- /grid_item -->
-				<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
+				<!-- <div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
 					<a href="#0" class="grid_item">
 						<figure class="block-reveal">
 							<div class="block-horizzontal"></div>
@@ -287,10 +287,10 @@
 								<h3>Law and Criminology</h3>
 							</div>
 						</figure>
-					</a>
+					</a> -->
 				</div>
 				<!-- /grid_item -->
-				<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
+				<!-- <div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
 					<a href="#0" class="grid_item">
 						<figure class="block-reveal">
 							<div class="block-horizzontal"></div>
@@ -301,14 +301,14 @@
 							</div>
 						</figure>
 					</a>
-				</div>
+				</div> -->
 				<!-- /grid_item -->
 			</div>
 			<!-- /row -->
 		</div>
 		<!-- /container -->
 
-		<div class="bg_color_1">
+		<!-- <div class="bg_color_1">
 			<div class="container margin_120_95">
 				<div class="main_title_2">
 					<span><em></em></span>
@@ -328,9 +328,9 @@
 							<h4>Pri oportere scribentur eu</h4>
 							<p>Cu eum alia elit, usu in eius appareat, deleniti sapientem honestatis eos ex. In ius esse ullum vidisse....</p>
 						</a>
-					</div>
+					</div> -->
 					<!-- /box_news -->
-					<div class="col-lg-6">
+					<!-- <div class="col-lg-6">
 						<a class="box_news" href="#0">
 							<figure><img src="http://via.placeholder.com/500x333/ccc/fff/news_home_2.jpg" alt="">
 								<figcaption><strong>28</strong>Dec</figcaption>
@@ -342,9 +342,9 @@
 							<h4>Duo eius postea suscipit ad</h4>
 							<p>Cu eum alia elit, usu in eius appareat, deleniti sapientem honestatis eos ex. In ius esse ullum vidisse....</p>
 						</a>
-					</div>
+					</div> -->
 					<!-- /box_news -->
-					<div class="col-lg-6">
+					<!-- <div class="col-lg-6">
 						<a class="box_news" href="#0">
 							<figure><img src="http://via.placeholder.com/500x333/ccc/fff/news_home_3.jpg" alt="">
 								<figcaption><strong>28</strong>Dec</figcaption>
@@ -356,9 +356,9 @@
 							<h4>Elitr mandamus cu has</h4>
 							<p>Cu eum alia elit, usu in eius appareat, deleniti sapientem honestatis eos ex. In ius esse ullum vidisse....</p>
 						</a>
-					</div>
+					</div> -->
 					<!-- /box_news -->
-					<div class="col-lg-6">
+					<!-- <div class="col-lg-6">
 						<a class="box_news" href="#0">
 							<figure><img src="http://via.placeholder.com/500x333/ccc/fff/news_home_4.jpg" alt="">
 								<figcaption><strong>28</strong>Dec</figcaption>
@@ -370,17 +370,17 @@
 							<h4>Id est adhuc ignota delenit</h4>
 							<p>Cu eum alia elit, usu in eius appareat, deleniti sapientem honestatis eos ex. In ius esse ullum vidisse....</p>
 						</a>
-					</div>
+					</div> -->
 					<!-- /box_news -->
 				</div>
 				<!-- /row -->
-				<p class="btn_home_align"><a href="blog.html" class="btn_1 rounded">View all news</a></p>
-			</div>
+				<!-- <p class="btn_home_align"><a href="blog.html" class="btn_1 rounded">View all news</a></p>
+			</div> -->
 			<!-- /container -->
-		</div>
+		<!-- </div> -->
 		<!-- /bg_color_1 -->
 
-		<div class="call_section">
+		<!-- <div class="call_section">
 			<div class="container clearfix">
 				<div class="col-lg-5 col-md-6 float-right wow" data-wow-offset="250">
 					<div class="block-reveal">
@@ -393,7 +393,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<!--/call_section-->
 	</main>
 	<!-- /main -->

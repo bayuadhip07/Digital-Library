@@ -7,7 +7,7 @@
     ?>
 </head>
 
-<body id="admission_bg">
+
 	<div id="preloader">
 		<div data-loader="circle-side"></div>
 	</div>

@@ -2,7 +2,8 @@
       <div class="row">
         <div class="col-lg-6 col-md-6 single-footer-widget" >
           <h5 style="text-align:center">Tentang Kami</h5>
-					<p>UNSIKA Digital Library adalah </p>
+					<p>UNSIKA Digital Library adalah sebuah web yang berisi tentang koleksi yang ada di perpustakaan Universitas Singaperbangsa Karawang.
+					Web ini bertujuan untuk memudahkan pencarian sumber baca yang berasal dari perpustakaan Universitas Singaperbangsa Karawang. </p>
 					<div class="follow_us">
 						<ul>
 							<li>Follow us</li>
@@ -16,18 +17,19 @@
         </div>
         <div class="col-lg-6 col-md-6 single-footer-widget">
           <h5 style="text-align:center">Kontak Kami</h5>
+		  <p>Untuk segala sesuatu yang membutuhkan bantuan admin terkait aplikasi ini, silahkan hubungi kontak dibawah ini: </p>
           <ul class="contacts">
 						<li><a href="tel://082242484585"><i class="ti-mobile"></i> 082242484585</a></li>
 						<li><a href="mailto:bayuadhip01@gmail.com"><i class="ti-email"></i> bayuadhip01@gmail.com</a></li>
 					</ul>
-					<div id="newsletter">
+					<!-- <div id="newsletter">
 					<h6>Newsletter</h6>
 					<div id="message-newsletter"></div>
 					<form method="post" action="assets/newsletter.php" name="newsletter_form" id="newsletter_form">
 						<div class="form-group">
 							<input type="email" name="email_newsletter" id="email_newsletter" class="form-control" placeholder="Your email">
 							<input type="submit" value="Submit" id="submit-newsletter">
-						</div>
+						</div> -->
                     </form>        
         </div>
 				</div>
@@ -36,10 +38,10 @@
 			<hr>
 			<div class="row">
 				<div class="col-md-8">
-					<ul id="additional_links">
+					<!-- <ul id="additional_links">
 						<li><a href="#0">Terms and conditions</a></li>
 						<li><a href="#0">Privacy</a></li>
-					</ul>
+					</ul> -->
 				</div>
 				<div class="col-md-4">
 					<div id="copy">© 2020</div>
