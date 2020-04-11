@@ -18,9 +18,20 @@ class Modul extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->database();
+		$this->load->library(['ion_auth', 'form_validation']);
+		$this->load->helper(['url', 'language']);
+		$this->load->model(['anggota_model','umum_model']);
+	}
+	
 	public function add_user()
 	{
-		$this->load->view('modul/user/add_user');
+		$data['univ'] = $this->umum_model->tampilkan_data_kategori('universitas','nama_univ');
+		$data['agama'] = $this->umum_model->tampilkan_data_kategori('agama','agama');
+		$this->load->view('modul/user/add_user', $data);
 	}
 
 }

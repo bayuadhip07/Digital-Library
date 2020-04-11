@@ -40,8 +40,12 @@
 							<div class="styled-select">
 								<select class="required" name="agama" id="agama">
 									<option value="" selected="">Pilih Agama</option>
-									<option value="Islam">Islam</option>
-									<option value="Kristen">Kristen</option>
+                                    <?php
+                                        foreach ($agama as $a) 
+                                        {
+                                        echo "<option value='$a[id_agama]'>$a[agama]</option>";
+                                        }
+                                    ?>
 								</select>
 							</div>
 						</div>
@@ -59,9 +63,13 @@
                         <div class="form-group select">
 							<div class="styled-select">
 								<select class="required" name="univ" id="univ">
-									<option value="" selected="">Universitas</option>
-									<option value="unsika">Universitas Singaperbangsa Karawang</option>
-									<option value="lainnya">Lainnya</option>
+                                <option value="" selected="">Universitas</option>
+                                    <?php
+                                        foreach ($univ as $r) 
+                                        {
+                                        echo "<option value='$r[id_univ]'>$r[nama_univ]</option>";
+                                        }
+                                    ?>
 								</select>
 							</div>
                         </div>

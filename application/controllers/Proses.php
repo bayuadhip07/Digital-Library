@@ -46,7 +46,7 @@ class Proses extends CI_Controller {
         }
         else
         {
-            // $this->session->set_flashdata('err','NIM yang anda gunakan sudah terdaftar');
+           echo "Gagal";
             redirect('modul/add_user');
         }
     }
