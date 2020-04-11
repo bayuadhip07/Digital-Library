@@ -76,10 +76,9 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	// username root
-	'username' => '',
+	'username' => 'root',
 	'password' => '',
-	'database' => '',
+	'database' => 'digilib',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
