@@ -30,7 +30,7 @@
 						
         <?= form_open('auth/login/', array('class'=>'m-t-20'));?>
         <div class="form-group">
-				<input type="text" name="identity" required="" class="form-control" placeholder="Username">
+				<input type="text" name="identity" required="" class="form-control" placeholder="E-mail">
 					</div>
 						<div class="form-group">
 							<input type="password" name="password" required="" class="form-control" placeholder="**********">

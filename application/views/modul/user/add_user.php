@@ -25,16 +25,14 @@
 				<div id="progressbar"></div>
 			</div>
 			<!-- /top-wizard -->
-			<form name="" id="wrapped" method="POST">
+			<form name="" id="" method="POST" action="<?=site_url('proses/add_user')?>" enctype="multipart/form-data">
 				<input id="website" name="website" type="text" value="">
 				<!-- Leave for security protection, read docs for details -->
 				<div id="middle-wizard">
-
+					
 					<div class="step">
-						<h3 class="main_question">Silakan isi data diri anda</h3>
-						<div class="form-group">
-							<input type="text" name="nim"  class="form-control" placeholder="NIM">
-						</div>
+						<h3 class="main_question"><center>Silakan Lengkapi Data Diri Anda<center></h3>
+
 						<div class="form-group">
 							<input type="text" name="nama" required="" class="form-control required" placeholder="Nama">
                         </div>
@@ -51,23 +49,16 @@
 							<input type="text" name="alamat" required="" class="form-control" placeholder="Alamat">
 						</div>
 						<div class="form-group radio_input">
-							<label><input type="radio" value="laki-laki" checked name="gender" class="icheck">Laki-laki</label>
-							<label><input type="radio" value="perempuan" name="gender" class="icheck">Perempuan</label>
+							<label><input type="radio" value="laki-laki" checked name="jk" class="icheck">Laki-laki</label>
+							<label><input type="radio" value="perempuan" name="jk" class="icheck">Perempuan</label>
 						</div>
 					</div>
 					<!-- /step-->
-
 					<div class="step">
-						<h3 class="main_question">Silakan isi data diri anda</h3>
-						<div class="form-group">
-							<input type="email" name="email" required="" class="form-control required" placeholder="E-mail">
-						</div>
-						<div class="form-group">
-							<input type="number" name="no_hp" required="" class="form-control required" placeholder="No. HP">
-                        </div>
+						<h3 class="main_question"><center>Silakan Lengkapi Data Diri Anda<center></h3>
                         <div class="form-group select">
 							<div class="styled-select">
-								<select class="required" name="universitas" id="universitas">
+								<select class="required" name="univ" id="univ">
 									<option value="" selected="">Universitas</option>
 									<option value="unsika">Universitas Singaperbangsa Karawang</option>
 									<option value="lainnya">Lainnya</option>
@@ -91,12 +82,24 @@
 									<option value="si">Sistem Informasi</option>
 								</select>
 							</div>
+                        </div>
+                        <div class="form-group">
+							<input type="text" name="nim"  class="form-control" placeholder="NIM">
 						</div>
 					</div>
 					<!-- /step-->
 
 					<div class="submit step">
-						<h3 class="main_question">Silakan Upload Foto Profil Anda</h3>
+                        <h3 class="main_question"><center>Silakan Lengkapi Data Diri Anda</center></h3>
+                        <div class="form-group">
+							<input type="email" name="email" required="" class="form-control required" placeholder="E-mail">
+						</div>
+						<div class="form-group">
+							<input type="number" name="no_hp" required="" class="form-control required" placeholder="No. HP">
+                        </div>
+                        <div class="form-group">
+							<input type="password" name="password" required="" class="form-control required" placeholder="Kata Sandi Akun">
+                        </div>
                         <div class='form-group'>
                           <input required type="file" class='dropify' name='foto'>
                         </div>
