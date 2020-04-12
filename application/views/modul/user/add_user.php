@@ -34,9 +34,6 @@
 
                         <h3><strong><?php echo $this->session->flashdata('err');?></strong></h3>
 
-
-                                        
-
 						<div class="form-group">
 							<input type="text" name="nama" required="" class="form-control required" placeholder="Nama">
                         </div>
