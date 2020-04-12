@@ -61,6 +61,16 @@ class Anggota_model extends CI_Model
         return $this->db->get_where($this->_table,['nim'=>$nim])->num_rows();
     }
 
+    public function cek_anggota_by_email($email)
+    {
+        return $this->db->get_where($this->_table,['email'=>$email])->num_rows();
+    }
+
+    public function cek_anggota_by_no_hp($no_hp)
+    {
+        return $this->db->get_where($this->_table,['no_hp'=>$no_hp])->num_rows();
+    }
+
     public function add_anggota($data)
     {
         $this->nama     = $data['nama'];

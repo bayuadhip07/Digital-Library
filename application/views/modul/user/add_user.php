@@ -9,11 +9,10 @@
 
 </head>
 
-<body id="admission_bg">
-	
-	<!-- <div id="preloader">
+<body id="">
+	<div id="preloader">
 		<div data-loader="circle-side"></div>
-	</div> -->
+	</div>
 	<!-- End Preload -->
 	
 	<div id="form_container" class="clearfix">
@@ -31,7 +30,12 @@
 				<div id="middle-wizard">
 					
 					<div class="step">
-						<h3 class="main_question"><center>Silakan Lengkapi Data Diri Anda<center></h3>
+						<h3 class="main_question"><center>Silakan Lengkapi Data Anda<center></h3>
+
+                        <h3><strong><?php echo $this->session->flashdata('err');?></strong></h3>
+
+
+                                        
 
 						<div class="form-group">
 							<input type="text" name="nama" required="" class="form-control required" placeholder="Nama">
@@ -77,17 +81,25 @@
 							<div class="styled-select">
 								<select class="required" name="fakultas" id="fakultas">
 									<option value="" selected="">Fakultas</option>
-									<option value="fasilkom">Fakultas Ilmu Komputer</option>
-									<option value="lainnya">Lainnya</option>
-								</select>
+                                    <?php
+                                        foreach ($fakultas as $f) 
+                                        {
+                                        echo "<option value='$f[id_fakultas]'>$f[fakultas]</option>";
+                                        }
+                                    ?>
+                                </select>
 							</div>
                         </div>
                         <div class="form-group select">
 							<div class="styled-select">
 								<select class="required" name="prodi" id="prodi">
-									<option value="" selected="">Program Studi</option>
-									<option value="ti">Teknik Informatika</option>
-									<option value="si">Sistem Informasi</option>
+                                    <option value="" selected="">Program Studi</option>
+                                    <?php
+                                        foreach ($prodi as $p) 
+                                        {
+                                        echo "<option value='$p[id_prodi]'>$p[prodi]</option>";
+                                        }
+                                    ?>
 								</select>
 							</div>
                         </div>
@@ -98,7 +110,7 @@
 					<!-- /step-->
 
 					<div class="submit step">
-                        <h3 class="main_question"><center>Silakan Lengkapi Data Diri Anda</center></h3>
+                        <h3 class="main_question"><center>Silakan Lengkapi Data Anda</center></h3>
                         <div class="form-group">
 							<input type="email" name="email" required="" class="form-control required" placeholder="E-mail">
 						</div>

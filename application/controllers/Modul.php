@@ -31,6 +31,8 @@ class Modul extends CI_Controller {
 	{
 		$data['univ'] = $this->umum_model->tampilkan_data_kategori('universitas','nama_univ');
 		$data['agama'] = $this->umum_model->tampilkan_data_kategori('agama','agama');
+		$data['fakultas'] = $this->umum_model->tampilkan_data_kategori('fakultas','fakultas');
+		$data['prodi'] = $this->umum_model->tampilkan_data_kategori('prodi','prodi');
 		$this->load->view('modul/user/add_user', $data);
 	}
 
