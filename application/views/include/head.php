@@ -31,4 +31,11 @@
 	<!-- Modernizr -->
     <script src="<?=base_url("assets/js/modernizr.js")?>"></script>
     
+    <!-- Bootstrap CSS -->
+    <link href="<?=base_url("assets/admin/css/bootstrap.min.css")?>" rel="stylesheet" type="text/css" />
 
+    <!-- App CSS -->
+    <link href="<?=base_url("assets/admin/css/style.css")?>" rel="stylesheet" type="text/css" />
+
+    <!-- Modernizr js -->
+    <script src="<?=base_url("assets/admin/js/modernizr.min.js")?>"></script>

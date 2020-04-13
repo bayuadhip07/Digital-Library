@@ -20,7 +20,7 @@
 	<!-- /header -->
 	
 	<main>
-		<section id="hero_in" class="general">
+		<section id="hero_in" class="cart_section">
 			<div class="wrapper">
 				<div class="container">
 					<h1 class="fadeInUp"><span></span>SURAT BEBAS PUSTAKA</h1>
@@ -98,8 +98,6 @@
                         <br>
                     </form>    
 				</div>
-                
-                
             </div>
 
 			<!-- /row -->

@@ -83,7 +83,7 @@ class Auth extends CI_Controller
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
 				if($this->ion_auth->in_group(1))
 				{
-					redirect('admin/page/', 'refresh');
+					redirect('admin', 'refresh');
 				}
 				if($this->ion_auth->in_group(2))
 				{
