@@ -47,7 +47,7 @@ class Proses extends CI_Controller {
                         'email'=>$post['email'],
                         'no_hp'=>$post['no_hp'],
                         'alamat'=>$post['alamat'],
-                        'status'=>'aktif'
+                        'status'=>'Aktif'
                     ];
                     $this->anggota_model->add_anggota($data);
                     $this->session->set_flashdata('msg','Data Berhasil disimpan');
@@ -56,19 +56,77 @@ class Proses extends CI_Controller {
                 else
                 {
                     $this->session->set_flashdata('err','No. HP sudah terdaftar');
-                    redirect('modul/add_user');
+                    redirect('home/add_anggota');
                 }
             }
             else
             {
                 $this->session->set_flashdata('err','E-mail sudah terdaftar');
-                redirect('modul/add_user');
+                redirect('home/add_anggota');
             }
         }
         else
         {
             $this->session->set_flashdata('err','NIM sudah terdaftar');
-            redirect('modul/add_user');
+            redirect('home/add_anggota');
+        }
+
+    }
+
+    public function tambah_anggota()
+    {
+        $post = $this->input->post();
+        if($this->anggota_model->cek_anggota_by_nim(strtolower($post['nim']))==0)
+        {
+            if($this->anggota_model->cek_anggota_by_email(strtolower($post['email']))==0)
+            {
+                if($this->anggota_model->cek_anggota_by_no_hp(strtolower($post['no_hp']))==0)
+                {
+                    $username = $post['nim'];
+                    $password = $post['password'];
+                    $email    = $post['email'];
+                    $no_hp    = $post['no_hp'];
+                    $additional_data = array(
+                        'first_name'=>$post['nama'],
+                        'last_name'=>''
+                    );
+                    $group = array('2');
+                    $id_user = $this->ion_auth->register($username, $password, $email, $additional_data, $group);
+
+                    $data = [
+                        'id_user'=>$id_user,
+                        'nama'=>$post['nama'],
+                        'agama'=>$post['agama'],
+                        'jk'=>$post['jk'],
+                        'univ'=>$post['univ'],
+                        'fakultas'=>$post['fakultas'],
+                        'prodi'=>$post['prodi'],
+                        'nim'=>strtolower($post['nim']),
+                        'email'=>$post['email'],
+                        'no_hp'=>$post['no_hp'],
+                        'alamat'=>$post['alamat'],
+                        'status'=>'Aktif'
+                    ];
+                    $this->anggota_model->add_anggota($data);
+                    $this->session->set_flashdata('msg','Data Berhasil disimpan');
+                    redirect('admin/anggota');
+                }
+                else
+                {
+                    $this->session->set_flashdata('err','No. HP sudah terdaftar');
+                    redirect('admin/tambah_anggota');
+                }
+            }
+            else
+            {
+                $this->session->set_flashdata('err','E-mail sudah terdaftar');
+                redirect('admin/tambah_anggota');
+            }
+        }
+        else
+        {
+            $this->session->set_flashdata('err','NIM sudah terdaftar');
+            redirect('admin/tambah_anggota');
         }
 
     }

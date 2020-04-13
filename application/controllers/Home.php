@@ -8,7 +8,7 @@ class Home extends CI_Controller {
 		$this->load->database();
 		$this->load->library(['ion_auth', 'form_validation']);
 		$this->load->helper(['url', 'language']);
-		$this->load->model(['umum_model']);
+		$this->load->model(['umum_model','anggota_model']);
 	}
 	/**
 	 * Index Page for this controller.
@@ -63,4 +63,12 @@ class Home extends CI_Controller {
 		$this->load->view('bebas_pustaka', $data);
 	}
 
+	public function add_anggota()
+	{
+		$data['univ'] = $this->umum_model->tampilkan_data_kategori('universitas','nama_univ');
+		$data['agama'] = $this->umum_model->tampilkan_data_kategori('agama','agama');
+		$data['fakultas'] = $this->umum_model->tampilkan_data_kategori('fakultas','fakultas');
+		$data['prodi'] = $this->umum_model->tampilkan_data_kategori('prodi','prodi');
+		$this->load->view('user/add_user', $data);
+	}
 }

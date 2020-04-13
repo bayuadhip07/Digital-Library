@@ -18,6 +18,13 @@ class Anggota_model extends CI_Model
     public $foto;
     public $status;
 
+    public function get_all()
+    {
+        $this->db->select('t.*, u.email');
+        $this->db->join('users u', 'u.id = t.id_user');        
+        return $this->db->get($this->_table." t")->result();
+    }
+    
     private function _uploadImage() {
         $config['upload_path']  = './upload/foto/';
         $config['allowed_types']    = 'jpg|png';        
@@ -69,6 +76,13 @@ class Anggota_model extends CI_Model
     public function cek_anggota_by_no_hp($no_hp)
     {
         return $this->db->get_where($this->_table,['no_hp'=>$no_hp])->num_rows();
+    }
+
+    public function get_anggota_by_id($id)
+    {
+        $this->db->select('t.*, u.email');
+        $this->db->join('users u', 'u.id = t.id_user');
+        return $this->db->get_where($this->_table." t",['id_anggota'=>$id])->row();
     }
 
     public function add_anggota($data)

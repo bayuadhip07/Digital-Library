@@ -47,7 +47,7 @@
 				<!-- /bottom-wizard -->
             </form>
                 <a href="<?=base_url('auth/forgot_password')?>" class="text-muted"><center>Lupa Kata Sandi?</center></a><br>
-                <center>Belum punya akun?  <a href="<?=base_url('modul/add_user')?>" class="text-muted"><u>Klik disini</u></a></center>           
+                <center>Belum punya akun?  <a href="<?=base_url('home/add_anggota')?>" class="text-muted"><u>Klik disini</u></a></center>           
 		</div>
 		<!-- /Wizard container -->
 	</div>

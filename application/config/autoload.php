@@ -91,7 +91,7 @@ $autoload['drivers'] = array();
 |	$autoload['helper'] = array('url', 'file');
 */
 // url, form
-$autoload['helper'] = array('url');
+$autoload['helper'] = array('url','xss');
 
 /*
 | -------------------------------------------------------------------
