@@ -62,7 +62,7 @@
 							<p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Usu decore percipitur definitiones ex, nihil utinam recusabo mel no. </p>
 						</div>
 						<ul>
-							<li><a href="detail_jurnal">Baca Selengkapnya</a></li>
+							<li><a href="detail_skripsi">Baca Selengkapnya</a></li>
 						</ul>
 					</div>
 				</div>

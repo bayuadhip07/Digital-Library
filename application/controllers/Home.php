@@ -34,6 +34,8 @@ class Home extends CI_Controller {
 	{
 		$this->load->view('journal');
 	}
+	
+	}
 
 	public function detail_jurnal()
 	{
@@ -44,16 +46,26 @@ class Home extends CI_Controller {
 	{
 		$this->load->view('buku');
 	}
+	public function detail_ebook()
+	{
+		$this->load->view('detail_ebook');
+	}
 
 	public function skripsi()
 	{
 		$this->load->view('skripsi');
+	}
+	public function detail_skripsi()
+	{
+		$this->load->view('detail_skripsi');
 	}
 
 	public function kontak()
 	{
 		$this->load->view('kontak');
 	}
+	
+
 
 	public function bebas_pustaka()
 	{	

@@ -12,7 +12,7 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-file"></i> <span> Dokumen </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="components-grid.html">Jurnal</a></li>
+                                    <li><a href="<?=base_url('admin/journal_admin')?>">Jurnal</a></li>
                                     <li><a href="components-range-sliders.html">Skripsi</a></li>
                                     <li><a href="components-sweet-alert.html">E-Book</a></li>
                                     <li><a href="components-sweet-alert.html">Lainnya</a></li>

@@ -44,14 +44,6 @@
 							<label for="latest">Latest</label>
 						</div>
 					</li>
-					<li>
-						<select name="orderby" class="selectbox">
-							<option value="category">Category</option>
-							<option value="category 2">Literature</option>
-							<option value="category 3">Architecture</option>
-							<option value="category 4">Economy</option>
-						</select>
-					</li>
 				</ul>
 			</div>
 			<!-- /container -->
@@ -75,7 +67,7 @@
 							<p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Usu decore percipitur definitiones ex, nihil utinam recusabo mel no. </p>
 						</div>
 						<ul>
-							<li><a href="course-detail.html">Lihat Selengkapnya</a></li>
+							<li><a href="detail_ebook">Lihat Selengkapnya</a></li>
 						</ul>
 					</div>
 				</div>

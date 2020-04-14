@@ -22,6 +22,17 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/modul_anggota/anggota', $data);
 	}
 
+	// bagian journal_admin
+	public function journal_admin()
+	{
+		$this->load->view('admin/modul_journal/journal_admin.php');
+	}
+
+	public function tambah_journal()
+	{
+		$this->load->view('admin/modul_journal/tambah_journal.php');
+	}
+
 	public function tambah_anggota()
 	{
 		$data['univ'] = $this->umum_model->tampilkan_data_kategori('universitas','nama_univ');

@@ -72,6 +72,11 @@ class Proses extends CI_Controller {
         }
 
     }
+    public fuction tambah_jurnal()
+    {
+        $post =$this->input->post();
+        
+    }
 
     public function tambah_anggota()
     {
