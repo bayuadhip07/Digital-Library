@@ -87,7 +87,7 @@ class Anggota_model extends CI_Model
     {
         $this->db->select('anggota.*, u.password');
         $this->db->join('users u', 'u.id = anggota.id_user');
-        return $this->db->get_where($this->_table,['id_anggota'=>'6'])->row();
+        return $this->db->get_where($this->_table,['id_anggota'=>$id])->row();
         // return $this->db->get_where($this->_table,['id_anggota'=>'6'])->num_rows();
     }
 
@@ -132,5 +132,11 @@ class Anggota_model extends CI_Model
         }
         $this->db->where('id_anggota',$data['id_anggota']);
         $this->db->update($this->_table);
+    }
+
+    public function hapus_anggota($id) {
+        $this->_deleteImage($id);
+        $this->db->where('id_anggota',$id);
+        $this->db->delete($this->_table);
     }
 }

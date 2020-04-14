@@ -164,5 +164,17 @@ class Proses extends CI_Controller {
                 redirect('admin/anggota');                                            
             }
             
-        }
     }
+
+    public function hapus_anggota($id) 
+    {
+        if($this->anggota_model->cek_anggota_by_id($id)==0) 
+        {
+			redirect('admin/anggota');
+        }
+        $this->anggota_model->hapus_anggota($id);
+        $this->session->set_flashdata('msg','Anggota berhasil dihapus.');
+        redirect('admin/anggota');
+    }
+}
+
