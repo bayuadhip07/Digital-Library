@@ -22,7 +22,7 @@
 	<!-- /header -->
 	
 	<main>
-		<section id="hero_in" class="courses">
+		<section id="hero_in" class="cart_section">
 			<div class="wrapper">
 				<div class="container">
 					<h1 class="fadeInUp"><span></span>List E-Book</h1>

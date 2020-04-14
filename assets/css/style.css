@@ -659,6 +659,7 @@ ul#top_menu li a.btn_1:hover {
   }
 }
 #hero_in.general {
+  background: #392779 url(../img/pattern_1.svg) fixed;
   border-bottom: 5px solid #FFC107;
 }
 #hero_in.general:before {
@@ -669,11 +670,11 @@ ul#top_menu li a.btn_1:hover {
   background-size: cover;
 }
 #hero_in.general .wrapper {
-  background-color: #372675;
+  background-color: blue;
   background-color: rgba(57, 39, 121, 0.8);
 }
 #hero_in.courses:before {
-  background: url(http://via.placeholder.com/1600x1067/ccc/fff/bg_courses.jpg) center center no-repeat;
+  background: blue center center no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
