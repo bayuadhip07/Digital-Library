@@ -56,7 +56,7 @@ class Anggota_model extends CI_Model
 
     //fungsi untuk menghapus gambar --query builder--
     private function _deleteImage($id) {
-        $anggota = $this->get_anggota_by_id_anggota($id);
+        $anggota = $this->get_anggota_by_id($id);
         if ($anggota->foto != NULL) {
             $filename = explode(".", $anggota->foto)[0];
             return array_map('unlink', glob(FCPATH."upload/foto/".$filename."*"));
@@ -78,11 +78,17 @@ class Anggota_model extends CI_Model
         return $this->db->get_where($this->_table,['no_hp'=>$no_hp])->num_rows();
     }
 
+    public function cek_anggota_by_id($id)
+    {
+        return $this->db->get_where($this->_table,['id_anggota'=>$id])->num_rows();
+    }
+
     public function get_anggota_by_id($id)
     {
-        $this->db->select('t.*, u.email');
-        $this->db->join('users u', 'u.id = t.id_user');
-        return $this->db->get_where($this->_table." t",['id_anggota'=>$id])->row();
+        $this->db->select('anggota.*, u.password');
+        $this->db->join('users u', 'u.id = anggota.id_user');
+        return $this->db->get_where($this->_table,['id_anggota'=>'6'])->row();
+        // return $this->db->get_where($this->_table,['id_anggota'=>'6'])->num_rows();
     }
 
     public function add_anggota($data)
@@ -101,5 +107,30 @@ class Anggota_model extends CI_Model
         $this->id_user  = $data['id_user'];
         $this->foto     = $this->_uploadImage();
         $this->db->insert($this->_table, $this);
+    }
+
+    public function update_anggota($data)
+    {
+        $post = $this->input->post();
+        $this->db->set('nama',$data['nama']);
+        $this->db->set('agama',$data['agama']);
+        $this->db->set('jk',$data['jk']);
+        $this->db->set('univ',$data['univ']);
+        $this->db->set('fakultas',$data['fakultas']);
+        $this->db->set('prodi',$data['prodi']);
+        $this->db->set('nim',$data['nim']);
+        $this->db->set('email',$data['email']);
+        $this->db->set('no_hp',$data['no_hp']);
+        $this->db->set('alamat',$data['alamat']); 
+        if(empty($_FILES['foto']['name']))
+        {
+            
+        }
+        else
+        {
+            $this->db->set('foto',$this->_updateImage($data['id_anggota']));
+        }
+        $this->db->where('id_anggota',$data['id_anggota']);
+        $this->db->update($this->_table);
     }
 }

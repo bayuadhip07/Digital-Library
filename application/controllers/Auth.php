@@ -87,7 +87,7 @@ class Auth extends CI_Controller
 				}
 				if($this->ion_auth->in_group(2))
 				{
-					redirect('user/page/', 'refresh');
+					redirect('user', 'refresh');
 				}
 			}
 			else

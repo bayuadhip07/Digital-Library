@@ -130,4 +130,39 @@ class Proses extends CI_Controller {
         }
 
     }
-}
+
+    public function update_anggota()
+    {
+            $post = $this->input->post();
+            $anggota = $this->anggota_model->get_anggota_by_id($post['id']);
+            $id = $anggota->id_user;
+            $data = [
+                            'username' => $post['nim'],
+                            'password' => $post['password'],
+                            'email'    => $post['email'],
+                            'no_hp'    => $post['no_hp'],                                       
+                    ];
+            $update = $this->ion_auth->update($id, $data);
+                                                    
+            if($update)
+            {
+                $data = [                                                    
+                            'nama'=>$post['nama'],
+                            'agama'=>$post['agama'],
+                            'jk'=>$post['jk'],
+                            'univ'=>$post['univ'],
+                            'fakultas'=>$post['fakultas'],
+                            'prodi'=>$post['prodi'],
+                            'nim'=>strtolower($post['nim']),
+                            'email'=>$post['email'],
+                            'no_hp'=>$post['no_hp'],
+                            'alamat'=>$post['alamat'],
+                            'id_anggota'=>$post['id']
+                        ];
+                $this->anggota_model->update_anggota($data);
+                $this->session->set_flashdata('msg','Data berhasil diubah.');
+                redirect('admin/anggota');                                            
+            }
+            
+        }
+    }
