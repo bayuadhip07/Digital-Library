@@ -5,6 +5,7 @@
         <?php
             $this->load->view('admin/include/head');
         ?>
+        <link href="<?=base_url('assets/dropify.min.css') ?>" rel="stylesheet" type="text/css" />
     </head>
 
 
@@ -114,47 +115,119 @@
                                                 <?php echo $err;?>
                                             </div>
                                         <?php } ?>
-                                        
-                                        <?=form_open_multipart('proses/update_anggota/')?>
+                                        <!-- <?php
+                                                echo json_encode($anggota->password);
+                                        ?>                                         -->
+                                        <?=form_open_multipart('proses/update_anggota')?>
                                             <input type="hidden" name='id' value="<?=$anggota->id_anggota?>">
-                                            <!-- <?php
-                                                echo json_encode("$anggota->id_anggota");
-                                            ?> -->
+
                                             <div class="form-group">
-                                                <label>Nama UMKM</label>
-                                                <input required type="text" autocomplete='off' name='nama' class='form-control' value="<?php cetak($anggota->nama)?>">
+                                                <label>Nama </label>
+                                                <input required type="text" value="<?=$anggota->nama?>" autocomplete='off' name='nama' class='form-control required'>
                                             </div>
 
                                             <div class='form-group'>
-                                                <label>Email</label>
-                                                <input required type="email" autocomplete='off' name='email' class='form-control' value="<?php cetak($anggota->email)?>">
+                                                <label>Agama</label>
+                                 				<div class="styled-select">
+                                                    <select class="form-control required" required="" name="agama" id="agama">
+                                                        <option value="" selected="">Pilih Agama</option>
+                                                        <?php
+                                                            foreach ($agama as $a) 
+                                                            {
+                                                            echo "<option value='$a[agama]'>$a[agama]</option>";
+                                                            }
+                                                        ?>
+                                                    </select>
+							                    </div>
+                                            </div>
+
+                                            <div class='form-group'>
+                                                <label>Jenis Kelamin</label>
+                                 				<div class="styled-select">
+                                                    <select class="form-control required" required="" name="jk" id="agama">
+                                                        <option value="" selected="">Pilih Jenis Kelamin</option>
+                                                        <option value="laki-laki">Laki-laki</option>
+                                                        <option value="perempuan">Perempuan</option>
+                                                        
+                                                    </select>
+							                    </div>
                                             </div>
                                             
                                             <div class="form-group">
-                                                <label>Username</label>
-                                                <input required type="text" autocomplete='off' name='username' class='form-control' value="<?php cetak($anggota->username)?>">
-                                                <p class="text-muted">*Lower case</p>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label>Deskripsi</label>
-                                                <textarea name="deskripsi" class='form-control' cols="30" rows="5"><?php cetak($anggota->deskripsi_toko)?></textarea>
-                                            </div>
-
-                                            <div class='form-group'>
                                                 <label>Alamat</label>
-                                                <input required type="text" autocomplete='off' name='alamat' class='form-control' placeholder="Kecamatan, Kabupaten" value="<?php cetak($anggota->alamat)?>">
+                                                <input required type="text" value="<?=$anggota->alamat?>" autocomplete='off' name='alamat' class='form-control required'>
+                                            </div>
+
+                                            <div class='form-group'>
+                                                <label>Universitas</label>
+                                 				<div class="styled-select">
+                                                    <select class="form-control required" required="" name="univ" id="univ">
+                                                        <option value="" selected="">Pilih Universitas</option>
+                                                        <?php
+                                                            foreach ($univ as $a) 
+                                                            {
+                                                            echo "<option value='$a[nama_univ]'>$a[nama_univ]</option>";
+                                                            }
+                                                        ?>
+                                                    </select>
+							                    </div>
+                                            </div>
+
+                                            <div class='form-group'>
+                                                <label>Fakultas</label>
+                                 				<div class="styled-select">
+                                                    <select class="form-control required" required="" name="fakultas" id="fakultas">
+                                                        <option value="" selected="">Pilih Fakultas</option>
+                                                        <?php
+                                                            foreach ($fakultas as $a) 
+                                                            {
+                                                            echo "<option value='$a[fakultas]'>$a[fakultas]</option>";
+                                                            }
+                                                        ?>
+                                                    </select>
+							                    </div>
+                                            </div>
+
+                                            <div class='form-group'>
+                                                <label>Program Studi</label>
+                                 				<div class="styled-select">
+                                                    <select class="form-control required" required="" name="prodi" id="prodi">
+                                                        <option value="" selected="">Pilih Program Studi</option>
+                                                        <?php
+                                                            foreach ($prodi as $a) 
+                                                            {
+                                                            echo "<option value='$a[prodi]'>$a[prodi]</option>";
+                                                            }
+                                                        ?>
+                                                    </select>
+							                    </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label>NIM</label>
+                                                <input required type="text" value="<?=$anggota->nim?>" autocomplete='off' name='nim' class='form-control required'>
+                                            </div>
+
+                                            <div class='form-group'>
+                                                <label>E-mail</label>
+                                                <input required type="email" value="<?=$anggota->email?>" autocomplete='off' name='email' class='form-control required' placeholder="">
                                             </div>
 
                                             <div class="form-group">
-                                                <label>No. Whatsapp</label>
-                                                <input required type="text" name='no_wa' class='form-control' autocomplete='off' placeholder="08...." value="<?php cetak($anggota->no_wa)?>">
+                                                <label>No. HP</label>
+                                                <input required type="number" value="<?=$anggota->no_hp?>" name='no_hp' class='form-control required' autocomplete='off' placeholder="">
                                             </div>
-
-                                            <input type="hidden" name='foto_lama' value="<?=$anggota->logo?>">
+                                            <!-- <input type="hidden" name='password_lama' value="<?=$anggota->password?>"> -->
+                                
+                                            <div class="form-group">
+                                                <label>Kata Sandi</label>
+                                                <input type="password" value="<?=$anggota->password?>" name='password' class='form-control required' autocomplete='off' placeholder="">
+                                                <small>*Jika tidak ingin mengubah kata sandi,biarkan saja bagian ini</small>
+                                            </div>
+                                            <input type="hidden" name='foto_lama' value="<?=$anggota->foto?>">
                                             <div class='form-group'>
-                                                <label>Logo</label>
-                                                <input type="file" class='dropify' data-file-max-size="2M" name='logo' data-default-file='<?=site_url('upload/logo/'.$anggota->logo)?>'>
+                                                <label>Foto</label>
+                                                <input type="file" class='dropify' data-file-max-size="2M" name='foto' data-default-file='<?=site_url('upload/foto/'.$anggota->foto)?>'>
                                             </div>
                                             <button class='btn btn-primary'>
                                                 <span class='btn-label'>
@@ -168,10 +241,8 @@
                             <div class='col-md-4'>
                                 <div class='card mb-20'>
                                     <div class='card-body'>
-                                        <a href="<?php echo site_url('modul/add_user/')?>" class='btn btn-block btn-info'>Tambah Anggota</a>
-                                        <br>
                                         <h5 class='card-title'>Informasi</h5>
-                                        <p>Pada halaman ini anda dapat melihat daftar anggota perpustakaan digital UNSIKA</p>                                                                                
+                                        <p>Pada halaman ini anda dapat mengubah data anggota </p>                                                                                
                                     </div>
                                 </div>
                             </div>
@@ -215,35 +286,25 @@
             $this->load->view('admin/include/javascript');
        ?>
 
-        <script>
-            $(document).ready(function() {
-                
-                // Default Datatable
-                $('#datatable').DataTable();                
-                //Buttons examples
-                var table = $('#datatable-buttons').DataTable({
-                    lengthChange: false,
-                    buttons: ['copy', 'excel', 'pdf']
-                });
+    <script src="<?=base_url("assets/js/jquery-ui-1.8.22.min.js")?>"></script>
+	<script src="<?=base_url("assets/js/jquery.wizard.js")?>"></script>
+	<script src="<?=base_url("assets/js/jquery.validate.js")?>"></script>
+    <script src="<?=base_url("assets/js/admission_func.js")?>"></script>
+    <script src="<?=base_url('assets/dropify.min.js') ?>"></script>
+  
+    <script>
+            $('.dropify').dropify({
+                messages: {
+                    'default': 'Drag and drop a file here or click',
+                    'replace': 'Drag and drop or click to replace',
+                    'remove': 'Remove',
+                    'error': 'Ooops, something wrong appended.'
+                },
+                error: {
+                    'fileSize': 'The file size is too big (1M max).'
+                }
+            });
+    </script>
 
-                table.buttons().container()
-                        .appendTo('#datatable-buttons_wrapper .col-md-6:eq(0)');
-                    
-                $(document).on('click', '.hapus', function(e){
-                    var c = confirm("Yakin menghapus data?");
-                    if(c){
-                        return true;
-                        var c=false;
-                        if (!c) {
-                            c=true;
-                            return true;
-                        }
-                    }else{
-                        return false;
-                    }                                        
-                });
-            } );            
-
-        </script>
     </body>
 </html>

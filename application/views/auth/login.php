@@ -28,7 +28,17 @@
 				<div id="intro">
          <h1>Sign In</h1>
          <h1><br>   </h1>
-						
+		
+
+        <?php 
+            $err=$this->session->flashdata('message');
+            if(isset($err)){ ?>
+            <div class="alert alert-danger" role="alert">
+        	  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <?php echo $err;?>
+            </div>
+        <?php } ?>
+
         <?= form_open('auth/login/', array('class'=>'m-t-20'));?>
         <div class="form-group">
 				<input type="text" name="identity" required="" class="form-control" placeholder="E-mail">
