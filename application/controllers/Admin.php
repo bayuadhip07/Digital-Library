@@ -12,7 +12,8 @@ class Admin extends CI_Controller {
 		$this->load->model(['anggota_model','umum_model']);
     }
     
-    public function index(){
+	public function index()
+	{
         $this->load->view('admin/home');
 	}
 	
@@ -57,5 +58,89 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/modul_anggota/edit_anggota', $data);
 	}
 
+	public function universitas()
+	{
+		$data['univ'] = $this->umum_model->get_univ();
+		$this->load->view('admin/master_data/universitas/universitas', $data);
+	}
+
+	public function edit_univ($id)
+	{
+		$data['univ'] = $this->umum_model->get_univ_by_id($id);
+		$this->load->view('admin/master_data/universitas/edit_univ', $data);
+	}
+
+	public function tambah_univ()
+	{
+		$this->load->view('admin/master_data/universitas/tambah_univ');
+	}
+
+	public function fakultas()
+	{
+		$data['fakultas'] = $this->umum_model->get_fakultas();
+		$this->load->view('admin/master_data/fakultas/fakultas', $data);
+	}
+
+	public function tambah_fakultas()
+	{
+		$this->load->view('admin/master_data/fakultas/tambah_fakultas');
+	}
+
+	public function edit_fakultas($id)
+	{
+		$data['fakultas'] = $this->umum_model->get_fakultas_by_id($id);
+		$this->load->view('admin/master_data/fakultas/edit_fakultas', $data);
+	}
+
+	public function prodi()
+	{
+		$data['prodi'] = $this->umum_model->get_prodi();
+		$this->load->view('admin/master_data/prodi/prodi', $data);
+	}
+
+	public function tambah_prodi()
+	{
+		$this->load->view('admin/master_data/prodi/tambah_prodi');
+	}
+
+	public function edit_prodi($id)
+	{
+		$data['prodi'] = $this->umum_model->get_prodi_by_id($id);
+		$this->load->view('admin/master_data/prodi/edit_prodi', $data);
+	}
+
+	public function agama()
+	{
+		$data['agama'] = $this->umum_model->get_agama();
+		$this->load->view('admin/master_data/agama/agama', $data);
+	}
+
+	public function tambah_agama()
+	{
+		$this->load->view('admin/master_data/agama/tambah_agama');
+	}
+
+	public function edit_agama($id)
+	{
+		$data['agama'] = $this->umum_model->get_agama_by_id($id);
+		$this->load->view('admin/master_data/agama/edit_agama', $data);
+	}
+
+	public function dokumen()
+	{
+		$data['dokumen'] = $this->umum_model->get_dokumen();
+		$this->load->view('admin/master_data/dokumen/dokumen', $data);
+	}
+
+	public function tambah_dokumen()
+	{
+		$this->load->view('admin/master_data/dokumen/tambah_dokumen');
+	}
+
+	public function edit_dokumen($id)
+	{
+		$data['dokumen'] = $this->umum_model->get_dokumen_by_id($id);
+		$this->load->view('admin/master_data/dokumen/edit_dokumen', $data);
+	}
 
 }

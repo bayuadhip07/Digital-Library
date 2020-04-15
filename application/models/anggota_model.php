@@ -147,7 +147,8 @@ class Anggota_model extends CI_Model
         $this->db->delete($this->_users);
     }
     
-    public function hapus_anggota($id) {
+    public function hapus_anggota($id) 
+    {
         $this->_deleteImage($id);
         $this->hapus_user($id);
         $this->db->where('id_anggota',$id);

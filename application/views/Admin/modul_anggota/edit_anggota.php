@@ -115,9 +115,9 @@
                                                 <?php echo $err;?>
                                             </div>
                                         <?php } ?>
-                                        <!-- <?php
-                                                echo json_encode($anggota->jk);
-                                        ?>                                         -->
+                                        <?php
+                                                echo json_encode($anggota->id_anggota);
+                                        ?>                                        
                                         <?=form_open_multipart('proses/update_anggota')?>
                                             <input type="hidden" name='id' value="<?=$anggota->id_anggota?>">
 
