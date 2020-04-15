@@ -87,7 +87,7 @@ class Anggota_model extends CI_Model
     {
         $this->db->select('anggota.*, u.password');
         $this->db->join('users u', 'u.id = anggota.id_user');
-        return $this->db->get_where($this->_table,['id_anggota'=>'6'])->row();
+        return $this->db->get_where($this->_table,['id_anggota'=>$id])->row();
         // return $this->db->get_where($this->_table,['id_anggota'=>'6'])->num_rows();
     }
 
