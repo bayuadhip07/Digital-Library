@@ -27,8 +27,8 @@ class Proses extends CI_Controller {
                     $username = $post['nim'];
                     $password = $post['password'];
                     $email    = $post['email'];
-                    $no_hp    = $post['no_hp'];
                     $additional_data = array(
+                        'phone'=>$post['no_hp'],
                         'first_name'=>$post['nama'],
                         'last_name'=>''
                     );
@@ -44,8 +44,6 @@ class Proses extends CI_Controller {
                         'fakultas'=>$post['fakultas'],
                         'prodi'=>$post['prodi'],
                         'nim'=>strtolower($post['nim']),
-                        'email'=>$post['email'],
-                        'no_hp'=>$post['no_hp'],
                         'alamat'=>$post['alamat'],
                         'status'=>'Aktif'
                     ];
@@ -85,8 +83,8 @@ class Proses extends CI_Controller {
                     $username = $post['nim'];
                     $password = $post['password'];
                     $email    = $post['email'];
-                    $no_hp    = $post['no_hp'];
                     $additional_data = array(
+                        'phone'=>$post['no_hp'],
                         'first_name'=>$post['nama'],
                         'last_name'=>''
                     );
@@ -102,8 +100,6 @@ class Proses extends CI_Controller {
                         'fakultas'=>$post['fakultas'],
                         'prodi'=>$post['prodi'],
                         'nim'=>strtolower($post['nim']),
-                        'email'=>$post['email'],
-                        'no_hp'=>$post['no_hp'],
                         'alamat'=>$post['alamat'],
                         'status'=>'Aktif'
                     ];
@@ -140,7 +136,7 @@ class Proses extends CI_Controller {
                             'username' => $post['nim'],
                             'password' => $post['password'],
                             'email'    => $post['email'],
-                            'no_hp'    => $post['no_hp'],                                       
+                            'phone'    => $post['no_hp'],                                       
                     ];
             $update = $this->ion_auth->update($id, $data);
                                                     
@@ -154,10 +150,9 @@ class Proses extends CI_Controller {
                             'fakultas'=>$post['fakultas'],
                             'prodi'=>$post['prodi'],
                             'nim'=>strtolower($post['nim']),
-                            'email'=>$post['email'],
-                            'no_hp'=>$post['no_hp'],
                             'alamat'=>$post['alamat'],
-                            'id_anggota'=>$post['id']
+                            'id_anggota'=>$post['id'],
+                            'status'=>$post['status']
                         ];
                 $this->anggota_model->update_anggota($data);
                 $this->session->set_flashdata('msg','Data berhasil diubah.');
@@ -173,7 +168,7 @@ class Proses extends CI_Controller {
 			redirect('admin/anggota');
         }
         $this->anggota_model->hapus_anggota($id);
-        $this->session->set_flashdata('msg','Anggota berhasil dihapus.');
+        $this->session->set_flashdata('msg','Data anggota berhasil dihapus.');
         redirect('admin/anggota');
     }
 }

@@ -100,25 +100,26 @@
                                     <div class='card-body'>
                                     <?php 
                                     $msg=$this->session->flashdata('msg');
-                                    if(isset($msg)){ ?>
+                                    if(isset($msg))
+                                    { ?>
                                             <div class="alert alert-success" role="alert">
                                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                                 <?php echo $msg;?>
                                             </div>
-                                        <?php } ?>
-                                        <?php 
+                                    <?php } ?>
+                                    <?php 
                                         $err=$this->session->flashdata('err');
                                         if(isset($err)){ ?>
                                             <div class="alert alert-danger" role="alert">
                                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                                 <?php echo $err;?>
                                             </div>
-                                        <?php } ?>
+                                    <?php } ?>
                                         
                                         <?=form_open_multipart('proses/tambah_anggota')?>
                                             <div class="form-group">
                                                 <label>Nama </label>
-                                                <input required type="text" autocomplete='off' name='nama' class='form-control required'>
+                                                <input required type="text" name='nama' class='form-control required'>
                                             </div>
 
                                             <div class='form-group'>
@@ -129,7 +130,7 @@
                                                         <?php
                                                             foreach ($agama as $a) 
                                                             {
-                                                            echo "<option value='$a[agama]'>$a[agama]</option>";
+                                                            echo "<option value='$a[id_agama]'>$a[agama]</option>";
                                                             }
                                                         ?>
                                                     </select>
@@ -141,9 +142,12 @@
                                  				<div class="styled-select">
                                                     <select class="form-control required" required="" name="jk" id="agama">
                                                         <option value="" selected="">Pilih Jenis Kelamin</option>
-                                                        <option value="laki-laki">Laki-laki</option>
-                                                        <option value="perempuan">Perempuan</option>
-                                                        
+                                                        <?php
+                                                            foreach ($jenkel as $a) 
+                                                            {
+                                                            echo "<option value='$a[id_jk]'>$a[jenis_kelamin]</option>";
+                                                            }
+                                                        ?>
                                                     </select>
 							                    </div>
                                             </div>
@@ -161,7 +165,7 @@
                                                         <?php
                                                             foreach ($univ as $a) 
                                                             {
-                                                            echo "<option value='$a[nama_univ]'>$a[nama_univ]</option>";
+                                                            echo "<option value='$a[id_univ]'>$a[nama_univ]</option>";
                                                             }
                                                         ?>
                                                     </select>
@@ -176,7 +180,7 @@
                                                         <?php
                                                             foreach ($fakultas as $a) 
                                                             {
-                                                            echo "<option value='$a[fakultas]'>$a[fakultas]</option>";
+                                                            echo "<option value='$a[id_fakultas]'>$a[fakultas]</option>";
                                                             }
                                                         ?>
                                                     </select>
@@ -191,7 +195,7 @@
                                                         <?php
                                                             foreach ($prodi as $a) 
                                                             {
-                                                            echo "<option value='$a[prodi]'>$a[prodi]</option>";
+                                                            echo "<option value='$a[id_prodi]'>$a[prodi]</option>";
                                                             }
                                                         ?>
                                                     </select>
@@ -200,27 +204,28 @@
                                             
                                             <div class="form-group">
                                                 <label>NIM</label>
-                                                <input required type="text" autocomplete='off' name='nim' class='form-control required'>
+                                                <input required type="text"  name='nim' class='form-control required'>
                                             </div>
 
                                             <div class='form-group'>
-                                                <label>E-Mail</label>
-                                                <input required type="email" autocomplete='off' name='email' class='form-control required' placeholder="">
+                                                <label>E-mail</label>
+                                                <input required type="email" name='email' class='form-control required' placeholder="">
                                             </div>
 
                                             <div class="form-group">
                                                 <label>No. HP</label>
-                                                <input required type="number" name='no_hp' class='form-control required' autocomplete='off' placeholder="">
+                                                <input required type="number" name='no_hp' class='form-control required'  placeholder="">
                                             </div>
 
                                             <div class="form-group">
                                                 <label>Kata Sandi</label>
-                                                <input required type="password" name='password' class='form-control required' autocomplete='off' placeholder="">
+                                                <input required type="password" name='password' class='form-control required'  placeholder="">
                                             </div>
 
                                             <div class='form-group'>
                                                 <label>Foto</label>
                                                 <input required type="file" class='dropify' data-file-max-size="2M" name='foto'>
+                                                <small>* Ukuran foto maksimal 1 MB</small>
                                             </div>
                                             <button class='btn btn-primary'>
                                                 <span class='btn-label'>

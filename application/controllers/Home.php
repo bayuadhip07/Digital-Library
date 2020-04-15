@@ -65,6 +65,7 @@ class Home extends CI_Controller {
 
 	public function add_anggota()
 	{
+		$data['jenkel'] = $this->umum_model->tampilkan_data_kategori('jenis_kelamin','jenis_kelamin');
 		$data['univ'] = $this->umum_model->tampilkan_data_kategori('universitas','nama_univ');
 		$data['agama'] = $this->umum_model->tampilkan_data_kategori('agama','agama');
 		$data['fakultas'] = $this->umum_model->tampilkan_data_kategori('fakultas','fakultas');

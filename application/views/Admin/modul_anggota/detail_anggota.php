@@ -132,7 +132,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Jenis Kelamin</td>
-                                                <td>: <?php cetak($anggota->jk)?></td>                                                
+                                                <td>: <?php cetak($anggota->jenis_kelamin)?></td>                                                
                                             </tr>
                                             <tr>
                                                 <td>Alamat</td>
@@ -140,7 +140,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Universitas</td>
-                                                <td>:  <?=$anggota->univ?></td>
+                                                <td>:  <?=$anggota->nama_univ?></td>
                                             </tr>
                                             <tr>
                                                 <td>Fakultas</td>
@@ -160,7 +160,7 @@
                                             </tr>
                                             <tr>
                                                 <td>No. HP</td>
-                                                <td>: <?php cetak($anggota->no_hp)?></td>
+                                                <td>: <?php cetak($anggota->phone)?></td>
                                             </tr>
                                             <tr>
                                                 <td>Status</td>
