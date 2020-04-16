@@ -24,12 +24,11 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><span class="badge badge-success badge-pill float-right"></span><i class="zmdi zmdi-folder-outline"></i><span> Master Data </span><span class="menu-arrow"></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="pages-starter.html">Jenjang</a></li>
-                                    <li><a href="pages-login.html">Universitas</a></li>
-                                    <li><a href="pages-register.html">Fakultas</a></li>
-                                    <li><a href="pages-recoverpw.html">Prodi</a></li>
-                                    <li><a href="pages-lock-screen.html">Agama</a></li>
-                                    <li><a href="pages-404.html">Jenis Dokumen</a></li>
+                                    <li><a href="universitas">Universitas</a></li>
+                                    <li><a href="fakultas">Fakultas</a></li>
+                                    <li><a href="prodi">Prodi</a></li>
+                                    <li><a href="agama">Agama</a></li>
+                                    <li><a href="dokumen">Jenis Dokumen</a></li>
                                 </ul>
                             </li>
                         </ul>

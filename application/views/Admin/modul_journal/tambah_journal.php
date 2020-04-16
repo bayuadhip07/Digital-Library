@@ -141,7 +141,7 @@
                                             </div>
                                             <div class='form-group'>
                                                 <label>Abstrak</label>
-                                                <textarea required type="text" autocomplete='off' name='abstrak' class='form-control required' placeholder=""></textarea>
+                                                <input required type="text" autocomplete='off' name='abstrak' class='form-control required' placeholder="">
                                             </div>
 
                                             <div class='form-group'>

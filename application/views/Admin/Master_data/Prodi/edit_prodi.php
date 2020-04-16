@@ -44,7 +44,6 @@
                         </li> -->
                     </ul>
 
-
                 </nav>
 
             </div>
@@ -80,12 +79,12 @@
                         <div class="row">
 							<div class="col-xl-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title float-left">Profil</h4>
+                                    <h4 class="page-title float-left">Edit Data Program Studi</h4>
 
                                     <ol class="breadcrumb float-right">
                                         <li class="breadcrumb-item"><a href="<?=base_url("admin")?>">Beranda</a></li>
-                                        <li class="breadcrumb-item"><a href="<?=base_url("admin/anggota")?>">List Anggota</a></li>
-                                        <li class="breadcrumb-item"><a href="">Profil</a></li>
+                                        <li class="breadcrumb-item"><a href="<?=base_url("admin/prodi")?>">Data Program Studi</a></li>
+                                        <li class="breadcrumb-item"><a href="#">Edit Data</a></li>
                                     </ol>
 
                                     <div class="clearfix"></div>
@@ -95,73 +94,51 @@
                         <!-- end row -->
 
                         <div class='row'>
-                            <div class='col-md-8'>
+                        <div class='col-md-8'>
                                 <div class='card m-b-20'>
                                     <div class='card-body'>
+                                        
                                         <?php 
                                             $msg=$this->session->flashdata('msg');
                                             if(isset($msg)){ ?>
-                                                <div class="alert alert-success" role="alert">
-                                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                            <div class="alert alert-success" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                                 <?php echo $msg;?>
-                                                </div>
+                                            </div>
                                         <?php } ?>
                                         <?php 
                                             $err=$this->session->flashdata('err');
                                             if(isset($err)){ ?>
-                                                <div class="alert alert-danger" role="alert">
-                                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                            <div class="alert alert-danger" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                                 <?php echo $err;?>
-                                                </div>
+                                            </div>
                                         <?php } ?>
+                                        <!-- <?php
+                                                echo json_encode($prodi->prodi);
+                                        ?>                                         -->
+                                        <?=form_open_multipart('proses/update_prodi')?>
+                                            <input type="hidden" name='id_prodi' value="<?=$prodi->id_prodi?>">
 
+                                            <div class="form-group">
+                                                <label>Nama </label>
+                                                <input required type="text" value="<?=$prodi->prodi?>" autocomplete='off' name='nama' class='form-control required'>
+                                            </div>
 
-                                        <table class='table'>
-                                            <br><br>
-                                            <tr>
-                                                <td style='width:20%'>Judul</td>
-                                                <td>: <?php cetak($jurnal->judul)?></td>                                                
-                                            </tr>
-                                            <tr>
-                                                <td>Penulis</td>
-                                                <td>: <?php cetak($jurnal->penulis)?></td>                                                
-                                            </tr>
-                                            <tr>
-                                                <td>Tahun Terbit</td>
-                                                <td>: <?php cetak($jurnal->tahun)?></td>                                                
-                                            </tr>
-                                            <tr>
-                                                <td>Email</td>
-                                                <td>: <?php cetak($jurnal->email)?></td>
-                                            </tr>
-                                            <tr>
-                                                <td>ISSN</td>
-                                                <td>: <?php cetak($jurnal->issn)?></td>
-                                            </tr>
-                                            <tr>
-                                                <td>ISBN</td>
-                                                <td>:  <?=$jurnal->isbn?></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Abstrak</td>
-                                                <td>: <?php cetak($jurnal->abstrak)?></td>
-                                            </tr>
-                                        </div>
-                                        </table>
-                                        <a href="<?php echo site_url('upload/dokumen/jurnal/'.$jurnal->pdf_jurnal)?>" class='btn btn-block btn-info'>Download PDF</a>
+                                            <button class='btn btn-primary'>
+                                                <span class='btn-label'>
+                                                    <i class='fa fa-plus'></i>
+                                                </span>Simpan
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
-                            </div>               
-
-
+                            </div>
                             <div class='col-md-4'>
                                 <div class='card mb-20'>
                                     <div class='card-body'>
-                                        <!-- <a href="<?php echo site_url('admin/edit_jurnal/')?>" class='btn btn-block btn-info'>Edit Data</a>
-                                        <a href="<?php echo site_url('admin/hapus_jurnal')?>" class='btn btn-block btn-danger'>Hapus Data</a> -->
-                                        <br>
                                         <h5 class='card-title'>Informasi</h5>
-                                        <p>Pada halaman ini anda dapat melihat deskripsi jurnal</p>                                                                                
+                                        <p>Pada halaman ini anda dapat mengubah data program studi </p>                                                                                
                                     </div>
                                 </div>
                             </div>

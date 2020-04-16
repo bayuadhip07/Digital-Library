@@ -44,7 +44,6 @@
                         </li> -->
                     </ul>
 
-
                 </nav>
 
             </div>
@@ -80,12 +79,11 @@
                         <div class="row">
 							<div class="col-xl-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title float-left">Profil</h4>
+                                    <h4 class="page-title float-left">Master Data Program Studi</h4>
 
                                     <ol class="breadcrumb float-right">
                                         <li class="breadcrumb-item"><a href="<?=base_url("admin")?>">Beranda</a></li>
-                                        <li class="breadcrumb-item"><a href="<?=base_url("admin/anggota")?>">List Anggota</a></li>
-                                        <li class="breadcrumb-item"><a href="">Profil</a></li>
+                                        <li class="breadcrumb-item"><a href="#">Master Data Program Studi</a></li>
                                     </ol>
 
                                     <div class="clearfix"></div>
@@ -99,69 +97,62 @@
                                 <div class='card m-b-20'>
                                     <div class='card-body'>
                                         <?php 
-                                            $msg=$this->session->flashdata('msg');
-                                            if(isset($msg)){ ?>
-                                                <div class="alert alert-success" role="alert">
-                                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        $msg=$this->session->flashdata('msg');
+                                        if(isset($msg)){ ?>
+                                            <div class="alert alert-success" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                                 <?php echo $msg;?>
-                                                </div>
+                                            </div>
                                         <?php } ?>
                                         <?php 
-                                            $err=$this->session->flashdata('err');
-                                            if(isset($err)){ ?>
-                                                <div class="alert alert-danger" role="alert">
-                                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        $err=$this->session->flashdata('err');
+                                        if(isset($err)){ ?>
+                                            <div class="alert alert-danger" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                                 <?php echo $err;?>
-                                                </div>
+                                            </div>
                                         <?php } ?>
+                                        <h5 class='card-title'>Data Program Studi</h5>
+                                        <?php $no=1;?>
+                                        <table id='datatable' class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th><center>No</center></th>                                        
+                                                    <th><center>Nama Program Studi</center></th>    
+                                                    <th><center>Tombol</center></th>    
+                                                </tr>
+                                            </thead>                                            
+                                            <tbody>   
 
+                                                <!-- Looping absensi -->
+                                                <?php foreach($prodi as $t):?>                                                
+                                                    <tr>
+                                                        <td><center><?=$no?></center></td>
+                                                        <td><?=$t->prodi?></td>
+                                                        <td>
+                                                            <center>
+                                                                <a href="<?=site_url('admin/edit_prodi/'.$t->id_prodi)?>" class='btn btn-info'>Edit Data</a>
+                                                                <a href="<?=site_url('proses/hapus_prodi/'.$t->id_prodi)?>" class='btn btn-danger hapus'>Hapus</a>
+                                                            </center>
+                                                        </td>
+                                                    </tr>
+                                                    <?php $no++;?>
+                                                <?php endforeach;?>
+                                                <!-- End Looping -->
 
-                                        <table class='table'>
-                                            <br><br>
-                                            <tr>
-                                                <td style='width:20%'>Judul</td>
-                                                <td>: <?php cetak($jurnal->judul)?></td>                                                
-                                            </tr>
-                                            <tr>
-                                                <td>Penulis</td>
-                                                <td>: <?php cetak($jurnal->penulis)?></td>                                                
-                                            </tr>
-                                            <tr>
-                                                <td>Tahun Terbit</td>
-                                                <td>: <?php cetak($jurnal->tahun)?></td>                                                
-                                            </tr>
-                                            <tr>
-                                                <td>Email</td>
-                                                <td>: <?php cetak($jurnal->email)?></td>
-                                            </tr>
-                                            <tr>
-                                                <td>ISSN</td>
-                                                <td>: <?php cetak($jurnal->issn)?></td>
-                                            </tr>
-                                            <tr>
-                                                <td>ISBN</td>
-                                                <td>:  <?=$jurnal->isbn?></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Abstrak</td>
-                                                <td>: <?php cetak($jurnal->abstrak)?></td>
-                                            </tr>
-                                        </div>
+                                            </tbody>
                                         </table>
-                                        <a href="<?php echo site_url('upload/dokumen/jurnal/'.$jurnal->pdf_jurnal)?>" class='btn btn-block btn-info'>Download PDF</a>
                                     </div>
                                 </div>
-                            </div>               
-
+                            </div>
 
                             <div class='col-md-4'>
                                 <div class='card mb-20'>
                                     <div class='card-body'>
-                                        <!-- <a href="<?php echo site_url('admin/edit_jurnal/')?>" class='btn btn-block btn-info'>Edit Data</a>
-                                        <a href="<?php echo site_url('admin/hapus_jurnal')?>" class='btn btn-block btn-danger'>Hapus Data</a> -->
+                                        <a href="<?php echo site_url('admin/tambah_prodi/')?>" class='btn btn-block btn-info'>Tambah Program Studi</a>
                                         <br>
                                         <h5 class='card-title'>Informasi</h5>
-                                        <p>Pada halaman ini anda dapat melihat deskripsi jurnal</p>                                                                                
+                                        <p>Pada halaman ini anda dapat melihat master data program studi pada perpustakaan digital UNSIKA</p>                                                                                
                                     </div>
                                 </div>
                             </div>
@@ -204,5 +195,36 @@
        <?php
             $this->load->view('admin/include/javascript');
        ?>
+
+        <script>
+            $(document).ready(function() {
+                
+                // Default Datatable
+                $('#datatable').DataTable();                
+                //Buttons examples
+                var table = $('#datatable-buttons').DataTable({
+                    lengthChange: false,
+                    buttons: ['copy', 'excel', 'pdf']
+                });
+
+                table.buttons().container()
+                        .appendTo('#datatable-buttons_wrapper .col-md-6:eq(0)');
+                    
+                $(document).on('click', '.hapus', function(e){
+                    var c = confirm("Yakin menghapus data?");
+                    if(c){
+                        return true;
+                        var c=false;
+                        if (!c) {
+                            c=true;
+                            return true;
+                        }
+                    }else{
+                        return false;
+                    }                                        
+                });
+            } );            
+
+        </script>
     </body>
 </html>
