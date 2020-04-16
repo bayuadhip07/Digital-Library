@@ -14,54 +14,7 @@ class Proses extends CI_Controller {
         $this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
     }
-    public function tambah_jurnal()
-    {
-        $post = $this->input->post();
-        $data = [
-            'judul'=>$post['judul'],
-            'penulis'=>$post['penulis'],
-            'tahun'=>$post['tahun'],
-            'email'=>$post['email'],
-            'issn'=>$post['issn'],
-            'isbn'=>$post['isbn'],
-            'abstrak'=>$post['abstrak'],
-        ];
-        $this->jurnal_model->add_jurnal($data);
-        $this->session->set_flashdata('msg','Data Berhasil disimpan');
-        redirect('admin/journal_admin');
-    }
-
-    public function edit_jurnal()
-    {
-        $post = $this->input->post();
-        $jurnal = $this->jurnal_model->get_jurnal_by_id($post['id']);
-        $id = $jurnal->id_jurnal;
-        $data = [                                                    
-            'judul'=>$post['judul'],
-            'penulis'=>$post['penulis'],
-            'tahun'=>$post['tahun'],
-            'email'=>$post['email'],
-            'issn'=>$post['issn'],
-            'isbn'=>$post['isbn'],
-            'abstrak'=>$post['abstrak'],
-        ];
-        $this->jurnal_model->update_jurnal($data);
-        $this->session->set_flashdata('msg','Data berhasil diubah.');
-        redirect('admin/journal_admin');   
-    }   
-
     
-    public function hapus_jurnal($id_jurnal) 
-    {
-        if($this->jurnal_model->cek_jurnal_by_id($id_jurnal)==0) 
-        {
-			redirect('admin/journal_admin');
-        }
-        $this->jurnal_model->deleteJurnal($id_jurnal);
-        $this->session->set_flashdata('msg','Data jurnal berhasil dihapus.');
-        redirect('admin/journal_admin');
-    }
-
     public function add_user()
     {
         $post = $this->input->post();
@@ -117,7 +70,6 @@ class Proses extends CI_Controller {
         }
 
     }
-    
 
     public function tambah_anggota()
     {
@@ -469,5 +421,56 @@ class Proses extends CI_Controller {
         $this->session->set_flashdata('msg','Data jenis dokumen berhasil dihapus.');
         redirect('admin/dokumen');
     }
+    //Bagian Jurnal
+    public function tambah_jurnal()
+    {
+        $post = $this->input->post();
+        $data = [
+            'judul'=>$post['judul'],
+            'penulis'=>$post['penulis'],
+            'tahun'=>$post['tahun'],
+            'email'=>$post['email'],
+            'issn'=>$post['issn'],
+            'isbn'=>$post['isbn'],
+            'abstrak'=>$post['abstrak'],
+        ];
+        $this->jurnal_model->add_jurnal($data);
+        $this->session->set_flashdata('msg','Data Berhasil disimpan');
+        redirect('admin/journal_admin');
+    }
+
+    public function edit_jurnal()
+    {
+        
+        $post = $this->input->post();
+        $jurnal = $this->jurnal_model->get_jurnal_by_id($post['id_jurnal']);
+        $data = [        
+            'id_jurnal'=>$post['id_jurnal'],                                           
+            'judul'=>$post['judul'],
+            'penulis'=>$post['penulis'],
+            'tahun'=>$post['tahun'],
+            'email'=>$post['email'],
+            'issn'=>$post['issn'],
+            'isbn'=>$post['isbn'],
+            'abstrak'=>$post['abstrak'],
+        ];
+        $this->jurnal_model->update_jurnal($data);
+        $this->session->set_flashdata('msg','Data berhasil diubah.');
+        redirect('admin/journal_admin');   
+    }   
+
+    
+    public function hapus_jurnal($id_jurnal) 
+    {
+        if($this->jurnal_model->cek_jurnal_by_id($id_jurnal)==0) 
+        {
+			redirect('admin/journal_admin');
+        }
+        $this->jurnal_model->deleteJurnal($id_jurnal);
+        $this->session->set_flashdata('msg','Data jurnal berhasil dihapus.');
+        redirect('admin/journal_admin');
+    }
+
+    //end Of Bagian Jurnal
 }
 

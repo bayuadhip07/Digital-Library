@@ -144,10 +144,12 @@
                                                 <label>Abstrak</label>
                                                 <input required type="text" value="<?=$jurnal->abstrak?>" autocomplete='off' name='abstrak' class='form-control required' placeholder="">
                                             </div>
-
+                                            <a href="<?php echo site_url('upload/dokumen/jurnal/'.$jurnal->pdf_jurnal)?>" class='btn btn-block btn-info'>Download PDF</a>
+                                            <input type="hidden" name='jurnal_lama' value="<?=$jurnal->pdf_jurnal?>">
                                             <div class='form-group'>
                                                 <label>File PDF</label>
-                                                <input required type="file" value="<?=$jurnal->pdf_jurnal?>" class='dropify' data-file-max-size="2M" name='pdf_jurnal'>
+                                                <input type="file"  class='dropify' data-file-max-size="5M" name='pdf_jurnal' data-default-file='<?=site_url('upload/dokumen/journal/'.$jurnal->pdf_jurnal)?>'>
+                                                <smalltext>*Max 5 MB</smalltext>
                                             </div>
                                             <button class='btn btn-primary'>
                                                 <span class='btn-label'>

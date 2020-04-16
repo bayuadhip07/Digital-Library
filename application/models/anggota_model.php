@@ -60,7 +60,25 @@ class Anggota_model extends CI_Model
         }
     }
 
+    public function cek_anggota_by_nim($nim)
+    {
+        return $this->db->get_where($this->_table,['nim'=>$nim])->num_rows();
+    }
 
+    public function cek_anggota_by_email($email)
+    {
+        return $this->db->get_where($this->_users,['email'=>$email])->num_rows();
+    }
+
+    public function cek_anggota_by_no_hp($no_hp)
+    {
+        return $this->db->get_where($this->_users,['phone'=>$no_hp])->num_rows();
+    }
+
+    public function cek_anggota_by_id($id)
+    {
+        return $this->db->get_where($this->_table,['id_anggota'=>$id])->num_rows();
+    }
 
     public function get_all()
     {

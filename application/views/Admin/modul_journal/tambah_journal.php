@@ -146,7 +146,7 @@
 
                                             <div class='form-group'>
                                                 <label>File PDF</label>
-                                                <input required type="file" class='dropify' data-file-max-size="2M" name='pdf_jurnal'>
+                                                <input required type="file" class='dropify' data-file-max-size="5M" name='pdf_jurnal'>
                                             </div>
                                             <button class='btn btn-primary'>
                                                 <span class='btn-label'>

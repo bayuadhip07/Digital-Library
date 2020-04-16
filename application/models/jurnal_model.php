@@ -21,7 +21,7 @@ class jurnal_model extends CI_Model
         $config['allowed_types']    = 'pdf';        
         $config['file_name']    = $this->judul;
         $config['overwrite']    = true;
-        $config['max_size']     = 2048; //2MB
+        $config['max_size']     = 4096; //5MB
         $this->load->library('upload', $config);
         if ($this->upload->do_upload('pdf_jurnal')) {
             return $this->upload->data('file_name');
@@ -31,16 +31,17 @@ class jurnal_model extends CI_Model
     }
 
     private function _updatePDFJurnal($id) {
+        $post = $this->input->post();
         $config['upload_path']  = './upload/dokumen/jurnal/';
         $config['allowed_types']    = 'pdf'; 
         $jurnal = $this->jurnal_model->get_jurnal_by_id($id);
-        $judul = $jurnal->judul;       
-        $config['file_name']    = $judul;
+        $judul = $jurnal->judul;   
+        $config['file_name']    = $post['judul'];
         $config['overwrite']    = true;
-        $config['max_size']     = 2048; //2MB
+        $config['max_size']     = 4096; //5MB
         $this->load->library('upload', $config);
         if ($this->upload->do_upload('pdf_jurnal')) {
-            // $this->_deleteImage($id);
+            // $this->_deletePDFJurnal($id);
             return $this->upload->data('file_name');
         } else {
             return NULL;

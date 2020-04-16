@@ -23,40 +23,6 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/modul_anggota/anggota', $data);
 	}
 
-	// bagian journal_admin
-	public function journal_admin()
-	{
-		$data['jurnal'] =$this->jurnal_model->getAll();
-		$this->load->view('admin/modul_journal/journal_admin.php', $data);
-	}
-
-	public function edit_journal($id_jurnal)
-	{
-		$data['jurnal'] = $this->jurnal_model->get_jurnal_by_id($id_jurnal);
-		if($this->jurnal_model->cek_jurnal_by_id($id_jurnal)==0)
-		{
-			redirect('admin/modul_journal/journal_admin.php');
-		}
-		$this->load->view('admin/modul_journal/edit_journal.php', $data);
-	}
-
-	public function tambah_journal($id_jurnal)
-	{
-		$this->load->view('admin/modul_journal/tambah_journal.php');
-	}
-
-	public function detail_journal($id_jurnal)
-	{
-		$data['jurnal'] = $this->jurnal_model->get_jurnal_by_id($id_jurnal);
-		if($this->jurnal_model->cek_jurnal_by_id($id_jurnal)==0)
-		{
-			redirect('admin/modul_journal/journal_admin.php');
-		}
-		$this->load->view('admin/modul_journal/detail_journal.php', $data);
-	}
-
-//tutup function journal
-
 	public function tambah_anggota()
 	{
 		$data['jenkel'] = $this->umum_model->tampilkan_data_kategori('jenis_kelamin','jenis_kelamin');
@@ -176,5 +142,39 @@ class Admin extends CI_Controller {
 		$data['dokumen'] = $this->umum_model->get_dokumen_by_id($id);
 		$this->load->view('admin/master_data/dokumen/edit_dokumen', $data);
 	}
+
+	// bagian journal_admin
+	public function journal_admin()
+	{
+		$data['jurnal'] =$this->jurnal_model->getAll();
+		$this->load->view('admin/modul_journal/journal_admin.php', $data);
+	}
+
+	public function edit_journal($id_jurnal)
+	{
+		$data['jurnal'] = $this->jurnal_model->get_jurnal_by_id($id_jurnal);
+		if($this->jurnal_model->cek_jurnal_by_id($id_jurnal)==0)
+		{
+			redirect('admin/modul_journal/journal_admin.php');
+		}
+		$this->load->view('admin/modul_journal/edit_journal.php', $data);
+	}
+
+	public function tambah_journal()
+	{
+		$this->load->view('admin/modul_journal/tambah_journal.php');
+	}
+
+	public function detail_journal($id_jurnal)
+	{
+		$data['jurnal'] = $this->jurnal_model->get_jurnal_by_id($id_jurnal);
+		if($this->jurnal_model->cek_jurnal_by_id($id_jurnal)==0)
+		{
+			redirect('admin/modul_journal/journal_admin.php');
+		}
+		$this->load->view('admin/modul_journal/detail_journal.php', $data);
+	}
+
+//tutup function journal
 
 }
