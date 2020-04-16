@@ -84,7 +84,7 @@
 
                                     <ol class="breadcrumb float-right">
                                         <li class="breadcrumb-item"><a href="<?=base_url("admin")?>">Beranda</a></li>
-                                        <li class="breadcrumb-item"><a href="<?=base_url("admin/anggota")?>">List Jurnal</a></li>
+                                        <li class="breadcrumb-item"><a href="<?=base_url("admin/jurnal")?>">List Jurnal</a></li>
                                         <li class="breadcrumb-item"><a href="#">Tambah Jurnal</a></li>
                                     </ol>
 
@@ -141,12 +141,12 @@
                                             </div>
                                             <div class='form-group'>
                                                 <label>Abstrak</label>
-                                                <textarea required type="email" autocomplete='off' name='email' class='form-control required' placeholder=""></textarea>
+                                                <textarea required type="text" autocomplete='off' name='abstrak' class='form-control required' placeholder=""></textarea>
                                             </div>
 
                                             <div class='form-group'>
                                                 <label>File PDF</label>
-                                                <input required type="file" class='dropify' data-file-max-size="2M" name='foto'>
+                                                <input required type="file" class='dropify' data-file-max-size="2M" name='pdf_jurnal'>
                                             </div>
                                             <button class='btn btn-primary'>
                                                 <span class='btn-label'>
@@ -223,7 +223,7 @@
                     'error': 'Ooops, something wrong appended.'
                 },
                 error: {
-                    'fileSize': 'The file size is too big (1M max).'
+                    'fileSize': 'The file size is too big (2M max).'
                 }
             });
     </script>

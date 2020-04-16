@@ -117,9 +117,9 @@
                                         <table id='datatable' class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                             <thead>
                                                 <tr>
-                                                    <th><center>No</center></th>
-                                                    <th><center>ID Jurnal</center></th>                                        
-                                                    <th><center>Judul Jurnal</center></th>                                      
+                                                    <th><center>No</center></th>                                        
+                                                    <th><center>Judul Jurnal</center></th>
+                                                    <th><center>Tahun Terbit</center></th>                                      
                                                     <th><center>Penulis</center> </th>                                                                                                                                                                                                                              
                                                     <th><center>Action</center></th>    
                                                 </tr>
@@ -127,17 +127,16 @@
                                             <tbody>   
 
                                                 <!-- Looping list jurnal -->
-                                                <?php foreach($anggota as $t):?>                                                
+                                                <?php foreach($jurnal as $t):?>                                                
                                                     <tr>
                                                         <td><center><?=$no?></center></td>
-                                                        <td><a href="<?=site_url('admin/detail_journal/'.$t->id_anggota)?>"><center><?=$t->nim?></center></a></td>
-                                                        <td><center><?=$t->nama?></center></td>
-                                                        <!-- <td><?=$t->no_hp?></td> -->
-                                                        <td><center><?=$t->status?></center></td>
+                                                        <td><a href="<?=site_url('admin/detail_journal/'.$t->id_jurnal)?>"><center><?=$t->judul?></center></a></td>
+                                                        <td><center><?=$t->tahun?></center></td>
+                                                        <td><center><?=$t->penulis?></center></td>
                                                         <td>
                                                             <center>
-                                                                <a href="<?=site_url('admin/edit_journal/'.$t->id_anggota)?>" class='btn btn-info'>Edit</a>
-                                                                <a href="<?=site_url('admin/hapus_journal/'.$t->id_anggota)?>" class='btn btn-danger'>Hapus</a>
+                                                                <a href="<?=site_url('admin/edit_journal/'.$t->id_jurnal)?>" class='btn btn-info'>Edit</a>
+                                                                <a href="<?=site_url('proses/hapus_jurnal/'.$t->id_jurnal)?>" class='btn btn-danger'>Hapus</a>
                                                             </center>
                                                         </td>
                                                     </tr>

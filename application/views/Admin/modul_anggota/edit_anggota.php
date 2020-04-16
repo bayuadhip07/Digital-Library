@@ -116,7 +116,7 @@
                                             </div>
                                         <?php } ?>
                                         <!-- <?php
-                                                echo json_encode($anggota->password);
+                                                echo json_encode($anggota->jk);
                                         ?>                                         -->
                                         <?=form_open_multipart('proses/update_anggota')?>
                                             <input type="hidden" name='id' value="<?=$anggota->id_anggota?>">
@@ -130,13 +130,14 @@
                                                 <label>Agama</label>
                                  				<div class="styled-select">
                                                     <select class="form-control required" required="" name="agama" id="agama">
-                                                        <option value="" selected="">Pilih Agama</option>
-                                                        <?php
-                                                            foreach ($agama as $a) 
-                                                            {
-                                                            echo "<option value='$a[agama]'>$a[agama]</option>";
-                                                            }
-                                                        ?>
+                                                        <option value="">Pilih Agama</option>
+                                                            <?php foreach($agama as $t):?>
+                                                                <option value="<?=$t->id_agama?>"
+                                                                    <?php if($t->agama == $anggota->agama):?>
+                                                                        selected
+                                                                    <?php endif;?>
+                                                                ><?=$t->agama?></option>
+                                                            <?php endforeach;?>
                                                     </select>
 							                    </div>
                                             </div>
@@ -145,10 +146,14 @@
                                                 <label>Jenis Kelamin</label>
                                  				<div class="styled-select">
                                                     <select class="form-control required" required="" name="jk" id="agama">
-                                                        <option value="" selected="">Pilih Jenis Kelamin</option>
-                                                        <option value="laki-laki">Laki-laki</option>
-                                                        <option value="perempuan">Perempuan</option>
-                                                        
+                                                        <option value="" >Pilih Jenis Kelamin</option>
+                                                            <?php foreach($jenkel as $t):?>
+                                                                    <option value="<?=$t->id_jk?>"
+                                                                        <?php if($t->id_jk == $anggota->jk):?>
+                                                                            selected
+                                                                        <?php endif;?>
+                                                                    ><?=$t->jenis_kelamin?></option>
+                                                                <?php endforeach;?>
                                                     </select>
 							                    </div>
                                             </div>
@@ -162,13 +167,14 @@
                                                 <label>Universitas</label>
                                  				<div class="styled-select">
                                                     <select class="form-control required" required="" name="univ" id="univ">
-                                                        <option value="" selected="">Pilih Universitas</option>
-                                                        <?php
-                                                            foreach ($univ as $a) 
-                                                            {
-                                                            echo "<option value='$a[nama_univ]'>$a[nama_univ]</option>";
-                                                            }
-                                                        ?>
+                                                        <option value="">Pilih Universitas</option>
+                                                        <?php foreach($univ as $t):?>
+                                                                <option value="<?=$t->id_univ?>"
+                                                                    <?php if($t->id_univ == $anggota->univ):?>
+                                                                        selected
+                                                                    <?php endif;?>
+                                                                ><?=$t->nama_univ?></option>
+                                                            <?php endforeach;?>
                                                     </select>
 							                    </div>
                                             </div>
@@ -177,13 +183,14 @@
                                                 <label>Fakultas</label>
                                  				<div class="styled-select">
                                                     <select class="form-control required" required="" name="fakultas" id="fakultas">
-                                                        <option value="" selected="">Pilih Fakultas</option>
-                                                        <?php
-                                                            foreach ($fakultas as $a) 
-                                                            {
-                                                            echo "<option value='$a[fakultas]'>$a[fakultas]</option>";
-                                                            }
-                                                        ?>
+                                                        <option value="" >Pilih Fakultas</option>
+                                                            <?php foreach($fakultas as $t):?>
+                                                                    <option value="<?=$t->id_fakultas?>"
+                                                                        <?php if($t->fakultas == $anggota->fakultas):?>
+                                                                            selected
+                                                                        <?php endif;?>
+                                                                    ><?=$t->fakultas?></option>
+                                                            <?php endforeach;?>
                                                     </select>
 							                    </div>
                                             </div>
@@ -192,13 +199,14 @@
                                                 <label>Program Studi</label>
                                  				<div class="styled-select">
                                                     <select class="form-control required" required="" name="prodi" id="prodi">
-                                                        <option value="" selected="">Pilih Program Studi</option>
-                                                        <?php
-                                                            foreach ($prodi as $a) 
-                                                            {
-                                                            echo "<option value='$a[prodi]'>$a[prodi]</option>";
-                                                            }
-                                                        ?>
+                                                        <option value="">Pilih Program Studi</option>
+                                                            <?php foreach($prodi as $t):?>
+                                                                    <option value="<?=$t->id_prodi?>"
+                                                                        <?php if($t->prodi == $anggota->prodi):?>
+                                                                            selected
+                                                                        <?php endif;?>
+                                                                    ><?=$t->prodi?></option>
+                                                            <?php endforeach;?>
                                                     </select>
 							                    </div>
                                             </div>
@@ -215,10 +223,20 @@
 
                                             <div class="form-group">
                                                 <label>No. HP</label>
-                                                <input required type="number" value="<?=$anggota->no_hp?>" name='no_hp' class='form-control required' autocomplete='off' placeholder="">
+                                                <input required type="number" value="<?=$anggota->phone?>" name='no_hp' class='form-control required' autocomplete='off' placeholder="">
                                             </div>
                                             <!-- <input type="hidden" name='password_lama' value="<?=$anggota->password?>"> -->
                                 
+                                            <div class="form-group">
+                                                <label>Status</label>
+                                                <div class="styled-select">
+                                                    <select class="form-control required" required="" name="status" >
+                                                        <option value="Aktif">Aktif</option>
+                                                        <option value="Tidak Aktif">Tidak Aktif</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
                                             <div class="form-group">
                                                 <label>Kata Sandi</label>
                                                 <input type="password" value="<?=$anggota->password?>" name='password' class='form-control required' autocomplete='off' placeholder="">
@@ -228,6 +246,7 @@
                                             <div class='form-group'>
                                                 <label>Foto</label>
                                                 <input type="file" class='dropify' data-file-max-size="2M" name='foto' data-default-file='<?=site_url('upload/foto/'.$anggota->foto)?>'>
+                                                <small>* Ukuran foto maksimal 1 MB</small>
                                             </div>
                                             <button class='btn btn-primary'>
                                                 <span class='btn-label'>

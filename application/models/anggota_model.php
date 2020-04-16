@@ -3,6 +3,7 @@
 class Anggota_model extends CI_Model
 {
     private $_table = "anggota";
+    private $_users = "users";
     public $id_anggota;
     public $nama;
     public $nim;
@@ -12,18 +13,12 @@ class Anggota_model extends CI_Model
     public $fakultas;
     public $prodi;
     public $alamat;
-    public $email;
-    public $no_hp;
+    // public $email;
+    // public $no_hp;
     public $id_user;
     public $foto;
     public $status;
 
-    public function get_all()
-    {
-        $this->db->select('t.*, u.email');
-        $this->db->join('users u', 'u.id = t.id_user');        
-        return $this->db->get($this->_table." t")->result();
-    }
     
     private function _uploadImage() {
         $config['upload_path']  = './upload/foto/';
@@ -41,13 +36,15 @@ class Anggota_model extends CI_Model
 
     private function _updateImage($id) {
         $config['upload_path']  = './upload/foto/';
-        $config['allowed_types']    = 'jpg|png|jpeg';        
-        $config['file_name']    = $this->nama;
+        $config['allowed_types']    = 'jpg|png|jpeg'; 
+        $anggota = $this->anggota_model->get_anggota_by_id($id);
+        $nama = $anggota->nama;       
+        $config['file_name']    = $nama;
         $config['overwrite']    = true;
         $config['max_size']     = 2048; //2MB
         $this->load->library('upload', $config);
         if ($this->upload->do_upload('foto')) {
-            $this->_deleteImage($id);
+            // $this->_deleteImage($id);
             return $this->upload->data('file_name');
         } else {
             return NULL;
@@ -63,32 +60,25 @@ class Anggota_model extends CI_Model
         }
     }
 
-    public function cek_anggota_by_nim($nim)
-    {
-        return $this->db->get_where($this->_table,['nim'=>$nim])->num_rows();
-    }
 
-    public function cek_anggota_by_email($email)
-    {
-        return $this->db->get_where($this->_table,['email'=>$email])->num_rows();
-    }
 
-    public function cek_anggota_by_no_hp($no_hp)
+    public function get_all()
     {
-        return $this->db->get_where($this->_table,['no_hp'=>$no_hp])->num_rows();
-    }
-
-    public function cek_anggota_by_id($id)
-    {
-        return $this->db->get_where($this->_table,['id_anggota'=>$id])->num_rows();
+        $this->db->select('t.*, u.email');
+        $this->db->join('users u', 'u.id = t.id_user');        
+        return $this->db->get($this->_table." t")->result();
     }
 
     public function get_anggota_by_id($id)
     {
-        $this->db->select('anggota.*, u.password');
+        $this->db->select('anggota.*, u.password , u.email , u.phone , a.agama , b.nama_univ , c.fakultas , d.prodi , e.jenis_kelamin');
         $this->db->join('users u', 'u.id = anggota.id_user');
-        return $this->db->get_where($this->_table,['id_anggota'=>$id])->row();
-        // return $this->db->get_where($this->_table,['id_anggota'=>'6'])->num_rows();
+        $this->db->join('agama a', 'a.id_agama = anggota.agama');
+        $this->db->join('universitas b', 'b.id_univ = anggota.univ');
+        $this->db->join('fakultas c', 'c.id_fakultas = anggota.fakultas');
+        $this->db->join('prodi d', 'd.id_prodi = anggota.prodi');
+        $this->db->join('jenis_kelamin e', 'e.id_jk = anggota.jk');
+        return $this->db->get_where($this->_table ,['id_anggota'=>$id])->row();
     }
 
     public function add_anggota($data)
@@ -100,9 +90,7 @@ class Anggota_model extends CI_Model
         $this->fakultas = $data['fakultas'];
         $this->prodi    = $data['prodi'];
         $this->nim      = $data['nim'];
-        $this->no_hp    = $data['no_hp'];
         $this->alamat   = $data['alamat'];
-        $this->email    = $data['email'];
         $this->status   = $data['status'];
         $this->id_user  = $data['id_user'];
         $this->foto     = $this->_uploadImage();
@@ -119,9 +107,8 @@ class Anggota_model extends CI_Model
         $this->db->set('fakultas',$data['fakultas']);
         $this->db->set('prodi',$data['prodi']);
         $this->db->set('nim',$data['nim']);
-        $this->db->set('email',$data['email']);
-        $this->db->set('no_hp',$data['no_hp']);
-        $this->db->set('alamat',$data['alamat']); 
+        $this->db->set('alamat',$data['alamat']);
+        $this->db->set('status',$data['status']); 
         if(empty($_FILES['foto']['name']))
         {
             
@@ -132,5 +119,20 @@ class Anggota_model extends CI_Model
         }
         $this->db->where('id_anggota',$data['id_anggota']);
         $this->db->update($this->_table);
+    }
+
+    public function hapus_user($id)
+    {
+        $anggota = $this->anggota_model->get_anggota_by_id($id);
+        $id_user = $anggota->id_user;
+        $this->db->where('id',$id_user);
+        $this->db->delete($this->_users);
+    }
+    
+    public function hapus_anggota($id) {
+        $this->_deleteImage($id);
+        $this->hapus_user($id);
+        $this->db->where('id_anggota',$id);
+        $this->db->delete($this->_table);
     }
 }

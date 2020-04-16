@@ -51,7 +51,7 @@
                                     <?php
                                         foreach ($agama as $a) 
                                         {
-                                        echo "<option value='$a[agama]'>$a[agama]</option>";
+                                        echo "<option value='$a[id_agama]'>$a[agama]</option>";
                                         }
                                     ?>
 								</select>
@@ -61,8 +61,15 @@
 							<input type="text" name="alamat" required="" class="form-control" placeholder="Alamat">
 						</div>
 						<div class="form-group radio_input">
-							<label><input type="radio" value="laki-laki" checked name="jk" class="icheck">Laki-laki</label>
-							<label><input type="radio" value="perempuan" name="jk" class="icheck">Perempuan</label>
+                          	<select class="form-control required" required="" name="jk" id="agama">
+								<option value="" selected="">Pilih Jenis Kelamin</option>
+								<?php
+									foreach ($jenkel as $a) 
+									{
+										echo "<option value='$a[id_jk]'>$a[jenis_kelamin]</option>";
+									}
+								?>
+                            </select>
 						</div>
 					</div>
 					<!-- /step-->
@@ -75,7 +82,7 @@
                                     <?php
                                         foreach ($univ as $r) 
                                         {
-                                        echo "<option value='$r[nama_univ]'>$r[nama_univ]</option>";
+                                        echo "<option value='$r[id_univ]'>$r[nama_univ]</option>";
                                         }
                                     ?>
 								</select>
@@ -88,7 +95,7 @@
                                     <?php
                                         foreach ($fakultas as $f) 
                                         {
-                                        echo "<option value='$f[fakultas]'>$f[fakultas]</option>";
+                                        echo "<option value='$f[id_fakultas]'>$f[fakultas]</option>";
                                         }
                                     ?>
                                 </select>
@@ -101,7 +108,7 @@
                                     <?php
                                         foreach ($prodi as $p) 
                                         {
-                                        echo "<option value='$p[prodi]'>$p[prodi]</option>";
+                                        echo "<option value='$p[id_prodi]'>$p[prodi]</option>";
                                         }
                                     ?>
 								</select>
@@ -126,6 +133,7 @@
                         </div>
                         <div class='form-group'>
                           <input required type="file" class='dropify' name='foto'>
+						  <small>* Ukuran foto maksimal 1 MB</small>
                         </div>
 					</div>
 					<!-- /step-->

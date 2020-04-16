@@ -9,12 +9,59 @@ class Proses extends CI_Controller {
 		$this->load->database();
 		$this->load->library(['ion_auth', 'form_validation']);
 		$this->load->helper(['url', 'language']);
-        $this->load->model(['anggota_model']);
+        $this->load->model(['anggota_model','jurnal_model']);
         
         $this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
     }
+    public function tambah_jurnal()
+    {
+        $post = $this->input->post();
+        $data = [
+            'judul'=>$post['judul'],
+            'penulis'=>$post['penulis'],
+            'tahun'=>$post['tahun'],
+            'email'=>$post['email'],
+            'issn'=>$post['issn'],
+            'isbn'=>$post['isbn'],
+            'abstrak'=>$post['abstrak'],
+        ];
+        $this->jurnal_model->add_jurnal($data);
+        $this->session->set_flashdata('msg','Data Berhasil disimpan');
+        redirect('admin/journal_admin');
+    }
+
+    public function edit_jurnal()
+    {
+        $post = $this->input->post();
+        $jurnal = $this->jurnal_model->get_jurnal_by_id($post['id']);
+        $id = $jurnal->id_jurnal;
+        $data = [                                                    
+            'judul'=>$post['judul'],
+            'penulis'=>$post['penulis'],
+            'tahun'=>$post['tahun'],
+            'email'=>$post['email'],
+            'issn'=>$post['issn'],
+            'isbn'=>$post['isbn'],
+            'abstrak'=>$post['abstrak'],
+        ];
+        $this->jurnal_model->update_jurnal($data);
+        $this->session->set_flashdata('msg','Data berhasil diubah.');
+        redirect('admin/journal_admin.php');   
+    }   
+
     
+    public function hapus_jurnal($id_jurnal) 
+    {
+        if($this->jurnal_model->cek_jurnal_by_id($id_jurnal)==0) 
+        {
+			redirect('admin/journal_admin');
+        }
+        $this->jurnal_model->deleteJurnal($id_jurnal);
+        $this->session->set_flashdata('msg','Data jurnal berhasil dihapus.');
+        redirect('admin/journal_admin');
+    }
+
     public function add_user()
     {
         $post = $this->input->post();
@@ -27,8 +74,8 @@ class Proses extends CI_Controller {
                     $username = $post['nim'];
                     $password = $post['password'];
                     $email    = $post['email'];
-                    $no_hp    = $post['no_hp'];
                     $additional_data = array(
+                        'phone'=>$post['no_hp'],
                         'first_name'=>$post['nama'],
                         'last_name'=>''
                     );
@@ -44,8 +91,6 @@ class Proses extends CI_Controller {
                         'fakultas'=>$post['fakultas'],
                         'prodi'=>$post['prodi'],
                         'nim'=>strtolower($post['nim']),
-                        'email'=>$post['email'],
-                        'no_hp'=>$post['no_hp'],
                         'alamat'=>$post['alamat'],
                         'status'=>'Aktif'
                     ];
@@ -86,8 +131,8 @@ class Proses extends CI_Controller {
                     $username = $post['nim'];
                     $password = $post['password'];
                     $email    = $post['email'];
-                    $no_hp    = $post['no_hp'];
                     $additional_data = array(
+                        'phone'=>$post['no_hp'],
                         'first_name'=>$post['nama'],
                         'last_name'=>''
                     );
@@ -103,8 +148,6 @@ class Proses extends CI_Controller {
                         'fakultas'=>$post['fakultas'],
                         'prodi'=>$post['prodi'],
                         'nim'=>strtolower($post['nim']),
-                        'email'=>$post['email'],
-                        'no_hp'=>$post['no_hp'],
                         'alamat'=>$post['alamat'],
                         'status'=>'Aktif'
                     ];
@@ -141,7 +184,7 @@ class Proses extends CI_Controller {
                             'username' => $post['nim'],
                             'password' => $post['password'],
                             'email'    => $post['email'],
-                            'no_hp'    => $post['no_hp'],                                       
+                            'phone'    => $post['no_hp'],                                       
                     ];
             $update = $this->ion_auth->update($id, $data);
                                                     
@@ -155,15 +198,26 @@ class Proses extends CI_Controller {
                             'fakultas'=>$post['fakultas'],
                             'prodi'=>$post['prodi'],
                             'nim'=>strtolower($post['nim']),
-                            'email'=>$post['email'],
-                            'no_hp'=>$post['no_hp'],
                             'alamat'=>$post['alamat'],
-                            'id_anggota'=>$post['id']
+                            'id_anggota'=>$post['id'],
+                            'status'=>$post['status']
                         ];
                 $this->anggota_model->update_anggota($data);
                 $this->session->set_flashdata('msg','Data berhasil diubah.');
                 redirect('admin/anggota');                                            
             }
             
-        }
     }
+
+    public function hapus_anggota($id) 
+    {
+        if($this->anggota_model->cek_anggota_by_id($id)==0) 
+        {
+			redirect('admin/anggota');
+        }
+        $this->anggota_model->hapus_anggota($id);
+        $this->session->set_flashdata('msg','Data anggota berhasil dihapus.');
+        redirect('admin/anggota');
+    }
+}
+

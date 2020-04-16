@@ -138,7 +138,7 @@
                                                         <td>
                                                             <center>
                                                                 <a href="<?=site_url('admin/edit_anggota/'.$t->id_anggota)?>" class='btn btn-info'>Edit</a>
-                                                                <a href="<?=site_url('admin/hapus_anggota/'.$t->id_anggota)?>" class='btn btn-danger'>Hapus</a>
+                                                                <a href="<?=site_url('proses/hapus_anggota/'.$t->id_anggota)?>" class='btn btn-danger hapus'>Hapus</a>
                                                             </center>
                                                         </td>
                                                     </tr>
@@ -202,7 +202,7 @@
             $this->load->view('admin/include/javascript');
        ?>
 
-        <script>
+<script>
             $(document).ready(function() {
                 
                 // Default Datatable
