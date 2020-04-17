@@ -84,7 +84,7 @@
 
                                     <ol class="breadcrumb float-right">
                                         <li class="breadcrumb-item"><a href="<?=base_url("admin")?>">Beranda</a></li>
-                                        <li class="breadcrumb-item"><a href="<?=base_url("admin/jurnal")?>">List Jurnal</a></li>
+                                        <li class="breadcrumb-item"><a href="<?=base_url("admin/journal_admin")?>">List Jurnal</a></li>
                                         <li class="breadcrumb-item"><a href="#">Tambah Jurnal</a></li>
                                     </ol>
 
@@ -133,11 +133,14 @@
                                                 <input required type="email" autocomplete='off' name='email' class='form-control required' placeholder="">
                                             </div>
                                             <div class='form-group'>
-                                                <label>ISSN *diisi "-" jika kosong</label>
+                                                <label>ISSN </label>
                                                 <input type="text" autocomplete='off' name='issn' class='form-control required' placeholder="">
-                                            </div><div class='form-group'>
-                                                <label>ISBN *diisi "-" jika kosong</label>
+                                                * isi "-" jika kosong
+                                            </div>
+                                            <div class='form-group'>
+                                                <label>ISBN </label>
                                                 <input type="text" autocomplete='off' name='isbn' class='form-control required' placeholder="">
+                                                * isi "-" jika kosong
                                             </div>
                                             <div class='form-group'>
                                                 <label>Abstrak</label>

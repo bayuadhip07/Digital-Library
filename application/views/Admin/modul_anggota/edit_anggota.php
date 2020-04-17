@@ -175,6 +175,7 @@
                                                                     <?php endif;?>
                                                                 ><?=$t->nama_univ?></option>
                                                             <?php endforeach;?>
+                                                            <option value="Lainnya">Lainnya</option>
                                                     </select>
 							                    </div>
                                             </div>
@@ -191,6 +192,7 @@
                                                                         <?php endif;?>
                                                                     ><?=$t->fakultas?></option>
                                                             <?php endforeach;?>
+                                                            <option value="Lainnya">Lainnya</option>
                                                     </select>
 							                    </div>
                                             </div>
@@ -207,6 +209,7 @@
                                                                         <?php endif;?>
                                                                     ><?=$t->prodi?></option>
                                                             <?php endforeach;?>
+                                                            <option value="Lainnya">Lainnya</option>
                                                     </select>
 							                    </div>
                                             </div>

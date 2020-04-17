@@ -8,23 +8,9 @@ class Home extends CI_Controller {
 		$this->load->database();
 		$this->load->library(['ion_auth', 'form_validation']);
 		$this->load->helper(['url', 'language']);
-		$this->load->model(['umum_model','anggota_model']);
+		$this->load->model(['umum_model','anggota_model', 'jurnal_model']);
 	}
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
+	
 	public function index()
 	{
 		$this->load->view('index');
@@ -32,31 +18,38 @@ class Home extends CI_Controller {
 
 	public function jurnal()
 	{
-		$this->load->view('journal');
+		$data['jurnal'] = $this->jurnal_model->getAll();
+		$this->load->view('jurnal/jurnal', $data);
 	}
-	
 
-	public function detail_jurnal()
+	public function detail_jurnal($id)
 	{
-		$this->load->view('detail_jurnal');
+		if($this->jurnal_model->cek_jurnal_by_id($id)==0)
+		{
+			redirect('jurnal');
+		}
+		$data['jurnal'] = $this->jurnal_model->get_jurnal_by_id($id);
+		$this->load->view('jurnal/detail_jurnal', $data);
 	}
 
 	public function buku()
 	{
-		$this->load->view('buku');
+		$this->load->view('ebook/buku');
 	}
+
 	public function detail_ebook()
 	{
-		$this->load->view('detail_ebook');
+		$this->load->view('ebook/detail_ebook');
 	}
 
 	public function skripsi()
 	{
-		$this->load->view('skripsi');
+		$this->load->view('skripsi/skripsi');
 	}
+
 	public function detail_skripsi()
 	{
-		$this->load->view('detail_skripsi');
+		$this->load->view('skripsi/detail_skripsi');
 	}
 
 	public function kontak()
@@ -64,8 +57,6 @@ class Home extends CI_Controller {
 		$this->load->view('kontak');
 	}
 	
-
-
 	public function bebas_pustaka()
 	{	
 		$data['jenjang'] = $this->umum_model->tampilkan_data_kategori_desc('jenjang','jenjang');

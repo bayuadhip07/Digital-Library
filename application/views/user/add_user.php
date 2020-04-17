@@ -85,6 +85,7 @@
                                         echo "<option value='$r[id_univ]'>$r[nama_univ]</option>";
                                         }
                                     ?>
+									<option value="Lainnya">Lainnya</option>
 								</select>
 							</div>
                         </div>
@@ -98,6 +99,7 @@
                                         echo "<option value='$f[id_fakultas]'>$f[fakultas]</option>";
                                         }
                                     ?>
+									<option value="Lainnya">Lainnya</option>
                                 </select>
 							</div>
                         </div>
@@ -111,6 +113,7 @@
                                         echo "<option value='$p[id_prodi]'>$p[prodi]</option>";
                                         }
                                     ?>
+									<option value="Lainnya">Lainnya</option>
 								</select>
 							</div>
                         </div>

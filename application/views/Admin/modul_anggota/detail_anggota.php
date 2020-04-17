@@ -175,8 +175,8 @@
                             <div class='col-md-4'>
                                 <div class='card mb-20'>
                                     <div class='card-body'>
-                                        <!-- <a href="<?php echo site_url('admin/edit_anggota/')?>" class='btn btn-block btn-info'>Edit Data</a>
-                                        <a href="<?php echo site_url('admin/hapus_anggota')?>" class='btn btn-block btn-danger'>Hapus Data</a> -->
+                                        <a href="<?php echo site_url('admin/edit_anggota/'.$anggota->id_anggota)?>" class='btn btn-block btn-info'>Edit Data</a>
+                                        <a href="<?php echo site_url('proses/hapus_anggota/'.$anggota->id_anggota)?>" class='btn btn-block btn-danger'>Hapus Data</a>
                                         <br>
                                         <h5 class='card-title'>Informasi</h5>
                                         <p>Pada halaman ini anda dapat melihat profil anggota</p>                                                                                
@@ -222,5 +222,6 @@
        <?php
             $this->load->view('admin/include/javascript');
        ?>
+       
     </body>
 </html>

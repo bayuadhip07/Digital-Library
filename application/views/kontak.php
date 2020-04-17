@@ -52,9 +52,11 @@
 			</div>
 		</div>
 		<!--/contact_info-->
-        <div class="progress">
-								<div class="progress-bar"></div>
-							</div>
+		<div class="bg_color_1">
+			<nav class="secondary_nav sticky_horizontal">
+			</nav>
+		</div>
+
 	</main>
 	<!--/main-->
 	

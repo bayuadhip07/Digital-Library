@@ -80,12 +80,12 @@
                         <div class="row">
 							<div class="col-xl-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title float-left">Profil</h4>
+                                    <h4 class="page-title float-left">Detail Jurnal</h4>
 
                                     <ol class="breadcrumb float-right">
                                         <li class="breadcrumb-item"><a href="<?=base_url("admin")?>">Beranda</a></li>
-                                        <li class="breadcrumb-item"><a href="<?=base_url("admin/anggota")?>">List Anggota</a></li>
-                                        <li class="breadcrumb-item"><a href="">Profil</a></li>
+                                        <li class="breadcrumb-item"><a href="<?=base_url("admin/journal_admin")?>">List Jurnal</a></li>
+                                        <li class="breadcrumb-item"><a href="">Detail Jurnal</a></li>
                                     </ol>
 
                                     <div class="clearfix"></div>

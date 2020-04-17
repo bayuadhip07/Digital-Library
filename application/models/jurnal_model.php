@@ -15,6 +15,8 @@ class jurnal_model extends CI_Model
     public $issn;
     public $isbn;
     public $pdf_jurnal;
+
+    
     
     private function _uploadJurnal() {
         $config['upload_path']  = './upload/dokumen/jurnal/';

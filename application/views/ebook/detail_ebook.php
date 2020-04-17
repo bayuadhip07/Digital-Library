@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -26,7 +26,7 @@
 		<section id="hero_in" class="courses">
 			<div class="wrapper">
 				<div class="container">
-					<h1 class="fadeInUp"><span></span>Deskripsi Skripsi</h1>
+					<h1 class="fadeInUp"><span></span>Deskripsi Ebook</h1>
 				</div>
 			</div>
 		</section>

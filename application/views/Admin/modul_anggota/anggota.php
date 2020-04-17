@@ -202,7 +202,7 @@
             $this->load->view('admin/include/javascript');
        ?>
 
-<script>
+        <script>
             $(document).ready(function() {
                 
                 // Default Datatable
