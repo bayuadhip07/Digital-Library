@@ -13,6 +13,7 @@
 	<div id="preloader">
 		<div data-loader="circle-side"></div>
 	</div>
+	<!-- End Preload -->
 	
 	<header class="header fadeInDown">
 		<?php
@@ -30,7 +31,7 @@
 		<section id="hero_in" class="cart_section">
 			<div class="wrapper">
 				<div class="container">
-					<h1 class="fadeInUp"><span></span>List E - Book</h1>
+					<h1 class="fadeInUp"><span></span>File Lainnya</h1>
 				</div>
 			</div>
 		</section>
@@ -58,26 +59,21 @@
 		<div class="container margin_60_35">
 			<div class="box_list wow">
 				<div class="row no-gutters">
-					<div class="col-lg-5">
-						<figure class="block-reveal">
-							<div class="block-horizzontal"></div>
-							<a href="course-detail.html"><img src="http://via.placeholder.com/800x533/ccc/fff/course__list_1.jpg" class="img-fluid" alt=""></a>
-							<div class="preview"><span>Preview course</span></div>
-						</figure>
-					</div>
-					<div class="col-lg-7">
+					<div class="col-lg-12">
 						<div class="wrapper">
-							<h2><strong>Judul</strong></h2>
-							<small>Category</small>
+							<h2>Judul</h2>
+							<small>Fakultas</small>
+							<h3>Penulis</h3>
 							<p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Usu decore percipitur definitiones ex, nihil utinam recusabo mel no. </p>
 						</div>
 						<ul>
-							<li><a href="detail_ebook">Lihat Selengkapnya</a></li>
+							<li><a href="detail_lainnya">Baca Selengkapnya</a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
 			<!-- /box_list -->
+			
 			<div class="box_list wow">
 				<div class="row no-gutters">
 					<div class="col-lg-5">

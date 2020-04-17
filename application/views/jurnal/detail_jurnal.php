@@ -29,6 +29,11 @@
 		</div><!-- End Search Menu -->
 	</header>
 	<!-- /header -->
+	<div id="main_menu">
+        <?php
+            $this->load->view('include/dashboard');
+        ?>
+	</div>
 	
 	<main>
 		<section id="hero_in" class="cart_section">

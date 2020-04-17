@@ -52,6 +52,16 @@ class Home extends CI_Controller {
 		$this->load->view('skripsi/detail_skripsi');
 	}
 
+	public function lainnya()
+	{
+		$this->load->view('lainnya/lainnya');
+	}
+
+	public function detail_lainnya()
+	{
+		$this->load->view('lainnya/detail_lainnya');
+	}
+
 	public function kontak()
 	{
 		$this->load->view('kontak');

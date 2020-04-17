@@ -9,12 +9,7 @@
 
 <body>
 	
-	<!-- <div id="preloader">
-		<div data-loader="circle-side"></div>
-	</div> -->
-	<!-- End Preload -->
-	
-	<header class="header fadeInDown">
+	<header class="header menu_2">
         <?php
             $this->load->view('include/header');
         ?>
@@ -52,7 +47,7 @@
 			<li>
 				<a href="<?=base_url('home/buku')?>" class="img_container">
 					<div class="short_info">
-						<h3><strong>E-Book</strong></h3>
+						<h3><strong>E - Book</strong></h3>
 						<div><span class="btn_1 rounded">Lihat Selengkapnya</span></div>
 					</div>
 				</a>

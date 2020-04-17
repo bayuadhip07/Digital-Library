@@ -2,98 +2,157 @@
 <html lang="en">
 
 <head>
-	<?php
-		$this->load->view('include/head');
-	?>
-
+		<?php
+			$this->load->view('include/head');
+		?>
 </head>
 
 <body>
 	
-	<!-- <div id="preloader">
-		<div data-loader="circle-side"></div>
-	</div> -->
-	<!-- End Preload -->
-	
-	<header class="header fadeInDown">
+	<div id="page" class="theia-exception">
+		
+	<header class="header menu_2">
+		<div id="preloader"><div data-loader="circle-side"></div></div><!-- /Preload -->
+
 		<?php
-			$this->load->view('include/header');
+		$this->load->view('include/header');
 		?>
+		<!-- /top_menu -->
+		<!-- Search Menu -->
+		<div class="search-overlay-menu">
+			<span class="search-overlay-close"><span class="closebt"><i class="ti-close"></i></span></span>
+			<form role="search" id="searchform" method="get">
+				<input value="" name="q" type="search" placeholder="Search..." />
+				<button type="submit"><i class="icon_search"></i>
+				</button>
+			</form>
+		</div><!-- End Search Menu -->
 	</header>
 	<!-- /header -->
+	<div id="main_menu">
+        <?php
+            $this->load->view('include/dashboard');
+        ?>
+	</div>
 	
 	<main>
-		<section id="hero_in" class="courses">
+		<section id="hero_in" class="cart_section">
 			<div class="wrapper">
 				<div class="container">
-					<h1 class="fadeInUp"><span></span>Deskripsi Skripsi</h1>
+					<h1 class="fadeInUp"><span></span>Detail Skripsi</h1>
 				</div>
 			</div>
 		</section>
 		<!--/hero_in-->
-			<!-- /container -->
-		<!-- /filters -->
 
 		<div class="bg_color_1">
 			<nav class="secondary_nav sticky_horizontal">
 				<div class="container">
 					<ul class="clearfix">
-						<li><a href="#description" class="active">Description</a></li>
-
+						<li><a href="#data_jurnal">Data Skripsi</a></li>
+						<li><a href="#abstract">Abstrak</a></li>
+						<li><a href="#download">Unduh File</a></li>
 					</ul>
 				</div>
 			</nav>
 			<div class="container margin_60_35">
 				<div class="row">
-					<div class="col-lg-8">
+					<div class="col-lg-12">
 						
-						<section id="description">
-							<h2>Description</h2>
-							<p>Per consequat adolescens ex, cu nibh commune temporibus vim, ad sumo viris eloquentiam sed. Mea appareat omittantur eloquentiam ad, nam ei quas oportere democritum. Prima causae admodum id est, ei timeam inimicus sed. Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
-							<h5>What will you learn</h5>
-							<ul class="list_ok">
-								<li>
-									<h6>Suas summo id sed erat erant oporteat</h6>
-									<p>Ut unum diceret eos, mel cu velit principes, ut quo inani dolorem mediocritatem. Mea in justo posidonium necessitatibus.</p>
-								</li>
-								<li>
-									<h6>Illud singulis indoctum ad sed</h6>
-									<p>Ut unum diceret eos, mel cu velit principes, ut quo inani dolorem mediocritatem. Mea in justo posidonium necessitatibus.</p>
-								</li>
-								<li>
-									<h6>Alterum bonorum mentitum an mel</h6>
-									<p>Ut unum diceret eos, mel cu velit principes, ut quo inani dolorem mediocritatem. Mea in justo posidonium necessitatibus.</p>
-								</li>
-							</ul>
-							<hr>
-								</div>
-							</div>
-							<!-- /row -->
+						<section id="data_jurnal">
+							<h2>Data Skripsi</h2>
+							<table border='0'>
+								<tr>
+									<td width='5%' ><h5></h5></td>
+									<td width='5%' ><h5>1.</h5></td>
+									<td width='15%' ><h5>Judul</h5></td>
+									<td width='5%' ><h5>:</h5></td>
+									<td><h5><?php cetak($jurnal->judul)?></h5></td>
+								</tr>
+								<tr>
+									<td ><h5></h5></td>
+									<td ><h5>3.</h5></td>
+									<td ><h5>Email</h5></td>
+									<td ><h5>:</h5></td>
+									<td><h5><?php cetak($jurnal->email)?></h5></td>
+								</tr>
+								<tr>
+									<td ><h5></h5></td>
+									<td ><h5>4.</h5></td>
+									<td ><h5>Tahun</h5></td>
+									<td ><h5>:</h5></td>
+									<td><h5><?php cetak($jurnal->tahun)?></h5></td>
+								</tr>
+								<tr>
+									<td ><h5></h5></td>
+									<td ><h5>5.</h5></td>
+									<td ><h5>ISSN</h5></td>
+									<td ><h5>:</h5></td>
+									<td><h5><?php cetak($jurnal->issn)?></h5></td>
+								</tr>
+								<tr>
+									<td ><h5></h5></td>
+									<td ><h5>6.</h5></td>
+									<td ><h5>ISBN</h5></td>
+									<td ><h5>:</h5></td>
+									<td><h5><?php cetak($jurnal->isbn)?></h5></td>
+								</tr>
+							</table><br><br>
 						</section>
 						<!-- /section -->
-						<aside class="col-lg-4" id="sidebar">
-						<div class="box_detail">
-							<a href="cart-1.html" class="btn_1 full-width">Download PDF</a>
-						</div>
-					</aside>
 						
-	<!--/footer-->
+						<section id="abstract">
+							<div class="intro_title">
+								<h2>Abstrak</h2>
+								<table border='0'>
+									<tr>
+										<td width='5%' ><h5></h5></td>
+										<td ><h5><?php cetak($jurnal->abstrak)?></h5></td>
+									</tr>
+								</table><br>,<br>
+							</div>
+							
+						</section>
+						<!-- /section -->
+						
+						<section id="download">
+							<h2>Unduh File</h2>
+							<div class="reviews-container">
+								<div class="row">
+									<div class="col-lg-12">
+										<div id="review_summary">
+										<a href="<?php echo site_url('upload/dokumen/jurnal/'.$jurnal->pdf_jurnal)?>"><h4><?php cetak($jurnal->judul)?></h4></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<hr>
+						</section>
+						<!-- /section -->
+					</div>
+					<!-- /col -->					
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /bg_color_1 -->
+	</main>
+	<!--/main-->
 	
-	<!-- Search Menu -->
-	<div class="search-overlay-menu">
-		<span class="search-overlay-close"><span class="closebt"><i class="ti-close"></i></span></span>
-		<form role="search" id="searchform" method="get">
-			<input value="" name="q" type="search" placeholder="Search..." />
-			<button type="submit"><i class="icon_search"></i>
-			</button>
-		</form>
-	</div><!-- / Search Menu -->
+	<footer>
+		<?php
+			$this->load->view('include/footer');
+		?>
+	</footer>
+	<!--/footer-->
+	</div>
+	<!-- page -->
 	
 	<!-- COMMON SCRIPTS -->
-    <script src="js/jquery-2.2.4.min.js"></script>
-    <script src="js/common_scripts.js"></script>
-    <script src="js/main.js"></script>
-	<script src="assets/validate.js"></script>
+	<?php
+		$this->load->view('include/javascript');
+	?>
 	
   
 </body>

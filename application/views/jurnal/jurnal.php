@@ -10,9 +10,9 @@
 
 <body>
 	
-	<!-- <div id="preloader">
+	<div id="preloader">
 		<div data-loader="circle-side"></div>
-	</div> -->
+	</div>
 	<!-- End Preload -->
 	
 	<header class="header fadeInDown">
@@ -21,6 +21,11 @@
 		?>
 	</header>
 	<!-- /header -->
+	<div id="main_menu">
+        <?php
+            $this->load->view('include/dashboard');
+        ?>
+	</div>
 	
 	<main>
 		<section id="hero_in" class="cart_section">

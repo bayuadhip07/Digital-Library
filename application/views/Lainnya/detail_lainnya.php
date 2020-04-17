@@ -39,7 +39,7 @@
 		<section id="hero_in" class="cart_section">
 			<div class="wrapper">
 				<div class="container">
-					<h1 class="fadeInUp"><span></span>Detail E-Book</h1>
+					<h1 class="fadeInUp"><span></span>Detail Lainnya</h1>
 				</div>
 			</div>
 		</section>
@@ -49,7 +49,7 @@
 			<nav class="secondary_nav sticky_horizontal">
 				<div class="container">
 					<ul class="clearfix">
-						<li><a href="#data_jurnal">Data E-Book</a></li>
+						<li><a href="#data_jurnal">Data File Lainnya</a></li>
 						<li><a href="#abstract">Abstrak</a></li>
 						<li><a href="#download">Unduh File</a></li>
 					</ul>
@@ -60,7 +60,7 @@
 					<div class="col-lg-12">
 						
 						<section id="data_jurnal">
-							<h2>Data E-Book</h2>
+							<h2>Data File Lainnya</h2>
 							<table border='0'>
 								<tr>
 									<td width='5%' ><h5></h5></td>
