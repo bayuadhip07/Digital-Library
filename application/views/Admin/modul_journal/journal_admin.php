@@ -14,39 +14,9 @@
         <div id="wrapper">
 
             <!-- Top Bar Start -->
-            <div class="topbar">
-
-                <!-- LOGO -->
-                <div class="topbar-left">
-                    <a href="<?=base_url("admin")?>" class="logo">
-                        <img src="<?=base_url("assets/img/logo.png")?>" width="50" height="50" data-retina="true" alt="">
-                    </a>
-                </div>
-                <nav class="navbar-custom">
-
-                    <ul class="list-inline float-right mb-0">
-                        <?php
-                            $this->load->view('admin/include/akun');
-                        ?>
-                    </ul>
-
-                    <ul class="list-inline menu-left mb-0">
-                        <li class="float-left">
-                            <button class="button-menu-mobile open-left waves-light waves-effect">
-                                <i class="zmdi zmdi-menu"></i>
-                            </button>
-                        </li>
-                        <!-- <li class="hidden-mobile app-search">
-                            <form role="search" class="">
-                                <input type="text" placeholder="Search..." class="form-control">
-                                <a href=""><i class="fa fa-search"></i></a>
-                            </form>
-                        </li> -->
-                    </ul>
-
-                </nav>
-
-            </div>
+                <?php
+                    $this->load->view('admin/include/akun');
+                ?>
             <!-- Top Bar End -->
 
 
@@ -117,11 +87,11 @@
                                         <table id='datatable' class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                             <thead>
                                                 <tr>
-                                                    <th><center>No</center></th>                                        
-                                                    <th><center>Judul Jurnal</center></th>
-                                                    <th><center>Tahun Terbit</center></th>                                      
-                                                    <th><center>Penulis</center> </th>                                                                                                                                                                                                                              
-                                                    <th><center>Action</center></th>    
+                                                    <th><center>No</center></th>    
+                                                    <th width='20%'><center>Penulis</center> </th>                
+                                                    <th><center>Tahun Terbit</center></th>                  
+                                                    <th width='50%'><center>Judul Jurnal</center></th>                                                                                                                                                                                                                                                        
+                                                    <th><center>Action</center></th>                  
                                                 </tr>
                                             </thead>                                            
                                             <tbody>   
@@ -130,9 +100,9 @@
                                                 <?php foreach($jurnal as $t):?>                                                
                                                     <tr>
                                                         <td><center><?=$no?></center></td>
-                                                        <td><a href="<?=site_url('admin/detail_journal/'.$t->id_jurnal)?>"><center><?=$t->judul?></center></a></td>
+                                                        <td><?=$t->penulis?></td>
                                                         <td><center><?=$t->tahun?></center></td>
-                                                        <td><center><?=$t->penulis?></center></td>
+                                                        <td width='50%'><a href="<?=site_url('admin/detail_journal/'.$t->id_jurnal)?>"><center><?=$t->judul?></center></a></td>
                                                         <td>
                                                             <center>
                                                                 <a href="<?=site_url('admin/edit_journal/'.$t->id_jurnal)?>" class='btn btn-info'>Edit</a>

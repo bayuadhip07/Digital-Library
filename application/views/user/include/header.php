@@ -1,94 +1,79 @@
-<!doctype html>
-<html lang="en">
+<?php
+	$id = $this->ion_auth->user()->row()->id;
+ 	$anggota = $this->anggota_model->get_anggota_by_id_user($id);
+    $univ = $this->umum_model->get_univ();
+    $agama = $this->umum_model->get_agama();
+	$fakultas = $this->umum_model->get_fakultas();
+	$prodi = $this->umum_model->get_prodi();
+	$jenkel = $this->umum_model->get_jenkel();
+	 // echo json_encode($anggota);
+?>
 
-    <head>
-        <?php
-            $this->load->view('admin/include/head');
-        ?>
-        <link href="<?=base_url('assets/dropify.min.css') ?>" rel="stylesheet" type="text/css" />
-    </head>
+<div id="logo">
+	<a href="<?=base_url('user')?>"><img src="<?=base_url("assets/img/logo.png")?>" width="40" height="40" data-retina="true" alt=""></a>
+</div>
+				
+		<ul id="top_menu">			
+            <!-- <li><a href="#0" class="search-overlay-menu-btn">Search</a></li> -->
+			<li class="btn_1 rounded"><a href="<?=base_url('user')?>" >Home</a></li>
+			<div class="hamburger hamburger--spin" >
+						<font color='white'><strong>DOKUMEN</strong></font>
+			</div>
+			<li></li>
+            <li><a href="<?=base_url('home/kontak')?>" >Kontak</a></li>
+			<li class="hidden_tablet"><a href="<?=base_url('user/bebas_pustaka')?>">Bebas Pustaka</a></li>
+			<li>
+				<!-- <div class="hamburger hamburger--spin">
+					<div class="hamburger-box">
+						<div class="hamburger-inner"></div>
+					</div>
+				</div> -->
+			</li>
+		</ul>
+	<div>
+		<ul class="list-inline float-right mb-0">
 
-
-    <body class="fixed-left">
-
-        <!-- Begin page -->
-        <div id="wrapper">
-
-            <!-- Top Bar Start -->
-                <?php
-                    $this->load->view('admin/include/akun');
-                ?>
-            <!-- Top Bar End -->
-
-
-            <!-- ========== Left Sidebar Start ========== -->
-            <div class="left side-menu">
-                <div class="sidebar-inner slimscrollleft">
-
-                    <!--- Sidemenu -->
-                    <div id="sidebar-menu">
-                        <?php
-                            $this->load->view('admin/include/sidebar');
-                        ?>
-                    </div>
-                    <!-- Sidebar -->
-                    <div class="clearfix"></div>
-
-                </div>
-
-            </div>
-            <!-- Left Sidebar End -->
-
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
-            <div class="content-page">
-                <!-- Start content -->
-                <div class="content">
-                    <div class="container-fluid">
-
-                        <div class="row">
-							<div class="col-xl-12">
-								<div class="page-title-box">
-                                    <h4 class="page-title float-left">Edit Anggota</h4>
-
-                                    <ol class="breadcrumb float-right">
-                                        <li class="breadcrumb-item"><a href="<?=base_url("admin")?>">Beranda</a></li>
-                                        <li class="breadcrumb-item"><a href="<?=base_url("admin/anggota")?>">List Anggota</a></li>
-                                        <li class="breadcrumb-item"><a href="#">Edit Anggota</a></li>
-                                    </ol>
-
-                                    <div class="clearfix"></div>
-                                </div>
-							</div>
+				<li class="list-inline-item dropdown notification-list">
+					<a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+					aria-haspopup="false" aria-expanded="false">
+						<img src="<?=site_url('upload/foto/'.$anggota->foto)?>" width="30" height="30" alt="user" class="rounded-circle">
+					</a>
+					<div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
+						<!-- item-->
+						<div class="dropdown-item noti-title">
+							<h5 class="text-overflow"><small><strong><?=$this->ion_auth->user()->row()->first_name?></strong></small> </h5>
 						</div>
-                        <!-- end row -->
 
-                        <div class='row'>
-                        <div class='col-md-8'>
-                                <div class='card m-b-20'>
-                                    <div class='card-body'>
-                                        
-                                        <?php 
-                                            $msg=$this->session->flashdata('msg');
-                                            if(isset($msg)){ ?>
-                                            <div class="alert alert-success" role="alert">
-                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                                <?php echo $msg;?>
-                                            </div>
-                                        <?php } ?>
-                                        <?php 
-                                            $err=$this->session->flashdata('err');
-                                            if(isset($err)){ ?>
-                                            <div class="alert alert-danger" role="alert">
-                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                                <?php echo $err;?>
-                                            </div>
-                                        <?php } ?>
-                                        <!-- <?php
-                                                echo json_encode($anggota->id_anggota);
-                                        ?>                                         -->
-                                        <?=form_open_multipart('proses/update_anggota')?>
+						<!-- item-->
+						<a href="#" class="dropdown-item notify-item" data-toggle="modal" data-target="#myModal">
+							<i class="zmdi zmdi-setting"></i> <span>Ubah Profil</span>
+						</a>
+
+						<!-- item-->
+						<a href="<?= site_url('auth/logout/')?>" class="dropdown-item notify-item">
+							<i class="zmdi zmdi-power"></i> <span>Keluar</span>
+						</a>
+
+					</div>
+				</li>
+
+		</ul>
+	</div>
+		<!-- /top_menu -->
+
+		
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ubah Profil</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+								<?=form_open_multipart('proses/edit_profil')?>
                                             <input type="hidden" name='id' value="<?=$anggota->id_anggota?>">
 
                                             <div class="form-group">
@@ -201,16 +186,6 @@
                                             <!-- <input type="hidden" name='password_lama' value="<?=$anggota->password?>"> -->
                                 
                                             <div class="form-group">
-                                                <label>Status</label>
-                                                <div class="styled-select">
-                                                    <select class="form-control required" required="" name="status" >
-                                                        <option value="Aktif">Aktif</option>
-                                                        <option value="Tidak Aktif">Tidak Aktif</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
                                                 <label>Kata Sandi</label>
                                                 <input type="password" value="<?=$anggota->password?>" name='password' class='form-control required' autocomplete='off' placeholder="">
                                                 <small>*Jika tidak ingin mengubah kata sandi,biarkan saja bagian ini</small>
@@ -219,84 +194,17 @@
                                             <div class='form-group'>
                                                 <label>Foto</label>
                                                 <input type="file" class='dropify' data-file-max-size="2M" name='foto' data-default-file='<?=site_url('upload/foto/'.$anggota->foto)?>'>
-                                                <small>* Ukuran foto maksimal 1 MB</small>
+                                                <br>
+                                                <small>* Ukuran foto maksimal 2 MB</small><br>
+                                                <small>* Kosongkan jika tidak ingin ganti foto profil</small>
                                             </div>
-                                            <button class='btn btn-primary'>
-                                                <span class='btn-label'>
-                                                    <i class='fa fa-plus'></i>
-                                                </span>Simpan
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class='col-md-4'>
-                                <div class='card mb-20'>
-                                    <div class='card-body'>
-                                        <h5 class='card-title'>Informasi</h5>
-                                        <p>Pada halaman ini anda dapat mengubah data anggota </p>                                                                                
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                            </div><!-- end col-->
-
-
-                        </div>
-                        <!-- end row -->
-
-
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-
-
 
             </div>
-            <!-- End content-page -->
-
-            <!-- ============================================================== -->
-            <!-- End Right content here -->
-            <!-- ============================================================== -->
-
-            <footer class="footer">
-                <?php
-                    $this->load->view('admin/include/footer');
-                ?>
-            </footer>
-
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                </form>
+            </div>
         </div>
-        <!-- END wrapper -->
-
-
-        <script>
-            var resizefunc = [];
-        </script>
-        
-        <!-- jQuery  -->
-       <?php
-            $this->load->view('admin/include/javascript');
-       ?>
-
-    <script src="<?=base_url("assets/js/jquery-ui-1.8.22.min.js")?>"></script>
-	<script src="<?=base_url("assets/js/jquery.wizard.js")?>"></script>
-	<script src="<?=base_url("assets/js/jquery.validate.js")?>"></script>
-    <script src="<?=base_url("assets/js/admission_func.js")?>"></script>
-    <script src="<?=base_url('assets/dropify.min.js') ?>"></script>
-  
-    <script>
-            $('.dropify').dropify({
-                messages: {
-                    'default': 'Drag and drop a file here or click',
-                    'replace': 'Drag and drop or click to replace',
-                    'remove': 'Remove',
-                    'error': 'Ooops, something wrong appended.'
-                },
-                error: {
-                    'fileSize': 'The file size is too big (1M max).'
-                }
-            });
-    </script>
-
-    </body>
-</html>
+    </div>
+</div>

@@ -99,6 +99,18 @@ class Anggota_model extends CI_Model
         return $this->db->get_where($this->_table ,['id_anggota'=>$id])->row();
     }
 
+    public function get_anggota_by_id_user($id)
+    {
+        $this->db->select('anggota.*, u.password , u.email , u.phone , a.agama , b.nama_univ , c.fakultas , d.prodi , e.jenis_kelamin');
+        $this->db->join('users u', 'u.id = anggota.id_user');
+        $this->db->join('agama a', 'a.id_agama = anggota.agama');
+        $this->db->join('universitas b', 'b.id_univ = anggota.univ');
+        $this->db->join('fakultas c', 'c.id_fakultas = anggota.fakultas');
+        $this->db->join('prodi d', 'd.id_prodi = anggota.prodi');
+        $this->db->join('jenis_kelamin e', 'e.id_jk = anggota.jk');
+        return $this->db->get_where($this->_table ,['id_user'=>$id])->row();
+    }
+
     public function add_anggota($data)
     {
         $this->nama     = $data['nama'];

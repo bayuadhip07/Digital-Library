@@ -12,9 +12,16 @@
 	<div id="page">
 		
 	<header class="header menu_2">
-		<!-- <div id="preloader"><div data-loader="circle-side"></div></div>/Preload -->
+		<div id="preloader"><div data-loader="circle-side"></div></div>
         <?php
-            $this->load->view('include/header');
+			if(!$this->ion_auth->logged_in())
+			{
+				$this->load->view('include/header');
+			}
+			else
+			{
+				$this->load->view('user/include/header');
+			}
         ?>
 	</header>
 	<!-- /header -->

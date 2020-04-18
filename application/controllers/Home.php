@@ -66,14 +66,6 @@ class Home extends CI_Controller {
 	{
 		$this->load->view('kontak');
 	}
-	
-	public function bebas_pustaka()
-	{	
-		$data['jenjang'] = $this->umum_model->tampilkan_data_kategori_desc('jenjang','jenjang');
-		$data['fakultas'] = $this->umum_model->tampilkan_data_kategori('fakultas','fakultas');
-		$data['prodi'] = $this->umum_model->tampilkan_data_kategori('prodi','prodi');
-		$this->load->view('bebas_pustaka', $data);
-	}
 
 	public function add_anggota()
 	{

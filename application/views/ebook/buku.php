@@ -15,9 +15,17 @@
 	</div>
 	
 	<header class="header fadeInDown">
-		<?php
-			$this->load->view('include/header');
-		?>
+	<!-- <div id="preloader"><div data-loader="circle-side"></div></div> -->
+        <?php
+			if(!$this->ion_auth->logged_in())
+			{
+				$this->load->view('include/header');
+			}
+			else
+			{
+				$this->load->view('user/include/header');
+			}
+        ?>
 	</header>
 	<!-- /header -->
 	<div id="main_menu">

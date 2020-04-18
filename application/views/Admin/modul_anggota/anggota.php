@@ -14,39 +14,9 @@
         <div id="wrapper">
 
             <!-- Top Bar Start -->
-            <div class="topbar">
-
-                <!-- LOGO -->
-                <div class="topbar-left">
-                    <a href="<?=base_url("admin")?>" class="logo">
-                        <img src="<?=base_url("assets/img/logo.png")?>" width="50" height="50" data-retina="true" alt="">
-                    </a>
-                </div>
-                <nav class="navbar-custom">
-
-                    <ul class="list-inline float-right mb-0">
-                        <?php
-                            $this->load->view('admin/include/akun');
-                        ?>
-                    </ul>
-
-                    <ul class="list-inline menu-left mb-0">
-                        <li class="float-left">
-                            <button class="button-menu-mobile open-left waves-light waves-effect">
-                                <i class="zmdi zmdi-menu"></i>
-                            </button>
-                        </li>
-                        <!-- <li class="hidden-mobile app-search">
-                            <form role="search" class="">
-                                <input type="text" placeholder="Search..." class="form-control">
-                                <a href=""><i class="fa fa-search"></i></a>
-                            </form>
-                        </li> -->
-                    </ul>
-
-                </nav>
-
-            </div>
+                <?php
+                    $this->load->view('admin/include/akun');
+                ?>
             <!-- Top Bar End -->
 
 

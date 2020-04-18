@@ -15,8 +15,15 @@
 		<div id="preloader"><div data-loader="circle-side"></div></div><!-- /Preload -->
 
 		<?php
-		$this->load->view('include/header');
-		?>
+			if(!$this->ion_auth->logged_in())
+			{
+				$this->load->view('include/header');
+			}
+			else
+			{
+				$this->load->view('user/include/header');
+			}
+        ?>
 		<!-- /top_menu -->
 		<!-- Search Menu -->
 		<div class="search-overlay-menu">

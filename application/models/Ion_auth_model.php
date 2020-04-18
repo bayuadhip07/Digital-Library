@@ -619,6 +619,13 @@ class Ion_auth_model extends CI_Model
 		return FALSE;
 	}
 
+	public function updatePassword($data)
+	{
+		$this->db->set('password', $this->hash_password($data['password']));
+		$this->db->where('id', $data['id']);
+		$this->db->update("users");
+	}
+
 	/**
 	 * Checks username
 	 *

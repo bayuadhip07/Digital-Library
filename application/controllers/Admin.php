@@ -10,11 +10,28 @@ class Admin extends CI_Controller {
 		$this->load->library(['ion_auth', 'form_validation']);
 		$this->load->helper(['url', 'language']);
 		$this->load->model(['anggota_model','umum_model','jurnal_model']);
+
+		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
+
+		$this->lang->load('auth');
+
+		if(!$this->ion_auth->logged_in()){
+			redirect('auth/login/');
+		}
+		$g = array(1);
+		if(!$this->ion_auth->in_group($g)){
+			redirect('user');
+		}
     }
     
 	public function index()
 	{
         $this->load->view('admin/home');
+	}
+
+	public function error()
+	{
+		$this->load->view('user/404');
 	}
 	
 	public function anggota()

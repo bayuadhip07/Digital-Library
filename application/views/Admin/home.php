@@ -14,39 +14,9 @@
         <div id="wrapper">
 
             <!-- Top Bar Start -->
-            <div class="topbar">
-
-                <!-- LOGO -->
-                <div class="topbar-left">
-                    <a href="<?=base_url("admin")?>" class="logo">
-                        <img src="<?=base_url("assets/img/logo.png")?>" width="50" height="50" data-retina="true" alt="">
-                    </a>
-                </div>
-                <nav class="navbar-custom">
-
-                    <ul class="list-inline float-right mb-0">
-                        <?php
-                            $this->load->view('admin/include/akun');
-                        ?>
-                    </ul>
-
-                    <ul class="list-inline menu-left mb-0">
-                        <li class="float-left">
-                            <button class="button-menu-mobile open-left waves-light waves-effect">
-                                <i class="zmdi zmdi-menu"></i>
-                            </button>
-                        </li>
-                        <!-- <li class="hidden-mobile app-search">
-                            <form role="search" class="">
-                                <input type="text" placeholder="Search..." class="form-control">
-                                <a href=""><i class="fa fa-search"></i></a>
-                            </form>
-                        </li> -->
-                    </ul>
-
-                </nav>
-
-            </div>
+            <?php
+                $this->load->view('admin/include/akun');
+            ?>
             <!-- Top Bar End -->
 
 
@@ -81,9 +51,9 @@
 								<div class="page-title-box">
                                     <h4 class="page-title float-left">Beranda</h4>
 
-                                    <ol class="breadcrumb float-right">
+                                    <!-- <ol class="breadcrumb float-right">
                                         <li class="breadcrumb-item"><a href="">Beranda</a></li>
-                                    </ol>
+                                    </ol> -->
 
                                     <div class="clearfix"></div>
                                 </div>
@@ -91,6 +61,23 @@
 						</div>
                         <!-- end row -->
 
+                        <?php 
+                            $msg=$this->session->flashdata('msg');
+                                if(isset($msg))
+                                    { ?>
+                                        <div class="alert alert-success" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                            <?php echo $msg;?>
+                                        </div>
+                        <?php } ?>
+                        <?php 
+                            $err=$this->session->flashdata('err');
+                                if(isset($err)){ ?>
+                                        <div class="alert alert-danger" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                            <?php echo $err;?>
+                                        </div>
+                        <?php } ?>
 
                         <div class="row">
                             <div class="col-md-6 col-xl-3">

@@ -17,8 +17,15 @@
 	
 	<header class="header fadeInDown">
 		<?php
-			$this->load->view('include/header');
-		?>
+			if(!$this->ion_auth->logged_in())
+			{
+				$this->load->view('include/header');
+			}
+			else
+			{
+				$this->load->view('user/include/header');
+			}
+        ?>
 	</header>
 	<!-- /header -->
 	<div id="main_menu">

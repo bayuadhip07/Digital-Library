@@ -71,6 +71,40 @@ class Proses extends CI_Controller {
 
     }
 
+    public function edit_profil()
+    {
+            $post = $this->input->post();
+            $anggota = $this->anggota_model->get_anggota_by_id($post['id']);
+            $id = $anggota->id_user;
+            $data = [
+                            'username' => $post['nim'],
+                            'password' => $post['password'],
+                            'email'    => $post['email'],
+                            'phone'    => $post['no_hp'],                                       
+                    ];
+            $update = $this->ion_auth->update($id, $data);
+                                                    
+            if($update)
+            {
+                $data = [                                                    
+                            'nama'=>$post['nama'],
+                            'agama'=>$post['agama'],
+                            'jk'=>$post['jk'],
+                            'univ'=>$post['univ'],
+                            'fakultas'=>$post['fakultas'],
+                            'prodi'=>$post['prodi'],
+                            'nim'=>strtolower($post['nim']),
+                            'alamat'=>$post['alamat'],
+                            'id_anggota'=>$post['id'],
+                            'status'=>'Aktif'
+                        ];
+                $this->anggota_model->update_anggota($data);
+                $this->session->set_flashdata('msg','Data berhasil diubah.');
+                redirect('user');                                            
+            }
+            
+    }
+
     public function tambah_anggota()
     {
         $post = $this->input->post();
@@ -421,6 +455,63 @@ class Proses extends CI_Controller {
         $this->session->set_flashdata('msg','Data jenis dokumen berhasil dihapus.');
         redirect('admin/dokumen');
     }
+
+    public function update_password() 
+    {
+        if(!empty($_POST)) 
+        {
+            $post = $this->input->post();
+            if(!empty($post['old_password'])) 
+            {
+                $user = $this->ion_auth->user()->row();
+                if($this->ion_auth->verify_password($post['old_password'], $user->password, $user->email)) 
+                {
+                    // if(!empty($post['new_password']) && strlen($post['new_password']>=8)) 
+                    // {
+                        if(!empty($post['confirm_password'])) 
+                        {
+                            if($post['new_password'] === $post['confirm_password']) 
+                            {
+                                $data = [
+                                    'id'=>$user->id,
+                                    'password'=>$post['new_password']
+                                ];
+                                $this->ion_auth->updatePassword($data);
+                                $this->session->set_flashdata('msg','Kata sandi berhasil diubah');
+                                redirect('admin');
+                            } 
+                            else 
+                            {
+                                $this->session->set_flashdata('err','Kata sandi tidak sama.');
+                                redirect('admin');
+                            }
+                        } else 
+                        {
+                            $this->session->set_flashdata('err','Konfirmasi kata sandi tidak boleh kosong.');
+                            redirect('admin');
+                        }
+                    // } 
+                    // else 
+                    // {
+                    //     $this->session->set_flashdata('err','Kata santi harus lebih dari 8 karakter.');
+                    //     redirect('admin');
+                    // }
+                }
+                else 
+                {
+                    $this->session->set_flashdata('err','Kata sandi lama salah.');
+                    redirect('admin');
+                }
+            } 
+            else 
+            {
+                $this->session->set_flashdata('err','Kata sandi lama salah.');
+                redirect('admin');
+            }
+        }
+    }
+
+
     //Bagian Jurnal
     public function tambah_jurnal()
     {

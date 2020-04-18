@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -60,7 +60,7 @@
 	<script src="<?=base_url("assets/js/admission_func.js")?>"></script>
   
 </body>
-</html>
+</html> -->
 <!-- 
 <h1><?php echo lang('forgot_password_heading');?></h1>
 <p><?php echo sprintf(lang('forgot_password_subheading'), $identity_label);?></p>

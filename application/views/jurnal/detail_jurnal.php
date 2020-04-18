@@ -13,10 +13,16 @@
 		
 	<header class="header menu_2">
 		<div id="preloader"><div data-loader="circle-side"></div></div><!-- /Preload -->
-
 		<?php
-		$this->load->view('include/header');
-		?>
+			if(!$this->ion_auth->logged_in())
+			{
+				$this->load->view('include/header');
+			}
+			else
+			{
+				$this->load->view('user/include/header');
+			}
+        ?>
 		<!-- /top_menu -->
 		<!-- Search Menu -->
 		<div class="search-overlay-menu">
@@ -121,11 +127,22 @@
 								<div class="row">
 									<div class="col-lg-12">
 										<div id="review_summary">
-										<a href="<?php echo site_url('upload/dokumen/jurnal/'.$jurnal->pdf_jurnal)?>"><h4><?php cetak($jurnal->judul)?></h4></a>
+										<?php
+											if(!$this->ion_auth->logged_in())
+											{ ?>
+												<a href="#"><h4><font color='white'><?php cetak($jurnal->judul)?></font></h4></a>
+											<?php }
+											else
+											{ ?>
+												<a href="<?php echo site_url('upload/dokumen/jurnal/'.$jurnal->pdf_jurnal)?>"><h4><font color='white'><?php cetak($jurnal->judul)?></font></h4></a>
+											<?php }
+										?>
+										
 										</div>
 									</div>
 								</div>
 							</div>
+							* Unduh File harus login terlebih dahulu
 							<hr>
 						</section>
 						<!-- /section -->
