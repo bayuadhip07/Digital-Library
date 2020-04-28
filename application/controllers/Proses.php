@@ -9,7 +9,7 @@ class Proses extends CI_Controller {
 		$this->load->database();
 		$this->load->library(['ion_auth', 'form_validation']);
 		$this->load->helper(['url', 'language']);
-        $this->load->model(['anggota_model','umum_model','jurnal_model']);
+        $this->load->model(['anggota_model','umum_model','jurnal_model','ebook_model']);
         
         $this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
@@ -563,5 +563,58 @@ class Proses extends CI_Controller {
     }
 
     //end Of Bagian Jurnal
+
+    //Bagian Ebook
+    public function tambah_ebook()
+    {
+        $post = $this->input->post();
+        $data = [
+            'judul'=>$post['judul'],
+            'penulis'=>$post['penulis'],
+            'tahun'=>$post['tahun'],
+            'email'=>$post['email'],
+            'penerbit'=>$post['penerbit'],
+            'kota'=>$post['kota'],
+            'sinopsis'=>$post['sinopsis'],
+        ];
+        $this->ebook_model->add_ebook($data);
+        $this->session->set_flashdata('msg','Data Berhasil disimpan');
+        redirect('admin/ebook_admin');
+    }
+    
+
+    public function edit_ebook()
+    {
+        
+        $post = $this->input->post();
+        $ebook = $this->ebook_model->get_ebook_by_id($post['id_buku']);
+        $data = [        
+            'id_buku'=>$post['id_buku'],                                           
+            'judul'=>$post['judul'],
+            'penulis'=>$post['penulis'],
+            'tahun'=>$post['tahun'],
+            'email'=>$post['email'],
+            'penerbit'=>$post['penerbit'],
+            'kota'=>$post['kota'],
+            'sinopsis'=>$post['sinopsis'],
+        ];
+        $this->ebook_model->update_ebook($data);
+        $this->session->set_flashdata('msg','Data berhasil diubah.');
+        redirect('admin/ebook_admin');   
+    }   
+
+    
+    public function hapus_ebook($id_buku) 
+    {
+        if($this->ebook_model->cek_ebook_by_id($id_buku)==0) 
+        {
+			redirect('admin/ebook_admin');
+        }
+        $this->ebook_model->deleteEbook($id_buku);
+        $this->session->set_flashdata('msg','Data jurnal berhasil dihapus.');
+        redirect('admin/ebook_admin');
+    }
+
+    //end Of Bagian Ebook
 }
 

@@ -9,7 +9,7 @@ class Admin extends CI_Controller {
 		$this->load->database();
 		$this->load->library(['ion_auth', 'form_validation']);
 		$this->load->helper(['url', 'language']);
-		$this->load->model(['anggota_model','umum_model','jurnal_model']);
+		$this->load->model(['anggota_model','umum_model','jurnal_model','ebook_model']);
 
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
@@ -193,5 +193,39 @@ class Admin extends CI_Controller {
 	}
 
 //tutup function journal
+
+// bagian ebook_admin
+public function ebook_admin()
+{
+	$data['ebook'] =$this->ebook_model->getAll();
+	$this->load->view('admin/modul_ebook/ebook_admin.php', $data);
+}
+
+public function edit_ebook($id_buku)
+{
+	$data['ebook'] = $this->ebook_model->get_ebook_by_id($id_buku);
+	if($this->ebook_model->cek_ebook_by_id($id_buku)==0)
+	{
+		redirect('admin/modul_ebook/ebook_admin.php');
+	}
+	$this->load->view('admin/modul_ebook/edit_ebook.php', $data);
+}
+
+public function tambah_ebook()
+{
+	$this->load->view('admin/modul_ebook/tambah_ebook.php');
+}
+
+public function detail_ebook($id_buku)
+{
+	$data['ebook'] = $this->ebook_model->get_ebook_by_id($id_buku);
+	if($this->ebook_model->cek_ebook_by_id($id_buku)==0)
+	{
+		redirect('admin/modul_ebook/ebook_admin.php');
+	}
+	$this->load->view('admin/modul_ebook/detail_ebook.php', $data);
+}
+
+//tutup function ebook
 
 }
