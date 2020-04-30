@@ -100,11 +100,19 @@
                                                     <tr>
                                                         <td><center><?=$no?></center></td>
                                                         <td><?=$t->penulis?></td>
-                                                        <td width='50%'><a href="<?=site_url('admin/detail_ebook/'.$t->id_buku)?>"><center><?=$t->judul?></center></a></td>
+                                                        <td width='50%'><a href="<?=site_url('admin/detail_ebook/'.$t->id_buku)?>">
+                                                            <center>
+                                                            <?php
+                                                                    $judul = $t->judul;
+                                                                    $sub_kalimat = substr($judul,0,30);
+                                                                    echo $sub_kalimat.'....';           
+                                                            ?>  
+                                                            </center></a>
+                                                        </td>
                                                         <td>
                                                             <center>
                                                                 <a href="<?=site_url('admin/edit_ebook/'.$t->id_buku)?>" class='btn btn-info'>Edit</a>
-                                                                <a href="<?=site_url('proses/hapus_ebook/'.$t->id_buku)?>" class='btn btn-danger'>Hapus</a>
+                                                                <a href="<?=site_url('proses/hapus_ebook/'.$t->id_buku)?>" class='btn btn-danger hapus'>Hapus</a>
                                                             </center>
                                                         </td>
                                                     </tr>

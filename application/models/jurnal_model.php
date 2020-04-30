@@ -121,4 +121,17 @@ class jurnal_model extends CI_Model
         $this->db->where("id_jurnal",$id);
         $this->db->delete($this->_table);
     }
+
+    public function get_keyword($keyword)
+    {
+        $this->db->select('*');
+        $this->db->from('jurnal');
+        $this->db->like('judul', $keyword);
+        $this->db->or_like('penulis', $keyword);
+        $this->db->or_like('email', $keyword);
+        $this->db->or_like('tahun', $keyword);
+        $this->db->or_like('abstrak', $keyword);
+        return $this->db->get()->result();
+    }
+
 }

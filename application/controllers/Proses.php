@@ -9,7 +9,7 @@ class Proses extends CI_Controller {
 		$this->load->database();
 		$this->load->library(['ion_auth', 'form_validation']);
 		$this->load->helper(['url', 'language']);
-        $this->load->model(['anggota_model','umum_model','jurnal_model','ebook_model']);
+        $this->load->model(['anggota_model','umum_model','jurnal_model','ebook_model','skripsi_model','lainnya_model']);
         
         $this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
@@ -562,6 +562,14 @@ class Proses extends CI_Controller {
         redirect('admin/journal_admin');
     }
 
+    public function search_jurnal()
+    {
+        $keyword = $this->input->post('keyword');
+        $data['jurnal'] =$this->jurnal_model->get_keyword($keyword);
+        $this->load->view('jurnal/jurnal', $data);
+    }
+
+
     //end Of Bagian Jurnal
 
     //Bagian Ebook
@@ -575,7 +583,7 @@ class Proses extends CI_Controller {
             'email'=>$post['email'],
             'penerbit'=>$post['penerbit'],
             'kota'=>$post['kota'],
-            'sinopsis'=>$post['sinopsis'],
+            'sinopsis'=>$post['sinopsis']
         ];
         $this->ebook_model->add_ebook($data);
         $this->session->set_flashdata('msg','Data Berhasil disimpan');
@@ -611,10 +619,130 @@ class Proses extends CI_Controller {
 			redirect('admin/ebook_admin');
         }
         $this->ebook_model->deleteEbook($id_buku);
-        $this->session->set_flashdata('msg','Data jurnal berhasil dihapus.');
+        $this->session->set_flashdata('msg','Data E-Book berhasil dihapus.');
         redirect('admin/ebook_admin');
     }
 
+    public function search_ebook()
+    {
+        $keyword = $this->input->post('keyword');
+        $data['ebook'] =$this->ebook_model->get_keyword($keyword);
+        $this->load->view('ebook/buku', $data);
+    }
     //end Of Bagian Ebook
+
+
+
+    
+    //Bagian Skripsi
+    public function tambah_skripsi()
+    {
+        $post = $this->input->post();
+        $data = [
+            'judul'=>$post['judul'],
+            'penulis'=>$post['penulis'],
+            'tahun'=>$post['tahun'],
+            'email'=>$post['email'],
+            'universitas'=>$post['univ']
+        ];
+        $this->skripsi_model->add_skripsi($data);
+        $this->session->set_flashdata('msg','Data Berhasil disimpan');
+        redirect('admin/skripsi_admin');
+    }
+
+    public function edit_skripsi()
+    {
+        
+        $post = $this->input->post();
+        $skripsi = $this->skripsi_model->get_skripsi_by_id($post['id_skripsi']);
+        $data = [        
+            'id_skripsi'=>$post['id_skripsi'],                                           
+            'judul'=>$post['judul'],
+            'penulis'=>$post['penulis'],
+            'tahun'=>$post['tahun'],
+            'email'=>$post['email'],
+            'universitas'=>$post['universitas'],
+        ];
+        $this->skripsi_model->update_skripsi($data);
+        $this->session->set_flashdata('msg','Data berhasil diubah.');
+        redirect('admin/skripsi_admin');   
+    }
+
+    public function hapus_skripsi($id_buku) 
+    {
+        if($this->skripsi_model->cek_skripsi_by_id($id_buku)==0) 
+        {
+			redirect('admin/skripsi_admin');
+        }
+        $this->skripsi_model->deleteskripsi($id_buku);
+        $this->session->set_flashdata('msg','Data berhasil dihapus.');
+        redirect('admin/skripsi_admin');
+    }
+
+    public function search_skripsi()
+    {
+        $keyword = $this->input->post('keyword');
+        $data['skripsi'] =$this->skripsi_model->get_keyword($keyword);
+        $this->load->view('skripsi/skripsi', $data);
+    }
+    //end Of Bagian skripsi
+
+     //Bagian lainnya
+     public function tambah_lainnya()
+     {
+         $post = $this->input->post();
+         $data = [
+             'judul'=>$post['judul'],
+             'penulis'=>$post['penulis'],
+             'tahun'=>$post['tahun'],
+             'email'=>$post['email'],
+             'jenis'=>$post['jenis'],
+             'ringkasan'=>$post['ringkasan']
+         ];
+         $this->lainnya_model->add_lainnya($data);
+         $this->session->set_flashdata('msg','Data Berhasil disimpan');
+         redirect('admin/lainnya_admin');
+     }
+
+     public function hapus_lainnya($id_buku) 
+     {
+         if($this->lainnya_model->cek_lainnya_by_id($id_buku)==0) 
+         {
+             redirect('admin/lainnya_admin');
+         }
+         $this->lainnya_model->deletelainnya($id_buku);
+         $this->session->set_flashdata('msg','Data berhasil dihapus.');
+         redirect('admin/lainnya_admin');
+     }
+ 
+     public function edit_lainnya()
+     {
+         
+         $post = $this->input->post();
+         $lainnya = $this->lainnya_model->get_lainnya_by_id($post['id_lainnya']);
+         $data = [        
+             'id_lainnya'=>$post['id_lainnya'],                                           
+             'judul'=>$post['judul'],
+             'penulis'=>$post['penulis'],
+             'tahun'=>$post['tahun'],
+             'email'=>$post['email'],
+             'jenis'=>$post['jenis'],
+             'ringkasan'=>$post['ringkasan']
+         ];
+         $this->lainnya_model->update_lainnya($data);
+         $this->session->set_flashdata('msg','Data berhasil diubah.');
+         redirect('admin/lainnya_admin');   
+     }
+ 
+     public function search_lainnya()
+     {
+         $keyword = $this->input->post('keyword');
+         $data['lainnya'] =$this->lainnya_model->get_keyword($keyword);
+         $this->load->view('lainnya/lainnya', $data);
+     }
+     //end Of Bagian lainnya
+      
+
+    
 }
 

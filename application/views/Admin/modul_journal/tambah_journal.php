@@ -114,12 +114,13 @@
                                             </div>
                                             <div class='form-group'>
                                                 <label>Abstrak</label>
-                                                <input required type="text" autocomplete='off' name='abstrak' class='form-control required' placeholder="">
+                                                <textarea name="abstrak" class='form-control required' placeholder="" cols="20" rows="5"></textarea>
                                             </div>
 
                                             <div class='form-group'>
                                                 <label>File PDF</label>
                                                 <input required type="file" class='dropify' data-file-max-size="5M" name='pdf_jurnal'>
+                                                <small>* Jenis file PDF dan maksimal 4MB</small>
                                             </div>
                                             <button class='btn btn-primary'>
                                                 <span class='btn-label'>

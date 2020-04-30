@@ -9,7 +9,7 @@ class Admin extends CI_Controller {
 		$this->load->database();
 		$this->load->library(['ion_auth', 'form_validation']);
 		$this->load->helper(['url', 'language']);
-		$this->load->model(['anggota_model','umum_model','jurnal_model','ebook_model']);
+		$this->load->model(['anggota_model','umum_model','jurnal_model','ebook_model','skripsi_model','lainnya_model']);
 
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
@@ -192,40 +192,111 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/modul_journal/detail_journal.php', $data);
 	}
 
-//tutup function journal
+	//tutup function journal
 
-// bagian ebook_admin
-public function ebook_admin()
-{
-	$data['ebook'] =$this->ebook_model->getAll();
-	$this->load->view('admin/modul_ebook/ebook_admin.php', $data);
-}
-
-public function edit_ebook($id_buku)
-{
-	$data['ebook'] = $this->ebook_model->get_ebook_by_id($id_buku);
-	if($this->ebook_model->cek_ebook_by_id($id_buku)==0)
+	// bagian ebook_admin
+	public function ebook_admin()
 	{
-		redirect('admin/modul_ebook/ebook_admin.php');
+		$data['ebook'] =$this->ebook_model->getAll();
+		$this->load->view('admin/modul_ebook/ebook_admin.php', $data);
 	}
-	$this->load->view('admin/modul_ebook/edit_ebook.php', $data);
-}
 
-public function tambah_ebook()
-{
-	$this->load->view('admin/modul_ebook/tambah_ebook.php');
-}
-
-public function detail_ebook($id_buku)
-{
-	$data['ebook'] = $this->ebook_model->get_ebook_by_id($id_buku);
-	if($this->ebook_model->cek_ebook_by_id($id_buku)==0)
+	public function edit_ebook($id_buku)
 	{
-		redirect('admin/modul_ebook/ebook_admin.php');
+		$data['ebook'] = $this->ebook_model->get_ebook_by_id($id_buku);
+		if($this->ebook_model->cek_ebook_by_id($id_buku)==0)
+		{
+			redirect('admin/modul_ebook/ebook_admin.php');
+		}
+		$this->load->view('admin/modul_ebook/edit_ebook.php', $data);
 	}
-	$this->load->view('admin/modul_ebook/detail_ebook.php', $data);
-}
 
-//tutup function ebook
+	public function tambah_ebook()
+	{
+		$this->load->view('admin/modul_ebook/tambah_ebook.php');
+	}
+
+	public function detail_ebook($id_buku)
+	{
+		$data['ebook'] = $this->ebook_model->get_ebook_by_id($id_buku);
+		if($this->ebook_model->cek_ebook_by_id($id_buku)==0)
+		{
+			redirect('admin/modul_ebook/ebook_admin.php');
+		}
+		$this->load->view('admin/modul_ebook/detail_ebook.php', $data);
+	}
+
+	//tutup function ebook
+
+	// bagian skripsi_admin
+	public function skripsi_admin()
+	{
+		$data['skripsi'] =$this->skripsi_model->getAll();
+		$this->load->view('admin/modul_skripsi/skripsi.php', $data);
+	}
+
+	public function edit_skripsi($id_skripsi)
+	{
+		$data['skripsi'] = $this->skripsi_model->get_skripsi_by_id($id_skripsi);
+		$data['univ'] = $this->umum_model->get_univ();
+		if($this->skripsi_model->cek_skripsi_by_id($id_skripsi)==0)
+		{
+			redirect('admin/modul_skripsi/skripsi_admin.php');
+		}
+		$this->load->view('admin/modul_skripsi/edit_skripsi.php', $data);
+	}
+
+	public function tambah_skripsi()
+	{
+		$data['univ'] = $this->umum_model->tampilkan_data_kategori('universitas','nama_univ');
+		$this->load->view('admin/modul_skripsi/tambah_skripsi.php', $data);
+	}
+
+	public function detail_skripsi($id_buku)
+	{
+		$data['skripsi'] = $this->skripsi_model->get_skripsi_by_id($id_buku);
+		if($this->skripsi_model->cek_skripsi_by_id($id_buku)==0)
+		{
+			redirect('admin/modul_skripsi/skripsi_admin.php');
+		}
+		$this->load->view('admin/modul_skripsi/detail_skripsi.php', $data);
+		
+	}
+	//end skripsi
+
+	// bagian lainnya_admin
+	public function lainnya_admin()
+	{
+		$data['lainnya'] =$this->lainnya_model->getAll();
+		$this->load->view('admin/modul_lainnya/lainnya_admin.php', $data);
+	}
+
+	public function tambah_lainnya()
+	{
+		$data['jenis'] = $this->umum_model->tampilkan_data_kategori('jenis_dokumen','nama');
+		$this->load->view('admin/modul_lainnya/tambah_lainnya.php', $data);
+	}
+
+	public function detail_lainnya($id_buku)
+	{
+		$data['lainnya'] = $this->lainnya_model->get_lainnya_by_id($id_buku);
+		if($this->lainnya_model->cek_lainnya_by_id($id_buku)==0)
+		{
+			redirect('admin/modul_lainnya/lainnya_admin.php');
+		}
+		$this->load->view('admin/modul_lainnya/detail_lainnya.php', $data);
+	}
+
+	public function edit_lainnya($id_lainnya)
+	{
+		$data['lainnya'] = $this->lainnya_model->get_lainnya_by_id($id_lainnya);
+		$data['jenis'] = $this->umum_model->get_dokumen();
+		if($this->lainnya_model->cek_lainnya_by_id($id_lainnya)==0)
+		{
+			redirect('admin/modul_lainnya/lainnya_admin.php');
+		}
+		$this->load->view('admin/modul_lainnya/edit_lainnya.php', $data);
+	}
+
 
 }

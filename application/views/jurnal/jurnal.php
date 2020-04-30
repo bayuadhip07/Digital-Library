@@ -28,6 +28,7 @@
         ?>
 	</header>
 	<!-- /header -->
+
 	<div id="main_menu">
         <?php
             $this->load->view('include/dashboard');
@@ -44,24 +45,23 @@
 		</section>
 		<!--/hero_in-->
 
-		<!-- <div class="filters_listing sticky_horizontal">
+		<div class="filters_listing sticky_horizontal">
 			<div class="container">
-				<ul class="clearfix">
-					<li>
-						<div class="switch-field">
-							<input type="radio" id="all" name="listing_filter" value="all" checked>
-							<label for="all">All</label>
-							<input type="radio" id="popular" name="listing_filter" value="popular">
-							<label for="popular">Popular</label>
-							<input type="radio" id="latest" name="listing_filter" value="latest">
-							<label for="latest">Latest</label>
-						</div>
+				<ul class="clearfix ">
+					<li class="float-right">
+					<?=form_open_multipart('proses/search_jurnal') ?>
+					<div class="form-inline">
+							<div class="form-group">
+                                <input required type="text" name='keyword' placeholder="Kata Kunci..." class='form-control-plaintext col-md-12'>
+								<hr>
+                            </div>				
+							<button  type="submit" class="btn btn-success waves-effect waves-light">Cari</button>
+					</div>
 					</li>
 				</ul>
-			</div> -->
-			<!-- /container -->
+			</div>
 		</div>
-		<!-- /filters -->
+			<!-- /container -->
 
 		<?php foreach ($jurnal as $j): ?>
 		<div class="container margin_60_35">
@@ -83,10 +83,8 @@
 			<!-- </div> -->
 		</div>
 		<?php endforeach;?>
-			<!-- /box_list -->
-			
-			<p class="text-center add_top_60"><a href="#0" class="btn_1">Load more</a></p>
-		</div>
+		<!-- /box_list -->
+		
 	</main>
 	<!--/main-->
 	

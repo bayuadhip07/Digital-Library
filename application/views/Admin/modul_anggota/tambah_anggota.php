@@ -195,8 +195,8 @@
 
                                             <div class='form-group'>
                                                 <label>Foto</label>
-                                                <input required type="file" class='dropify' data-file-max-size="2M" name='foto'>
-                                                <small>* Ukuran foto maksimal 1 MB</small>
+                                                <input required type="file" class='dropify' data-file-max-size="4M" name='foto'>
+                                                <small>* Ukuran foto maksimal 3 MB</small>
                                             </div>
                                             <button class='btn btn-primary'>
                                                 <span class='btn-label'>

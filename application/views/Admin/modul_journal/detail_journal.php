@@ -126,8 +126,8 @@
                             <div class='col-md-4'>
                                 <div class='card mb-20'>
                                     <div class='card-body'>
-                                        <!-- <a href="<?php echo site_url('admin/edit_jurnal/')?>" class='btn btn-block btn-info'>Edit Data</a>
-                                        <a href="<?php echo site_url('admin/hapus_jurnal')?>" class='btn btn-block btn-danger'>Hapus Data</a> -->
+                                        <a href="<?php echo site_url('admin/edit_journal/'.$jurnal->id_jurnal)?>" class='btn btn-block btn-info'>Edit Data</a>
+                                        <a href="<?php echo site_url('proses/hapus_jurnal/'.$jurnal->id_jurnal)?>" class='btn btn-block btn-danger'>Hapus Data</a>
                                         <br>
                                         <h5 class='card-title'>Informasi</h5>
                                         <p>Pada halaman ini anda dapat melihat deskripsi jurnal</p>                                                                                

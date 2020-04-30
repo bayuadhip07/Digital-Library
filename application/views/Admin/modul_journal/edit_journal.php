@@ -119,9 +119,10 @@
                                             <a href="<?php echo site_url('upload/dokumen/jurnal/'.$jurnal->pdf_jurnal)?>" class='btn btn-block btn-info'>Download PDF</a>
                                             <input type="hidden" name='jurnal_lama' value="<?=$jurnal->pdf_jurnal?>">
                                             <div class='form-group'>
+                                            <br>
                                                 <label>File PDF</label>
-                                                <input type="file"  class='dropify' data-file-max-size="5M" name='pdf_jurnal' data-default-file='<?=site_url('upload/dokumen/journal/'.$jurnal->pdf_jurnal)?>'>
-                                                <smalltext>*Max 5 MB</smalltext>
+                                                <input type="file"  class='dropify' data-file-max-size="4M" name='pdf_jurnal' data-default-file='<?=site_url('upload/dokumen/journal/'.$jurnal->pdf_jurnal)?>'>
+                                                <smalltext>*Jenis File PDF dan maksimal 4 MB</smalltext>
                                             </div>
                                             <button class='btn btn-primary'>
                                                 <span class='btn-label'>
@@ -139,7 +140,7 @@
                                     <div class='card-body'>
                                         <br>
                                         <h5 class='card-title'>Informasi</h5>
-                                        <p>Pada halaman ini anda dapat menambah jurnal</p>                                                                              
+                                        <p>Pada halaman ini anda dapat mengubah data jurnal</p>                                                                              
                                     </div>
                                 </div>
                             </div>

@@ -50,12 +50,12 @@
                         <div class="row">
 							<div class="col-xl-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title float-left">Tambah Jurnal</h4>
+                                    <h4 class="page-title float-left">Tambah E-Book</h4>
 
                                     <ol class="breadcrumb float-right">
                                         <li class="breadcrumb-item"><a href="<?=base_url("admin")?>">Beranda</a></li>
-                                        <li class="breadcrumb-item"><a href="<?=base_url("admin/journal_admin")?>">List Jurnal</a></li>
-                                        <li class="breadcrumb-item"><a href="#">Tambah Jurnal</a></li>
+                                        <li class="breadcrumb-item"><a href="<?=base_url("admin/ebook_admin")?>">List E-Book</a></li>
+                                        <li class="breadcrumb-item"><a href="#">Tambah E-Book</a></li>
                                     </ol>
 
                                     <div class="clearfix"></div>
@@ -104,7 +104,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Tahun Terbit </label>
-                                                <input required type="text" autocomplete='off' name='tahun' class='form-control required'>
+                                                <input required type="number" autocomplete='off' name='tahun' class='form-control required'>
                                             </div>
                                             <div class='form-group'>
                                                 <label>E-Mail</label>
@@ -117,12 +117,13 @@
 
                                             <div class='form-group'>
                                                 <label>File PDF</label>
-                                                <input required type="file" class='dropify' data-file-max-size="5M" name='pdf_ebook'>
+                                                <input required type="file" class='dropify' data-file-max-size="10M" name='ebook'>
+                                                <small>* Jenis file PDF dan maksimal 10MB</small>
                                             </div>
-                                            <div class='form-group'>
+                                            <!-- <div class='form-group'>
                                                 <label>Cover Ebook</label>
                                                 <input required type="file" class='dropify' data-file-max-size="5M" name='ft_ebook'>
-                                            </div>
+                                            </div> -->
                                             <button class='btn btn-primary'>
                                                 <span class='btn-label'>
                                                     <i class='fa fa-plus'></i>

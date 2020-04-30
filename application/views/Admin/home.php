@@ -82,8 +82,8 @@
                         <div class="row">
                             <div class="col-md-6 col-xl-3">
                                 <div class="card-box tilebox-one">
-                                    <i class="icon-layers float-right text-muted"></i>
-                                    <h6 class="text-muted text-uppercase m-b-20">Orders</h6>
+                                    <i class="zmdi zmdi-collection-text float-right text-muted"></i>
+                                    <h6 class="text-muted text-uppercase m-b-20">Jurnal</h6>
                                     <h2 class="m-b-20" data-plugin="counterup">1,587</h2>
                                     <span class="badge badge-success"> +11% </span> <span class="text-muted">From previous period</span>
                                 </div>
@@ -91,8 +91,8 @@
 
                             <div class="col-md-6 col-xl-3">
                                 <div class="card-box tilebox-one">
-                                    <i class="icon-paypal float-right text-muted"></i>
-                                    <h6 class="text-muted text-uppercase m-b-20">Revenue</h6>
+                                    <i class="zmdi zmdi-book float-right text-muted"></i>
+                                    <h6 class="text-muted text-uppercase m-b-20">E-Book</h6>
                                     <h2 class="m-b-20">$<span data-plugin="counterup">46,782</span></h2>
                                     <span class="badge badge-danger"> -29% </span> <span class="text-muted">From previous period</span>
                                 </div>
@@ -100,8 +100,8 @@
 
                             <div class="col-md-6 col-xl-3">
                                 <div class="card-box tilebox-one">
-                                    <i class="icon-chart float-right text-muted"></i>
-                                    <h6 class="text-muted text-uppercase m-b-20">Average Price</h6>
+                                    <i class="zmdi zmdi-collection-pdf float-right text-muted"></i>
+                                    <h6 class="text-muted text-uppercase m-b-20">Skripsi</h6>
                                     <h2 class="m-b-20">$<span data-plugin="counterup">15.9</span></h2>
                                     <span class="badge badge-pink"> 0% </span> <span class="text-muted">From previous period</span>
                                 </div>
@@ -109,8 +109,8 @@
 
                             <div class="col-md-6 col-xl-3">
                                 <div class="card-box tilebox-one">
-                                    <i class="icon-rocket float-right text-muted"></i>
-                                    <h6 class="text-muted text-uppercase m-b-20">Product Sold</h6>
+                                    <i class="zmdi zmdi-collection-plus float-right text-muted"></i>
+                                    <h6 class="text-muted text-uppercase m-b-20">Lainnya</h6>
                                     <h2 class="m-b-20" data-plugin="counterup">1,890</h2>
                                     <span class="badge badge-warning"> +89% </span> <span class="text-muted">Last year</span>
                                 </div>

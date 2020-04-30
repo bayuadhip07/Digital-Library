@@ -15,7 +15,7 @@
                                     <li><a href="<?=base_url('admin/journal_admin')?>">Jurnal</a></li>
                                     <li><a href="<?=base_url('admin/skripsi_admin')?>">Skripsi</a></li>
                                     <li><a href="<?=base_url('admin/ebook_admin')?>">E-Book</a></li>
-                                    <li><a href="components-sweet-alert.html">Lainnya</a></li>
+                                    <li><a href="<?=base_url('admin/lainnya_admin')?>">Lainnya</a></li>
                                 </ul>
                             </li>
                             
@@ -24,11 +24,11 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><span class="badge badge-success badge-pill float-right"></span><i class="zmdi zmdi-folder-outline"></i><span> Master Data </span><span class="menu-arrow"></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="universitas">Universitas</a></li>
-                                    <li><a href="fakultas">Fakultas</a></li>
-                                    <li><a href="prodi">Prodi</a></li>
-                                    <li><a href="agama">Agama</a></li>
-                                    <li><a href="dokumen">Jenis Dokumen</a></li>
+                                    <li><a href="<?=base_url('admin/universitas')?>">Universitas</a></li>
+                                    <li><a href="<?=base_url('admin/fakultas')?>">Fakultas</a></li>
+                                    <li><a href="<?=base_url('admin/prodi')?>">Prodi</a></li>
+                                    <li><a href="<?=base_url('admin/agama')?>">Agama</a></li>
+                                    <li><a href="<?=base_url('admin/dokumen')?>">Jenis Dokumen</a></li>
                                 </ul>
                             </li>
                         </ul>

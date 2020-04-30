@@ -218,8 +218,8 @@
                                             <input type="hidden" name='foto_lama' value="<?=$anggota->foto?>">
                                             <div class='form-group'>
                                                 <label>Foto</label>
-                                                <input type="file" class='dropify' data-file-max-size="2M" name='foto' data-default-file='<?=site_url('upload/foto/'.$anggota->foto)?>'>
-                                                <small>* Ukuran foto maksimal 1 MB</small>
+                                                <input type="file" class='dropify' data-file-max-size="4M" name='foto' data-default-file='<?=site_url('upload/foto/'.$anggota->foto)?>'>
+                                                <small>* Ukuran foto maksimal 3 MB</small>
                                             </div>
                                             <button class='btn btn-primary'>
                                                 <span class='btn-label'>

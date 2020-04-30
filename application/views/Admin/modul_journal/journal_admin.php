@@ -87,7 +87,7 @@
                                         <table id='datatable' class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                             <thead>
                                                 <tr>
-                                                    <th><center>No</center></th>    
+                                                    <!-- <th><center>No</center></th>     -->
                                                     <th width='20%'><center>Penulis</center> </th>                
                                                     <th><center>Tahun Terbit</center></th>                  
                                                     <th width='50%'><center>Judul Jurnal</center></th>                                                                                                                                                                                                                                                        
@@ -99,14 +99,28 @@
                                                 <!-- Looping list jurnal -->
                                                 <?php foreach($jurnal as $t):?>                                                
                                                     <tr>
-                                                        <td><center><?=$no?></center></td>
-                                                        <td><?=$t->penulis?></td>
+                                                        <!-- <td><center><?=$no?></center></td> -->
+                                                        <td>
+                                                            <?php
+                                                                $penulis = $t->penulis;
+                                                                $sub_kalimat = substr($penulis,0,7);
+                                                                echo $sub_kalimat.'....';                                                       
+                                                            ?>
+                                                        </td>
                                                         <td><center><?=$t->tahun?></center></td>
-                                                        <td width='50%'><a href="<?=site_url('admin/detail_journal/'.$t->id_jurnal)?>"><center><?=$t->judul?></center></a></td>
+                                                        <td width='50%'><a href="<?=site_url('admin/detail_journal/'.$t->id_jurnal)?>">
+                                                            <center>
+                                                                <?php
+                                                                    $judul = $t->judul;
+                                                                    $sub_kalimat = substr($judul,0,28);
+                                                                    echo $sub_kalimat.'....';           
+                                                                ?>                                                        
+                                                            </center></a>
+                                                        </td>
                                                         <td>
                                                             <center>
                                                                 <a href="<?=site_url('admin/edit_journal/'.$t->id_jurnal)?>" class='btn btn-info'>Edit</a>
-                                                                <a href="<?=site_url('proses/hapus_jurnal/'.$t->id_jurnal)?>" class='btn btn-danger'>Hapus</a>
+                                                                <a href="<?=site_url('proses/hapus_jurnal/'.$t->id_jurnal)?>" class='btn btn-danger hapus'>Hapus</a>
                                                             </center>
                                                         </td>
                                                     </tr>

@@ -77,28 +77,28 @@
 								</tr>
 								<tr>
 									<td ><h5></h5></td>
-									<td ><h5>3.</h5></td>
+									<td ><h5>2.</h5></td>
 									<td ><h5>Email</h5></td>
 									<td ><h5>:</h5></td>
 									<td><h5><?php cetak($jurnal->email)?></h5></td>
 								</tr>
 								<tr>
 									<td ><h5></h5></td>
-									<td ><h5>4.</h5></td>
+									<td ><h5>3.</h5></td>
 									<td ><h5>Tahun</h5></td>
 									<td ><h5>:</h5></td>
 									<td><h5><?php cetak($jurnal->tahun)?></h5></td>
 								</tr>
 								<tr>
 									<td ><h5></h5></td>
-									<td ><h5>5.</h5></td>
+									<td ><h5>4.</h5></td>
 									<td ><h5>ISSN</h5></td>
 									<td ><h5>:</h5></td>
 									<td><h5><?php cetak($jurnal->issn)?></h5></td>
 								</tr>
 								<tr>
 									<td ><h5></h5></td>
-									<td ><h5>6.</h5></td>
+									<td ><h5>5.</h5></td>
 									<td ><h5>ISBN</h5></td>
 									<td ><h5>:</h5></td>
 									<td><h5><?php cetak($jurnal->isbn)?></h5></td>
@@ -142,7 +142,7 @@
 									</div>
 								</div>
 							</div>
-							* Unduh File harus login terlebih dahulu
+							* Login untuk mengunduh file
 							<hr>
 						</section>
 						<!-- /section -->

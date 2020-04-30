@@ -14,66 +14,36 @@ class ebook_model extends CI_Model
     public $email;    
     public $tahun;
     public $sinopsis;
-    public $ft_ebook;
-    public $pdf_ebook;
+    public $file;
 
     
     
     private function _uploadEbook() {
-        $config['upload_path']  = './upload/dokumen/ebook/pdf/';
+        $config['upload_path']  = './upload/dokumen/ebook/';
         $config['allowed_types']    = 'pdf';        
         $config['file_name']    = $this->judul;
         $config['overwrite']    = true;
-        $config['max_size']     = 4096; //5MB
+        $config['max_size']     = 10240; //10MB
         $this->load->library('upload', $config);
-        if ($this->upload->do_upload('pdf_ebook')) {
-            return $this->upload->data('file_name');
-        } else {
-            return NULL;
-        }
-    }
-    private function _uploadkover() {
-        $config['upload_path']  = './upload/dokumen/ebook/cover/';
-        $config['allowed_types']    = 'jpg|png|jpeg';         
-        $config['file_name']    = $this->judul;
-        $config['overwrite']    = true;
-        $config['max_size']     = 4096; //5MB
-        $this->load->library('upload', $config);
-        if ($this->upload->do_upload('ft_ebook')) {
+        if ($this->upload->do_upload('ebook')) {
             return $this->upload->data('file_name');
         } else {
             return NULL;
         }
     }
 
+
     private function _updatePDFEbook($id) {
         $post = $this->input->post();
-        $config['upload_path']  = './upload/dokumen/ebook/pdf/';
-        $config['allowed_types']    = 'jpg|png|jpeg'; 
+        $config['upload_path']  = './upload/dokumen/ebook/';
+        $config['allowed_types']    = 'pdf';
         $ebook = $this->ebook_model->get_ebook_by_id($id);
         $judul = $ebook->judul;   
         $config['file_name']    = $post['judul'];
         $config['overwrite']    = true;
-        $config['max_size']     = 4096; //5MB
+        $config['max_size']     = 10240; //5MB
         $this->load->library('upload', $config);
         if ($this->upload->do_upload('pdf_ebook')) {
-            // $this->_deletePDFJurnal($id);
-            return $this->upload->data('file_name');
-        } else {
-            return NULL;
-        }
-    }
-    private function _updatekoverEbook($id) {
-        $post = $this->input->post();
-        $config['upload_path']  = './upload/dokumen/ebook/cover/';
-        $config['allowed_types']    = 'pdf'; 
-        $ebook = $this->ebook_model->get_ebook_by_id($id);
-        $judul = $ebook->judul;   
-        $config['file_name']    = $post['judul'];
-        $config['overwrite']    = true;
-        $config['max_size']     = 4096; //5MB
-        $this->load->library('upload', $config);
-        if ($this->upload->do_upload('ft_ebook')) {
             // $this->_deletePDFJurnal($id);
             return $this->upload->data('file_name');
         } else {
@@ -84,17 +54,9 @@ class ebook_model extends CI_Model
     //fungsi untuk menghapus file --query builder--
     private function _deletePDFEbook($id) {
         $ebook = $this->get_ebook_by_id($id);
-        if ($ebook->pdf_ebook != NULL) {
-            $filename = explode(".", $ebook->pdf_ebook)[0];
-            return array_map('unlink', glob(FCPATH."upload/dokumen/ebook/pdf/".$filename."*"));
-        }
-    }
-
-    private function _deletekoverEbook($id) {
-        $ebook = $this->get_ebook_by_id($id);
-        if ($ebook->pdf_ebook != NULL) {
-            $filename = explode(".", $ebook->ft_ebook)[0];
-            return array_map('unlink', glob(FCPATH."upload/dokumen/ebook/cover/".$filename."*"));
+        if ($ebook->file != NULL) {
+            $filename = explode(".", $ebook->file)[0];
+            return array_map('unlink', glob(FCPATH."upload/dokumen/ebook/".$filename."*"));
         }
     }
 
@@ -113,11 +75,9 @@ class ebook_model extends CI_Model
         $this->tahun    = $data['tahun'];
         $this->penerbit = $data['penerbit'];
         $this->kota     = $data['kota'];
-        $this->sinopsis  = $data['sinopsis'];
-        $this->pdf_ebook = $data['pdf_ebook'];
-        $this->pdf_ebook = $this->_uploadEbook();
-        $this->ft_ebook = $data['ft_ebook'];
-        $this->ft_ebook = $this->_uploadkover();
+        $this->sinopsis = $data['sinopsis'];
+        $this->file     = $data['ebook'];
+        $this->file     = $this->_uploadEbook();
         $this->db->insert($this->_table, $this);
     }
     
@@ -138,8 +98,7 @@ class ebook_model extends CI_Model
         }
         else
         {
-            $this->db->set('pdf_ebook',$this->_updatePDFEbook($data['id_buku']));
-            $this->db->set('ft_ebook',$this->_updatekoverEbook($data['id_buku']));
+            $this->db->set('file',$this->_updatePDFEbook($data['id_buku']));
         }
         $this->db->where('id_buku',$data['id_buku']);
         $this->db->update($this->_table);
@@ -160,8 +119,19 @@ class ebook_model extends CI_Model
     public function deleteEbook($id)
     {
         $this->_deletePDFEbook($id);
-        $this->_deletekoverEbook($id);
-        $this->db->where("id_ebook",$id);
+        $this->db->where("id_buku",$id);
         $this->db->delete($this->_table);
+    }
+
+    public function get_keyword($keyword)
+    {
+        $this->db->select('*');
+        $this->db->from('ebook');
+        $this->db->like('judul', $keyword);
+        $this->db->or_like('penulis', $keyword);
+        $this->db->or_like('email', $keyword);
+        $this->db->or_like('tahun', $keyword);
+        $this->db->or_like('sinopsis', $keyword);
+        return $this->db->get()->result();
     }
 }

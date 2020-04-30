@@ -25,7 +25,7 @@ class Anggota_model extends CI_Model
         $config['allowed_types']    = 'jpg|png';        
         $config['file_name']    = $this->nama;
         $config['overwrite']    = true;
-        $config['max_size']     = 2048; //2MB
+        $config['max_size']     = 4096; //4MB
         $this->load->library('upload', $config);
         if ($this->upload->do_upload('foto')) {
             return $this->upload->data('file_name');
@@ -41,7 +41,7 @@ class Anggota_model extends CI_Model
         $nama = $anggota->nama;       
         $config['file_name']    = $nama;
         $config['overwrite']    = true;
-        $config['max_size']     = 2048; //2MB
+        $config['max_size']     = 4096; //4MB
         $this->load->library('upload', $config);
         if ($this->upload->do_upload('foto')) {
             // $this->_deleteImage($id);

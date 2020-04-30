@@ -8,7 +8,7 @@ class Home extends CI_Controller {
 		$this->load->database();
 		$this->load->library(['ion_auth', 'form_validation']);
 		$this->load->helper(['url', 'language']);
-		$this->load->model(['umum_model','anggota_model', 'jurnal_model']);
+		$this->load->model(['umum_model','anggota_model', 'jurnal_model' , 'ebook_model', 'skripsi_model', 'lainnya_model']);
 	}
 	
 	public function index()
@@ -32,34 +32,53 @@ class Home extends CI_Controller {
 		$this->load->view('jurnal/detail_jurnal', $data);
 	}
 
+
 	public function buku()
 	{
-		$this->load->view('ebook/buku');
+		$data['ebook'] = $this->ebook_model->getAll();
+		$this->load->view('ebook/buku', $data);
 	}
 
-	public function detail_ebook()
+	public function detail_ebook($id)
 	{
-		$this->load->view('ebook/detail_ebook');
+		if($this->ebook_model->cek_ebook_by_id($id)==0)
+		{
+			redirect('ebook/detail_ebook');
+		}
+		$data['ebook']= $this->ebook_model->get_ebook_by_id($id);
+		$this->load->view('ebook/detail_ebook', $data);
 	}
 
 	public function skripsi()
-	{
-		$this->load->view('skripsi/skripsi');
+	{		
+		$data['skripsi'] = $this->skripsi_model->getAll();
+		$this->load->view('skripsi/skripsi', $data);
 	}
 
-	public function detail_skripsi()
+	public function detail_skripsi($id)
 	{
-		$this->load->view('skripsi/detail_skripsi');
+		if($this->skripsi_model->cek_skripsi_by_id($id)==0)
+		{
+			redirect('skripsi/detail_skripsi');
+		}
+		$data['skripsi']= $this->skripsi_model->get_skripsi_by_id($id);
+		$this->load->view('skripsi/detail_skripsi', $data);
 	}
 
 	public function lainnya()
 	{
-		$this->load->view('lainnya/lainnya');
+		$data['lainnya'] = $this->lainnya_model->getAll();
+		$this->load->view('lainnya/lainnya', $data);
 	}
 
-	public function detail_lainnya()
+	public function detail_lainnya($id)
 	{
-		$this->load->view('lainnya/detail_lainnya');
+		if($this->lainnya_model->cek_lainnya_by_id($id)==0)
+		{
+			redirect('lainnya/detail_lainnya');
+		}
+		$data['lainnya']= $this->lainnya_model->get_lainnya_by_id($id);
+		$this->load->view('lainnya/detail_lainnya', $data);
 	}
 
 	public function kontak()

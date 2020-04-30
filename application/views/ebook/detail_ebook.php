@@ -56,7 +56,7 @@
 				<div class="container">
 					<ul class="clearfix">
 						<li><a href="#data_jurnal">Data E-Book</a></li>
-						<li><a href="#abstract">Abstrak</a></li>
+						<li><a href="#abstract">Sinopsis</a></li>
 						<li><a href="#download">Unduh File</a></li>
 					</ul>
 				</div>
@@ -73,47 +73,56 @@
 									<td width='5%' ><h5>1.</h5></td>
 									<td width='15%' ><h5>Judul</h5></td>
 									<td width='5%' ><h5>:</h5></td>
-									<td><h5><?php cetak($jurnal->judul)?></h5></td>
+									<td><h5><?php cetak($ebook->judul)?></h5></td>
+								</tr>
+								<tr>
+									<td ><h5></h5></td>
+									<td ><h5>2.</h5></td>
+									<td ><h5>Penulis</h5></td>
+									<td ><h5>:</h5></td>
+									<td><h5><?php cetak($ebook->penulis)?></h5></td>
 								</tr>
 								<tr>
 									<td ><h5></h5></td>
 									<td ><h5>3.</h5></td>
-									<td ><h5>Email</h5></td>
+									<td ><h5>Tahun</h5></td>
 									<td ><h5>:</h5></td>
-									<td><h5><?php cetak($jurnal->email)?></h5></td>
+									<td><h5><?php cetak($ebook->tahun)?></h5></td>
 								</tr>
 								<tr>
 									<td ><h5></h5></td>
 									<td ><h5>4.</h5></td>
-									<td ><h5>Tahun</h5></td>
+									<td ><h5>Penerbit</h5></td>
 									<td ><h5>:</h5></td>
-									<td><h5><?php cetak($jurnal->tahun)?></h5></td>
+									<td><h5><?php cetak($ebook->penerbit)?></h5></td>
 								</tr>
 								<tr>
 									<td ><h5></h5></td>
 									<td ><h5>5.</h5></td>
-									<td ><h5>ISSN</h5></td>
+									<td ><h5>Email</h5></td>
 									<td ><h5>:</h5></td>
-									<td><h5><?php cetak($jurnal->issn)?></h5></td>
+									<td><h5><?php cetak($ebook->email)?></h5></td>
 								</tr>
 								<tr>
 									<td ><h5></h5></td>
 									<td ><h5>6.</h5></td>
-									<td ><h5>ISBN</h5></td>
+									<td ><h5>Kota </h5></td>
 									<td ><h5>:</h5></td>
-									<td><h5><?php cetak($jurnal->isbn)?></h5></td>
+									<td><h5><?php cetak($ebook->kota)?></h5></td>
 								</tr>
 							</table><br><br>
 						</section>
 						<!-- /section -->
 						
 						<section id="abstract">
+
+						
 							<div class="intro_title">
-								<h2>Abstrak</h2>
+								<h2>Sinopsis</h2>
 								<table border='0'>
 									<tr>
 										<td width='5%' ><h5></h5></td>
-										<td ><h5><?php cetak($jurnal->abstrak)?></h5></td>
+										<td ><h5><?php cetak($ebook->sinopsis)?></h5></td>
 									</tr>
 								</table><br>,<br>
 							</div>
@@ -127,11 +136,22 @@
 								<div class="row">
 									<div class="col-lg-12">
 										<div id="review_summary">
-										<a href="<?php echo site_url('upload/dokumen/jurnal/'.$jurnal->pdf_jurnal)?>"><h4><?php cetak($jurnal->judul)?></h4></a>
+										<?php
+											if(!$this->ion_auth->logged_in())
+											{ ?>
+												<a href="#"><h4><font color='white'><?php cetak($ebook->judul)?></font></h4></a>
+											<?php }
+											else
+											{ ?>
+												<a href="<?php echo site_url('upload/dokumen/ebook/'.$ebook->file)?>"><h4><font color='white'><?php cetak($ebook->judul)?></font></h4></a>
+											<?php }
+										?>
+										
 										</div>
 									</div>
 								</div>
 							</div>
+							* Login untuk mengunduh file
 							<hr>
 						</section>
 						<!-- /section -->
