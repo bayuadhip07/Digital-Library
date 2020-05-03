@@ -26,7 +26,16 @@ class Admin extends CI_Controller {
     
 	public function index()
 	{
-        $this->load->view('admin/home');
+		$data['ebook'] =$this->ebook_model->getAll();
+		$data['jurnal'] = $this->jurnal_model->getAll();
+		$data['skripsi'] = $this->skripsi_model->getAll();
+		$data['lainnya'] =$this->lainnya_model->getAll();
+		$data['anggota'] = $this->anggota_model->get_all();
+		$data['univ'] = $this->umum_model->get_univ();
+		$data['fakultas'] = $this->umum_model->get_fakultas();
+		$data['prodi'] = $this->umum_model->get_prodi();
+		
+        $this->load->view('admin/home',$data);
 	}
 
 	public function error()
@@ -193,7 +202,7 @@ class Admin extends CI_Controller {
 	}
 
 	//tutup function journal
-
+	
 	// bagian ebook_admin
 	public function ebook_admin()
 	{

@@ -84,8 +84,7 @@
                                 <div class="card-box tilebox-one">
                                     <i class="zmdi zmdi-collection-text float-right text-muted"></i>
                                     <h6 class="text-muted text-uppercase m-b-20">Jurnal</h6>
-                                    <h2 class="m-b-20" data-plugin="counterup">1,587</h2>
-                                    <span class="badge badge-success"> +11% </span> <span class="text-muted">From previous period</span>
+                                    <h2 class="m-b-20" data-plugin="counterup"><?=count($jurnal)?></h2>
                                 </div>
                             </div>
 
@@ -93,8 +92,7 @@
                                 <div class="card-box tilebox-one">
                                     <i class="zmdi zmdi-book float-right text-muted"></i>
                                     <h6 class="text-muted text-uppercase m-b-20">E-Book</h6>
-                                    <h2 class="m-b-20">$<span data-plugin="counterup">46,782</span></h2>
-                                    <span class="badge badge-danger"> -29% </span> <span class="text-muted">From previous period</span>
+                                    <h2 class="m-b-20" data-plugin="counterup"><?=count($ebook)?></h2>                                    
                                 </div>
                             </div>
 
@@ -102,8 +100,7 @@
                                 <div class="card-box tilebox-one">
                                     <i class="zmdi zmdi-collection-pdf float-right text-muted"></i>
                                     <h6 class="text-muted text-uppercase m-b-20">Skripsi</h6>
-                                    <h2 class="m-b-20">$<span data-plugin="counterup">15.9</span></h2>
-                                    <span class="badge badge-pink"> 0% </span> <span class="text-muted">From previous period</span>
+                                    <h2 class="m-b-20" data-plugin="counterup"><?=count($skripsi)?></h2>
                                 </div>
                             </div>
 
@@ -111,15 +108,62 @@
                                 <div class="card-box tilebox-one">
                                     <i class="zmdi zmdi-collection-plus float-right text-muted"></i>
                                     <h6 class="text-muted text-uppercase m-b-20">Lainnya</h6>
-                                    <h2 class="m-b-20" data-plugin="counterup">1,890</h2>
-                                    <span class="badge badge-warning"> +89% </span> <span class="text-muted">Last year</span>
+                                    <h2 class="m-b-20" data-plugin="counterup"><?=count($lainnya)?></h2>
                                 </div>
                             </div>
                         </div>
+                        
+                        <div class="col-md-24 col-xl-24">
+                                <div class="card-box tilebox-one">
+                                    <div class="bg-icon float-right color-purple">
+                                        <i class=" icon-info"></i>
+                                    </div>
+                                    <h2 class="text-success text-uppercase m-b-15 m-t-10">Master Data Digital Library Unsika</h2>
+                                    <div class="progress progress-xs">
+                                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="90"></div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                <div>
+                                    <div class="card-box tilebox-three">
+                                    <div class="bg-icon float-left">
+                                        <i class="ion-person"></i>
+                                    </div>
+                                    <h6 class="text-muted text-uppercase m-b-20">Jumlah Anggota</h6>
+                                    <h2 class="m-b-20" data-plugin="set"><?=count($anggota)?></h2>
+                                </div>
+                                <div>
+                                    <div class="card-box tilebox-three">
+                                    <div class="bg-icon float-left">
+                                        <i class="ion-university"></i>
+                                    </div>
+                                    <h6 class="text-muted text-uppercase m-b-12">Jumlah Universitas</h6>
+                                    <h2 class="m-b-20" data-plugin="set"><?=count($univ)?></h2>
+                                </div>
+                                 <div>
+                                    <div class="card-box tilebox-three">
+                                    <div class="bg-icon float-left">
+                                        <i class="zmdi zmdi-balance"></i>
+                                    </div>
+                                    <h6 class="text-muted text-uppercase m-b-12">Jumlah Fakultas</h6>
+                                    <h2 class="m-b-20" data-plugin="set"><?=count($fakultas)?></h2>
+                                </div>
+                                <div>
+                                    <div class="card-box tilebox-three">
+                                    <div class="bg-icon float-left">
+                                        <i class="ion-bookmark"></i>
+                                    </div>
+                                    <h6 class="text-muted text-uppercase m-b-12">Jumlah Prodi</h6>
+                                    <h2 class="m-b-20" data-plugin="set"><?=count($prodi)?></h2>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <!-- end row -->
 
 
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-lg-6 col-xl-8">
                                 <div class="card-box">
 
@@ -142,9 +186,9 @@
                                     <div id="morris-bar-stacked" class="morris-chart" style="height: 320px;"></div>
 
                         		</div>
-                            </div><!-- end col-->
+                            </div>end col -->
 
-                            <div class="col-lg-6 col-xl-4">
+                            <!-- <div class="col-lg-6 col-xl-4">
                                 <div class="card-box">
 
                                     <h4 class="header-title m-t-0 m-b-30">Trends Monthly</h4>
@@ -174,14 +218,14 @@
                                     </div>
 
                         		</div>
-                            </div><!-- end col-->
+                            </div>end col -->
 
 
                         </div>
                         <!-- end row -->
 
 
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-xl-7">
                                 <div class="row">
                                     <div class="col-md-6">
@@ -253,9 +297,9 @@
                                                         <p class="inbox-item-date">9:56 AM</p>
                                                     </div>
                                                 </a>
-                                            </div>
+                                            </div> -->
 
-                                        </div>
+                                        <!-- </div>
                                     </div>
 
                                     <div class="col-md-6">
@@ -288,10 +332,10 @@
 
                                     </div>
 
-                                </div>
+                                </div> -->
                             </div><!-- end col-->
 
-                            <div class="col-xl-5">
+                            <!-- <div class="col-xl-5">
                                 <div class="card-box">
 
                                     <h4 class="header-title m-t-0 m-b-30">Top Contracts</h4>
@@ -348,7 +392,7 @@
                                     </div>
 
 
-                        		</div>
+                        		</div> -->
                             </div><!-- end col-->
 
 
@@ -372,7 +416,7 @@
 
 
             <!-- Right Sidebar -->
-            <div class="side-bar right-bar">
+            <!-- <div class="side-bar right-bar">
                 <div class="nicescroll">
                     <ul class="nav nav-pills nav-justified">
                         <li class="nav-item">
@@ -482,12 +526,14 @@
 
                         </div>
                     </div>
-                </div> <!-- end nicescroll -->
+                </div> end nicescroll -->
             </div>
             <!-- /Right-bar -->
 
             <footer class="footer">
-                2016 - 2019 © Uplon.
+                <?php
+                    $this->load->view('admin/include/footer');
+                ?>
             </footer>
 
         </div>
